@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recommended-vue"
+  ],
+  "plugins": [
+    "stylelint-logical-properties",
+    "stylelint-order"
+  ],
+  "rules": {
+    "selector-class-pattern": null,
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true,
+    "stylelint-logical-properties/enforce-logical-properties": "always"
+  },
+  "overrides": [
+    {
+      "files": [
+        "**/*.vue"
+      ],
+      "customSyntax": "postcss-html"
+    }
+  ]
+}

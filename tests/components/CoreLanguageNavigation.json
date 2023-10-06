@@ -1,0 +1,110 @@
+[
+  {
+    "children": [
+      {
+        "children": [],
+        "level": 1,
+        "active": false,
+        "title": "Deutsch",
+        "locale": "de_DE",
+        "country": "DE",
+        "language": "de-DE",
+        "link": {
+          "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/de/de/language-navigation.html",
+          "valid": true
+        },
+        "lastModified": 1559808060300,
+        "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/de/de/language-navigation"
+      }
+    ],
+    "level": 0,
+    "active": false,
+    "title": "Deutschland",
+    "locale": "de_DE",
+    "country": "DE",
+    "language": "de-DE",
+    "link": {
+      "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/de/de/language-navigation.html",
+      "valid": true
+    },
+    "lastModified": 1559808060300,
+    "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/de/de/language-navigation"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "level": 1,
+        "active": false,
+        "title": "Français",
+        "locale": "fr_FR",
+        "country": "FR",
+        "language": "fr-FR",
+        "link": {
+          "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/fr/fr/language-navigation.html",
+          "valid": true
+        },
+        "lastModified": 1559808154698,
+        "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/fr/fr/language-navigation"
+      }
+    ],
+    "level": 0,
+    "active": false,
+    "title": "France",
+    "locale": "fr_FR",
+    "country": "FR",
+    "language": "fr-FR",
+    "link": {
+      "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/fr/fr/language-navigation.html",
+      "valid": true
+    },
+    "lastModified": 1559808154698,
+    "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/fr/fr/language-navigation"
+  },
+  {
+    "children": [
+      {
+        "children": [],
+        "level": 1,
+        "active": true,
+        "title": "English",
+        "locale": "en_US",
+        "country": "US",
+        "language": "en-US",
+        "link": {
+          "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/en/language-navigation.html",
+          "valid": true
+        },
+        "lastModified": 1559807944878,
+        "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/en/language-navigation"
+      },
+      {
+        "children": [],
+        "level": 1,
+        "active": false,
+        "title": "Español",
+        "locale": "es_ES",
+        "country": "ES",
+        "language": "es-ES",
+        "link": {
+          "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/es/language-navigation.html",
+          "valid": true
+        },
+        "lastModified": 1559808252616,
+        "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/es/language-navigation"
+      }
+    ],
+    "level": 0,
+    "active": true,
+    "title": "United States",
+    "locale": "en_US",
+    "country": "US",
+    "language": "en-US",
+    "link": {
+      "url": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/en/language-navigation.html",
+      "valid": true
+    },
+    "lastModified": 1559807944878,
+    "path": "/content/core-components-examples/library/templating/language-navigation/language-structure/us/en/language-navigation"
+  }
+]

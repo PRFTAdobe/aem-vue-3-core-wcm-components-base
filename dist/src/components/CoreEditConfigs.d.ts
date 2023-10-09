@@ -1,3 +1,4 @@
+import { EditConfig, MappedComponentProperties } from 'aem-vue-3-editable-components';
 interface OEmbedResponse {
     processor?: string;
     options?: {
@@ -24,61 +25,44 @@ interface YouTubeProps {
     youtubeVideoId: string;
     youtubeWidth: string;
 }
-export declare const BreadcrumbEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        items: string | string[] | null;
-    }): boolean;
-};
-export declare const EmbedEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        result?: OEmbedResponse;
-        html?: string;
-        youTubeProps?: YouTubeProps;
-        type: string;
-        url?: string;
-    }): boolean;
-};
-export declare const ImageEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        src: string;
-    }): boolean;
-};
-export declare const LanguageNavigationEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        items: string[] | null;
-    }): boolean;
-};
-export declare const NavigationEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        items: string[] | null;
-    }): boolean;
-};
-export declare const TeaserEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        imagePath?: string;
-        description?: string;
-        pretitle?: string;
-        title?: string;
-        actions?: [
-        ];
-    }): boolean;
-};
-export declare const TitleEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        text: string;
-    }): boolean;
-};
-export declare const TextEditConfig: {
-    emptyLabel: string;
-    isEmpty(props: {
-        text: string;
-    }): boolean;
-};
+interface BreadcrumbComponentProperties extends MappedComponentProperties {
+    items: string | string[] | null;
+}
+export declare const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties>;
+interface EmbedComponentProperties extends MappedComponentProperties {
+    result?: OEmbedResponse;
+    html?: string;
+    youTubeProps?: YouTubeProps;
+    type: string;
+    url?: string;
+}
+export declare const EmbedEditConfig: EditConfig<EmbedComponentProperties>;
+interface ImageComponentProperties extends MappedComponentProperties {
+    src: string;
+}
+export declare const ImageEditConfig: EditConfig<ImageComponentProperties>;
+interface LanguageNavigationComponentProperties extends MappedComponentProperties {
+    items: string[] | null;
+}
+export declare const LanguageNavigationEditConfig: EditConfig<LanguageNavigationComponentProperties>;
+interface NavigationComponentProperties extends MappedComponentProperties {
+    items: string[] | null;
+}
+export declare const NavigationEditConfig: EditConfig<NavigationComponentProperties>;
+interface TeaserComponentProperties extends MappedComponentProperties {
+    imagePath?: string;
+    description?: string;
+    pretitle?: string;
+    title?: string;
+    actions?: [];
+}
+export declare const TeaserEditConfig: EditConfig<TeaserComponentProperties>;
+interface TitleComponentProperties extends MappedComponentProperties {
+    text: string;
+}
+export declare const TitleEditConfig: EditConfig<TitleComponentProperties>;
+interface TextComponentProperties extends MappedComponentProperties {
+    text: string;
+}
+export declare const TextEditConfig: EditConfig<TextComponentProperties>;
 export {};

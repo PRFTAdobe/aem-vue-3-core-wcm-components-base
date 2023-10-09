@@ -1,3 +1,8 @@
+import {
+  EditConfig,
+  MappedComponentProperties,
+} from 'aem-vue-3-editable-components';
+
 interface OEmbedResponse {
   processor?: string;
   options?: {
@@ -26,14 +31,26 @@ interface YouTubeProps {
   youtubeWidth: string;
 }
 
-export const BreadcrumbEditConfig = {
+interface BreadcrumbComponentProperties extends MappedComponentProperties {
+  items: string | string[] | null;
+}
+
+export const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties> = {
   emptyLabel: 'Breadcrumb',
   isEmpty(props: { items: string | string[] | null }) {
     return props.items == null || props.items.length === 0;
   },
 };
 
-export const EmbedEditConfig = {
+interface EmbedComponentProperties extends MappedComponentProperties {
+  result?: OEmbedResponse;
+  html?: string;
+  youTubeProps?: YouTubeProps;
+  type: string;
+  url?: string;
+}
+
+export const EmbedEditConfig: EditConfig<EmbedComponentProperties> = {
   emptyLabel: 'Embed',
   isEmpty(props: {
     result?: OEmbedResponse;
@@ -59,29 +76,51 @@ export const EmbedEditConfig = {
   },
 };
 
-export const ImageEditConfig = {
+interface ImageComponentProperties extends MappedComponentProperties {
+  src: string;
+}
+
+export const ImageEditConfig: EditConfig<ImageComponentProperties> = {
   emptyLabel: 'Image',
   isEmpty(props: { src: string }) {
     return !props || !props.src || props.src.trim().length < 1;
   },
 };
 
-export const LanguageNavigationEditConfig = {
-  emptyLabel: 'Language Navigation',
+interface LanguageNavigationComponentProperties
+  extends MappedComponentProperties {
+  items: string[] | null;
+}
 
-  isEmpty(props: { items: string[] | null }) {
-    return props.items == null || props.items.length === 0;
-  },
-};
+export const LanguageNavigationEditConfig: EditConfig<LanguageNavigationComponentProperties> =
+  {
+    emptyLabel: 'Language Navigation',
 
-export const NavigationEditConfig = {
+    isEmpty(props: { items: string[] | null }) {
+      return props.items == null || props.items.length === 0;
+    },
+  };
+
+interface NavigationComponentProperties extends MappedComponentProperties {
+  items: string[] | null;
+}
+
+export const NavigationEditConfig: EditConfig<NavigationComponentProperties> = {
   emptyLabel: 'Navigation',
   isEmpty(props: { items: string[] | null }) {
     return props.items == null || props.items.length === 0;
   },
 };
 
-export const TeaserEditConfig = {
+interface TeaserComponentProperties extends MappedComponentProperties {
+  imagePath?: string;
+  description?: string;
+  pretitle?: string;
+  title?: string;
+  actions?: [];
+}
+
+export const TeaserEditConfig: EditConfig<TeaserComponentProperties> = {
   emptyLabel: 'Teaser',
   isEmpty(props: {
     imagePath?: string;
@@ -106,14 +145,22 @@ export const TeaserEditConfig = {
   },
 };
 
-export const TitleEditConfig = {
+interface TitleComponentProperties extends MappedComponentProperties {
+  text: string;
+}
+
+export const TitleEditConfig: EditConfig<TitleComponentProperties> = {
   emptyLabel: 'Title',
   isEmpty(props: { text: string }) {
     return !props || !props.text || props.text.trim().length < 1;
   },
 };
 
-export const TextEditConfig = {
+interface TextComponentProperties extends MappedComponentProperties {
+  text: string;
+}
+
+export const TextEditConfig: EditConfig<TextComponentProperties> = {
   emptyLabel: 'Text',
   isEmpty(props: { text: string }) {
     return !props || !props.text || props.text.trim().length < 1;

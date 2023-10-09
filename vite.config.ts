@@ -9,8 +9,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, 'src/main.ts'),
-      name: 'aemVueCoreWcmComponentsSpa',
-      fileName: (format) => `aem-vue-3-core-wcm-components-spa.${format}.js`,
+      name: 'aemVueCoreWcmComponentsBase',
+      fileName: (format) => `aem-vue-3-core-wcm-components-base.${format}.js`,
     },
     rollupOptions: {
       external: [
@@ -32,7 +32,7 @@ export default defineConfig({
           '@adobe/aem-spa-component-mapping': 'AemSpaComponentMapping',
           'aem-vue-3-editable-components': 'AemVueEditableComponents',
         },
-        assetFileNames: 'aem-vue-3-core-wcm-components-spa.[ext]',
+        assetFileNames: 'aem-vue-3-core-wcm-components-base.[ext]',
       },
     },
   },

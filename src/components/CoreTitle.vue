@@ -47,6 +47,7 @@
       props.appliedCssClassNames,
       props.containerProps,
       isInEditor,
+      props.aemNoDecoration,
     );
     computedClass.push({
       'cq-dd-title': isInEditor,

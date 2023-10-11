@@ -33,6 +33,7 @@
       props.appliedCssClassNames,
       props.containerProps,
       isInEditor,
+      props.aemNoDecoration,
     ),
   );
 

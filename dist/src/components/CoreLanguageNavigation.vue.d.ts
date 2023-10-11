@@ -16,6 +16,10 @@ interface CoreLanguageNavigationItemInterface {
     children?: CoreLanguageNavigationItemInterface[];
 }
 declare const _default: import("vue").DefineComponent<{
+    aemNoDecoration: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     appliedCssClassNames: {
         type: StringConstructor;
     };
@@ -41,6 +45,10 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    aemNoDecoration: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     appliedCssClassNames: {
         type: StringConstructor;
     };
@@ -68,6 +76,7 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     baseCssClass: string;
     items: CoreLanguageNavigationItemInterface[];
+    aemNoDecoration: boolean;
     containerProps: {
         [key: string]: string;
     };

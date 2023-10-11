@@ -31,6 +31,10 @@ interface YouTubeProps {
     youtubeWidth: string;
 }
 declare const _default: import("vue").DefineComponent<{
+    aemNoDecoration: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     appliedCssClassNames: {
         type: StringConstructor;
     };
@@ -67,6 +71,10 @@ declare const _default: import("vue").DefineComponent<{
         default: () => {};
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    aemNoDecoration: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     appliedCssClassNames: {
         type: StringConstructor;
     };
@@ -105,6 +113,7 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     baseCssClass: string;
     type: string;
+    aemNoDecoration: boolean;
     containerProps: {
         [key: string]: string;
     };

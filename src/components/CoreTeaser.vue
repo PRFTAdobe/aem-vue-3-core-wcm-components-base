@@ -66,6 +66,7 @@
       props.appliedCssClassNames,
       props.containerProps,
       isInEditor,
+      props.aemNoDecoration,
     );
     componentClass.push({
       'cq-dd-teaser': isInEditor,

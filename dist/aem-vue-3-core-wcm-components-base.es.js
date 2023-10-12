@@ -1,6 +1,6 @@
 import { defineComponent as P, useAttrs as X, computed as _, openBlock as o, createElementBlock as h, mergeProps as q, unref as ae, renderSlot as ne, inject as O, normalizeClass as y, createElementVNode as Q, Fragment as M, renderList as oe, createBlock as w, resolveDynamicComponent as T, h as C, onMounted as Z, normalizeStyle as le, toDisplayString as D, createCommentVNode as L, ref as W, onUnmounted as ve, watch as ce, withCtx as H, createTextVNode as Y, normalizeProps as ie, guardReactiveProps as be, createVNode as _e, onUpdated as ye } from "vue";
 import { AuthoringUtils as k } from "@adobe/aem-spa-page-model-manager";
-import { componentProperties as R, componentClassNames as A } from "aem-vue-3-editable-components";
+import { componentProperties as N, componentClassNames as R } from "aem-vue-3-editable-components";
 import { useRouter as ue, useRoute as ge } from "vue-router";
 import K from "dompurify";
 const ct = {
@@ -105,13 +105,14 @@ const ct = {
     items: {
       type: Array
     },
-    ...R("cmp-breadcrumb")
+    ...N("cmp-breadcrumb")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = _(
-      () => A(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -191,7 +192,7 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
       type: Object,
       default: () => ({})
     },
-    ...R("cmp-embed")
+    ...N("cmp-embed")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = (c, E, p = !0, u = "text/javascript") => new Promise((m, g) => {
@@ -211,9 +212,10 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
         g(b);
       }
     }), r = (c) => K.sanitize(c), a = _(() => {
-      const c = A(
+      const c = R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -222,8 +224,8 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
         "cq-dd-embed": s || !1
       }), c;
     }), l = () => {
-      var N, I, V, ee, te, se;
-      const c = (N = e.youTubeProps) == null ? void 0 : N.youtubeVideoId, E = (I = e.youTubeProps) == null ? void 0 : I.youtubeAutoPlay, p = (V = e.youTubeProps) == null ? void 0 : V.youtubeLoop, u = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, m = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, g = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, b = `https://www.youtube.com/embed/${c}`, S = {
+      var A, I, V, ee, te, se;
+      const c = (A = e.youTubeProps) == null ? void 0 : A.youtubeVideoId, E = (I = e.youTubeProps) == null ? void 0 : I.youtubeAutoPlay, p = (V = e.youTubeProps) == null ? void 0 : V.youtubeLoop, u = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, m = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, g = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, b = `https://www.youtube.com/embed/${c}`, S = {
         mute: `${+u}`,
         autoplay: `${+E}`,
         loop: `${+p}`,
@@ -288,8 +290,8 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
         typeof window.doBuild == "function" && window.doBuild();
       }) : n(p, m).then(() => {
         typeof window.doBuild == "function" && window.doBuild(), u = document.querySelector(`script[src="${p}"]`), u.dataset.loaded = (!0).toString();
-      }).catch((N) => {
-        console.error(N);
+      }).catch((A) => {
+        console.error(A);
       });
     }), (c, E) => {
       var p, u, m, g, b;
@@ -405,11 +407,11 @@ function Oe(t, e) {
   }
   return i;
 }
-var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Ne = typeof MutationObserver < "u", Ie = (
+var Ne = 20, Re = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Ae = typeof MutationObserver < "u", Ie = (
   /** @class */
   function() {
     function t() {
-      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Oe(this.refresh.bind(this), Re);
+      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Oe(this.refresh.bind(this), Ne);
     }
     return t.prototype.addObserver = function(e) {
       ~this.observers_.indexOf(e) || this.observers_.push(e), this.connected_ || this.connect_();
@@ -427,7 +429,7 @@ var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", 
         return s.broadcastActive();
       }), e.length > 0;
     }, t.prototype.connect_ = function() {
-      !J || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Ne ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
+      !J || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Ae ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
         attributes: !0,
         childList: !0,
         characterData: !0,
@@ -436,7 +438,7 @@ var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, t.prototype.disconnect_ = function() {
       !J || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, t.prototype.onTransitionEnd_ = function(e) {
-      var s = e.propertyName, n = s === void 0 ? "" : s, r = Ae.some(function(a) {
+      var s = e.propertyName, n = s === void 0 ? "" : s, r = Re.some(function(a) {
         return !!~n.indexOf(a);
       });
       r && this.refresh();
@@ -652,7 +654,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
     width: {
       type: String
     },
-    ...R("cmp-image")
+    ...N("cmp-image")
   },
   setup(t) {
     const e = t, s = X(), n = O("isInEditor", k.isInEditor()), r = W(null), a = W(e.src);
@@ -669,9 +671,10 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
       }
       return p;
     }), f = _(() => {
-      const p = A(
+      const p = R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         n,
         e.aemNoDecoration
@@ -717,9 +720,9 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
           var g;
           if (u.status >= 200 && u.status < 400) {
             let b;
-            const { responseText: S } = u, N = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(S);
-            if (N && N.length >= 2) {
-              const I = N[2];
+            const { responseText: S } = u, A = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(S);
+            if (A && A.length >= 2) {
+              const I = A[2];
               /^{[\s\S]*}$/gim.test(I) && (b = JSON.parse(I));
             }
             b && ((g = b.set) != null && g.relation) && Array.isArray(b.set.relation) && b.set.relation.forEach(
@@ -807,13 +810,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       type: String,
       default: ""
     },
-    ...R("cmp-languagenavigation")
+    ...N("cmp-languagenavigation")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = _(
-      () => A(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -890,13 +894,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       type: String,
       default: ""
     },
-    ...R("cmp-navigation")
+    ...N("cmp-navigation")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = _(
-      () => A(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -949,13 +954,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreSeparator",
   props: {
-    ...R("cmp-separator")
+    ...N("cmp-separator")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = _(
-      () => A(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -993,13 +999,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       type: String,
       default: "h3"
     },
-    ...R("cmp-title")
+    ...N("cmp-title")
   },
   setup(t) {
     const e = t, s = X(), n = ge(), r = O("isInEditor", k.isInEditor()), a = _(() => {
-      const d = A(
+      const d = R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         r,
         e.aemNoDecoration
@@ -1077,13 +1084,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       type: String,
       default: "h2"
     },
-    ...R("cmp-teaser")
+    ...N("cmp-teaser")
   },
   setup(t) {
     const e = t, s = O("isInEditor", k.isInEditor()), n = _(() => {
-      const i = A(
+      const i = R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
@@ -1178,13 +1186,14 @@ const st = ["id", "innerHTML"], nt = ["id"], wt = /* @__PURE__ */ P({
     text: {
       type: String
     },
-    ...R("cmp-text")
+    ...N("cmp-text")
   },
   setup(t) {
     const e = t, s = ue(), n = O("isInEditor", k.isInEditor()), r = _(
-      () => A(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
+        e.cssClassNames,
         e.containerProps,
         n,
         e.aemNoDecoration

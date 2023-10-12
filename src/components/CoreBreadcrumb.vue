@@ -38,6 +38,7 @@
     componentClassNames(
       props.baseCssClass,
       props.appliedCssClassNames,
+      props.cssClassNames,
       props.containerProps,
       isInEditor,
       props.aemNoDecoration,

@@ -1000,7 +1000,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
     },
     type: {
       type: String,
-      default: "h3"
+      default: "h1"
     },
     ...N("cmp-title")
   },

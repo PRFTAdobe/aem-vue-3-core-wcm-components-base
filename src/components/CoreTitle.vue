@@ -32,7 +32,7 @@
     },
     type: {
       type: String,
-      default: 'h3',
+      default: 'h1',
     },
     ...componentProperties('cmp-title'),
   });

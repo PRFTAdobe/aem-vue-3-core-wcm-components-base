@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { computed, useAttrs } from 'vue';
-  import { useRouter } from 'vue-router';
+  import { useRoute, useRouter } from 'vue-router';
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
 
   const props = defineProps({
@@ -28,11 +28,25 @@
     },
   });
   const attrs = useAttrs();
+  const route = useRoute();
   const router = useRouter();
-  const className = computed(() => [props.class, props.baseCssClass]);
+
+  const className = computed(() => {
+    const linkClassNames = [props.class, props.baseCssClass];
+    if (
+      route.path &&
+      typeof route.path !== 'undefined' &&
+      route.path === props.href
+    ) {
+      linkClassNames.push('cmp-link--active');
+    }
+    return linkClassNames;
+  });
 
   const navigate = (event: Event) => {
-    const routes: string[] = router.getRoutes().map((route) => route.path);
+    const routes: string[] = router
+      .getRoutes()
+      .map((routeItem) => routeItem.path);
     if (
       !AuthoringUtils.isEditMode() &&
       !AuthoringUtils.isPreviewMode() &&

@@ -117,7 +117,7 @@
 
   const imageElement = computed(() => {
     const titleElement = h(
-      'p',
+      'figcaption',
       {
         class: `${props.baseCssClass}__title`,
         itemProp: 'caption',

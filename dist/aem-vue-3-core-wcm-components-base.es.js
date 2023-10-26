@@ -687,7 +687,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
       }), p;
     }), l = _(() => {
       const p = C(
-        "p",
+        "figcaption",
         {
           class: `${e.baseCssClass}__title`,
           itemProp: "caption"

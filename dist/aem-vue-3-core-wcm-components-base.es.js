@@ -1,4 +1,4 @@
-import { defineComponent as L, useAttrs as Q, computed as _, openBlock as o, createElementBlock as f, mergeProps as H, unref as ae, renderSlot as ne, inject as P, normalizeClass as v, createElementVNode as W, Fragment as D, renderList as oe, createBlock as E, resolveDynamicComponent as T, h as C, withCtx as z, createCommentVNode as $, toDisplayString as A, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as _e, watch as ce, createTextVNode as J, normalizeProps as ie, guardReactiveProps as be, createVNode as ye, onUpdated as ge } from "vue";
+import { defineComponent as L, useAttrs as Q, computed as _, openBlock as o, createElementBlock as f, mergeProps as H, unref as ae, renderSlot as ne, inject as P, normalizeClass as v, createElementVNode as W, Fragment as B, renderList as oe, createBlock as E, resolveDynamicComponent as T, h as C, withCtx as z, createCommentVNode as $, toDisplayString as A, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as _e, watch as ce, createTextVNode as J, normalizeProps as ie, guardReactiveProps as be, createVNode as ye, onUpdated as ge } from "vue";
 import { AuthoringUtils as w } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as O, componentClassNames as N } from "aem-vue-3-editable-components";
 import { useRoute as ue, useRouter as de } from "vue-router";
@@ -54,7 +54,7 @@ const ct = {
 }, Ce = ["href", "target"], Ee = {
   key: 1,
   class: "cmp-span"
-}, B = /* @__PURE__ */ L({
+}, D = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreLink",
   props: {
@@ -133,7 +133,7 @@ const ct = {
         return b && (S["aria-current"] = "page"), C("span", S, c);
       };
       let h = ((c) => C(
-        B,
+        D,
         {
           href: c.link.url,
           class: `${e.baseCssClass}__item-link`,
@@ -168,7 +168,7 @@ const ct = {
         itemScope: "true",
         itemType: "http://schema.org/BreadcrumbList"
       }, [
-        (o(!0), f(D, null, oe(e.items, (i) => (o(), E(T(r(i)), {
+        (o(!0), f(B, null, oe(e.items, (i) => (o(), E(T(r(i)), {
           key: i.toString()
         }))), 128))
       ], 2)
@@ -214,14 +214,30 @@ const yt = /* @__PURE__ */ L({
     ), r = (a) => {
       e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(a);
     };
-    return (a, l) => e.link ? (o(), E(B, {
-      key: 0,
-      "aria-label": e.ariaLabel,
-      class: v(n.value.join(" ")),
-      href: e.link,
-      onClick: r
-    }, {
-      default: z(() => [
+    return (a, l) => e.text ? (o(), f(B, { key: 0 }, [
+      e.link ? (o(), E(D, {
+        key: 0,
+        "aria-label": e.ariaLabel,
+        class: v(n.value.join(" ")),
+        href: e.link,
+        onClick: r
+      }, {
+        default: z(() => [
+          e.icon ? (o(), f("span", {
+            key: 0,
+            class: v(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
+          }, null, 2)) : $("", !0),
+          W("span", {
+            class: v(`${e.baseCssClass}__text`)
+          }, A(e.text), 3)
+        ]),
+        _: 1
+      }, 8, ["aria-label", "class", "href"])) : (o(), f("button", {
+        key: 1,
+        class: v(n.value),
+        type: "button",
+        onClick: r
+      }, [
         e.icon ? (o(), f("span", {
           key: 0,
           class: v(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
@@ -229,22 +245,8 @@ const yt = /* @__PURE__ */ L({
         W("span", {
           class: v(`${e.baseCssClass}__text`)
         }, A(e.text), 3)
-      ]),
-      _: 1
-    }, 8, ["aria-label", "class", "href"])) : (o(), f("button", {
-      key: 1,
-      class: v(n.value),
-      type: "button",
-      onClick: r
-    }, [
-      e.icon ? (o(), f("span", {
-        key: 0,
-        class: v(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
-      }, null, 2)) : $("", !0),
-      W("span", {
-        class: v(`${e.baseCssClass}__text`)
-      }, A(e.text), 3)
-    ], 2));
+      ], 2))
+    ], 64)) : $("", !0);
   }
 });
 const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["innerHTML"], gt = /* @__PURE__ */ L({
@@ -382,7 +384,7 @@ const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["inne
         e.type === "HTML" ? (o(), f("div", {
           key: 0,
           innerHTML: `${r(e.html)}`
-        }, null, 8, $e)) : e.type === "EMBEDDABLE" ? (o(), f(D, { key: 1 }, [
+        }, null, 8, $e)) : e.type === "EMBEDDABLE" ? (o(), f(B, { key: 1 }, [
           ((p = e.youTubeProps) == null ? void 0 : p.layout) === "responsive" ? (o(), f("div", {
             key: 0,
             class: v(`${u.baseCssClass}__embeddable-wrapper`),
@@ -392,13 +394,13 @@ const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["inne
           }, [
             (o(), E(T(i.value)))
           ], 6)) : (o(), E(T(i.value), { key: 1 }))
-        ], 64)) : e.type === "URL" ? (o(), f(D, { key: 2 }, [
+        ], 64)) : e.type === "URL" ? (o(), f(B, { key: 2 }, [
           ((g = e.result) == null ? void 0 : g.processor) === "pinterest" ? (o(), f("a", {
             key: 0,
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, A(e.url), 9, Se)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(D, { key: 1 }, [
+          }, A(e.url), 9, Se)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(B, { key: 1 }, [
             c.value === "photo" ? (o(), E(T(h.value), { key: 0 })) : c.value === "link" ? (o(), f("a", {
               key: 1,
               href: b.value
@@ -862,8 +864,8 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
         class: v(h.value),
         style: le(i.value)
       }, [
-        a.value ? (o(), f(D, { key: 0 }, [
-          (m = e.imageLink) != null && m.url ? (o(), E(B, H({
+        a.value ? (o(), f(B, { key: 0 }, [
+          (m = e.imageLink) != null && m.url ? (o(), E(D, H({
             key: 0,
             class: `${e.baseCssClass}__link`,
             href: e.imageLink.url
@@ -915,7 +917,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
           [i.title]
         );
         return i.level > 0 && (h = C(
-          B,
+          D,
           {
             "aria-current": `${i.active ? "page" : !1}`,
             class: `${e.baseCssClass}__item-link`,
@@ -1003,7 +1005,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
           },
           [
             C(
-              B,
+              D,
               {
                 "aria-current": `${i.active ? "page" : !1}`,
                 class: `${e.baseCssClass}__item-link`,
@@ -1110,7 +1112,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
         default: z(() => {
           var S, R;
           return [
-            l.value ? (o(), E(B, H({
+            l.value ? (o(), E(D, H({
               key: 0,
               class: `${c.baseCssClass}${i.value}link`,
               href: ((S = e.link) == null ? void 0 : S.url) || h.value
@@ -1119,7 +1121,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
                 J(A(t.text), 1)
               ]),
               _: 1
-            }, 16, ["class", "href"])) : (o(), f(D, { key: 1 }, [
+            }, 16, ["class", "href"])) : (o(), f(B, { key: 1 }, [
               J(A(t.text), 1)
             ], 64))
           ];
@@ -1199,7 +1201,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       id: e.id,
       class: v(n.value)
     }, [
-      (o(), E(T(e.link ? B : "section"), ie(be(e.link ? r.value : !1)), {
+      (o(), E(T(e.link ? D : "section"), ie(be(e.link ? r.value : !1)), {
         default: z(() => [
           e.pretitle || e.title || e.description ? (o(), f("div", {
             key: 0,
@@ -1219,7 +1221,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
               key: 3,
               class: v(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), f(D, null, oe(e.actions, (c, b) => (o(), E(B, H({
+              (o(!0), f(B, null, oe(e.actions, (c, b) => (o(), E(D, H({
                 id: c.id,
                 key: `link-${b}`,
                 class: `${e.baseCssClass}__action-link`,
@@ -1324,7 +1326,7 @@ export {
   gt as CoreEmbed,
   Ye as CoreImage,
   Ct as CoreLanguageNavigation,
-  B as CoreLink,
+  D as CoreLink,
   Et as CoreNavigation,
   kt as CoreSeparator,
   wt as CoreTeaser,

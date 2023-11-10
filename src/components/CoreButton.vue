@@ -56,26 +56,28 @@
 </script>
 
 <template>
-  <CoreLink
-    v-if="!!props.link"
-    :aria-label="props.ariaLabel"
-    :class="(className as string[]).join(' ')"
-    :href="props.link"
-    @click="buttonClick"
-  >
-    <span
-      v-if="props.icon"
-      :class="`${props.baseCssClass}__icon ${props.baseCssClass}__icon--${props.icon}`"
-    ></span>
-    <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
-  </CoreLink>
-  <button v-else :class="className" type="button" @click="buttonClick">
-    <span
-      v-if="props.icon"
-      :class="`${props.baseCssClass}__icon ${props.baseCssClass}__icon--${props.icon}`"
-    ></span>
-    <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
-  </button>
+  <template v-if="props.text">
+    <CoreLink
+      v-if="!!props.link"
+      :aria-label="props.ariaLabel"
+      :class="(className as string[]).join(' ')"
+      :href="props.link"
+      @click="buttonClick"
+    >
+      <span
+        v-if="props.icon"
+        :class="`${props.baseCssClass}__icon ${props.baseCssClass}__icon--${props.icon}`"
+      ></span>
+      <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
+    </CoreLink>
+    <button v-else :class="className" type="button" @click="buttonClick">
+      <span
+        v-if="props.icon"
+        :class="`${props.baseCssClass}__icon ${props.baseCssClass}__icon--${props.icon}`"
+      ></span>
+      <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
+    </button>
+  </template>
 </template>
 
 <style>

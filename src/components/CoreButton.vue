@@ -80,16 +80,16 @@
 
 <style>
   .cmp-button {
-    background: 0;
-    border: 0.125rem solid #7b7b7b;
-    border-radius: 0.1875rem;
+    background: none;
+    border: 2px solid #7b7b7b;
+    border-radius: 4px;
     color: #7b7b7b;
     cursor: pointer;
     display: inline-block;
-    font-size: 0.625rem;
+    font-size: 12px;
     font-weight: bold;
-    padding-block: 0.3125rem;
-    padding-inline: 0.4375rem;
+    padding-block: 8px;
+    padding-inline: 16px;
     text-decoration: none;
     text-transform: uppercase;
   }

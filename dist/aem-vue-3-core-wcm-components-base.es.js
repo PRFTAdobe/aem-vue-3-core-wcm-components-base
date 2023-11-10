@@ -1,4 +1,4 @@
-import { defineComponent as L, useAttrs as Q, computed as b, openBlock as o, createElementBlock as f, mergeProps as H, unref as ae, renderSlot as ne, inject as P, normalizeClass as v, createElementVNode as W, Fragment as D, renderList as oe, createBlock as E, resolveDynamicComponent as T, h as C, withCtx as z, createCommentVNode as $, toDisplayString as A, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as be, watch as ce, createTextVNode as J, normalizeProps as ie, guardReactiveProps as _e, createVNode as ye, onUpdated as ge } from "vue";
+import { defineComponent as L, useAttrs as Q, computed as _, openBlock as o, createElementBlock as f, mergeProps as H, unref as ae, renderSlot as ne, inject as P, normalizeClass as v, createElementVNode as W, Fragment as D, renderList as oe, createBlock as E, resolveDynamicComponent as T, h as C, withCtx as z, createCommentVNode as $, toDisplayString as A, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as _e, watch as ce, createTextVNode as J, normalizeProps as ie, guardReactiveProps as be, createVNode as ye, onUpdated as ge } from "vue";
 import { AuthoringUtils as w } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as O, componentClassNames as N } from "aem-vue-3-editable-components";
 import { useRoute as ue, useRouter as de } from "vue-router";
@@ -46,7 +46,7 @@ const ct = {
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
   }
-}, bt = {
+}, _t = {
   emptyLabel: "Text",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
@@ -81,7 +81,7 @@ const ct = {
     }
   },
   setup(t) {
-    const e = t, s = Q(), n = ue(), r = de(), a = b(() => {
+    const e = t, s = Q(), n = ue(), r = de(), a = _(() => {
       const i = [e.class, e.baseCssClass];
       return n.path && typeof n.path < "u" && n.path === e.href && i.push("cmp-link--active"), i;
     }), l = (i) => {
@@ -101,7 +101,7 @@ const ct = {
       ne(i.$slots, "default")
     ]));
   }
-}), ke = ["id", "aria-label"], _t = /* @__PURE__ */ L({
+}), ke = ["id", "aria-label"], bt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreBreadcrumb",
   props: {
@@ -116,7 +116,7 @@ const ct = {
     ...O("cmp-breadcrumb")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -126,11 +126,11 @@ const ct = {
         e.aemNoDecoration
       )
     ), r = (a) => {
-      const l = (c, _ = !1) => {
+      const l = (c, b = !1) => {
         const S = {
           itemProp: "name"
         };
-        return _ && (S["aria-current"] = "page"), C("span", S, c);
+        return b && (S["aria-current"] = "page"), C("span", S, c);
       };
       let h = ((c) => C(
         B,
@@ -202,7 +202,7 @@ const yt = /* @__PURE__ */ L({
     ...O("cmp-button")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -246,7 +246,8 @@ const yt = /* @__PURE__ */ L({
       }, A(e.text), 3)
     ], 2));
   }
-}), we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["innerHTML"], gt = /* @__PURE__ */ L({
+});
+const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["innerHTML"], gt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreEmbed",
   props: {
@@ -290,7 +291,7 @@ const yt = /* @__PURE__ */ L({
       } catch (y) {
         g(y);
       }
-    }), r = (u) => K.sanitize(u), a = b(() => {
+    }), r = (u) => K.sanitize(u), a = _(() => {
       const u = N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -313,7 +314,7 @@ const yt = /* @__PURE__ */ L({
         playsinline: `${+m}`
       }, q = new URLSearchParams(x).toString();
       return `${y}?${q}`;
-    }, i = b(
+    }, i = _(
       () => {
         var u, k, p, d, m;
         return C("iFrame", {
@@ -329,7 +330,7 @@ const yt = /* @__PURE__ */ L({
           ariaLabel: "YouTube Video"
         });
       }
-    ), h = b(() => {
+    ), h = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
         return C("img", {
@@ -340,18 +341,18 @@ const yt = /* @__PURE__ */ L({
         });
       }
       return C("img");
-    }), c = b(() => {
+    }), c = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
         return u.type;
       }
-    }), _ = b(() => {
+    }), b = _(() => {
       if (e.result && e.result.options && e.result.options.response)
         return e.result.options.response.url;
-    }), S = b(() => {
+    }), S = _(() => {
       if (e.result && e.result.options && e.result.options.response)
         return e.result.options.response.title;
-    }), R = b(() => {
+    }), R = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
         return u.html;
@@ -400,7 +401,7 @@ const yt = /* @__PURE__ */ L({
           }, A(e.url), 9, Se)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(D, { key: 1 }, [
             c.value === "photo" ? (o(), E(T(h.value), { key: 0 })) : c.value === "link" ? (o(), f("a", {
               key: 1,
-              href: _.value
+              href: b.value
             }, A(S.value), 9, Le)) : c.value === "video" || c.value === "rich" ? (o(), f("div", {
               key: 2,
               innerHTML: R.value
@@ -568,8 +569,8 @@ function De(t) {
     return he;
   var n = j(t).getComputedStyle(t), r = Me(n), a = r.left + r.right, l = r.top + r.bottom, i = G(n.width), h = G(n.height);
   if (n.boxSizing === "border-box" && (Math.round(i + a) !== e && (i -= re(n, "left", "right") + a), Math.round(h + l) !== s && (h -= re(n, "top", "bottom") + l)), !je(t)) {
-    var c = Math.round(i + a) - e, _ = Math.round(h + l) - s;
-    Math.abs(c) !== 1 && (i -= c), Math.abs(_) !== 1 && (h -= _);
+    var c = Math.round(i + a) - e, b = Math.round(h + l) - s;
+    Math.abs(c) !== 1 && (i -= c), Math.abs(b) !== 1 && (h -= b);
   }
   return V(r.left, r.top, i, h);
 }
@@ -739,7 +740,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
     const e = t, s = Q(), n = P("isInEditor", w.isInEditor()), r = U(null), a = U(e.src);
     let l = {};
     e.smartCropRendition && s.srcset && (a.value = s.srcset);
-    const i = b(() => {
+    const i = _(() => {
       let p;
       if (e.width) {
         const { width: d } = e;
@@ -749,7 +750,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
         };
       }
       return p;
-    }), h = b(() => {
+    }), h = _(() => {
       const p = N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -761,7 +762,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
       return p.push({
         "cq-dd-image": n || !1
       }), p;
-    }), c = b(() => {
+    }), c = _(() => {
       const p = C(
         "figcaption",
         {
@@ -784,7 +785,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
       ];
       return e.title && (m.push(p), e.displayPopupTitle && m.push(d)), () => m;
     });
-    let _;
+    let b;
     const S = (p) => {
       let d;
       const { clientWidth: m } = r.value.parentNode;
@@ -844,9 +845,9 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
           });
         });
       };
-      _ = new Ge(p), _.observe(r.value), k();
-    }), be(() => {
-      r.value && _.unobserve(r.value);
+      b = new Ge(p), b.observe(r.value), k();
+    }), _e(() => {
+      r.value && b.unobserve(r.value);
     }), ce(
       () => e.src,
       async (p, d) => {
@@ -892,7 +893,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
     ...O("cmp-languagenavigation")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -976,7 +977,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
     ...O("cmp-navigation")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1036,7 +1037,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
     ...O("cmp-separator")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1081,7 +1082,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
     ...O("cmp-title")
   },
   setup(t) {
-    const e = t, s = Q(), n = ue(), r = P("isInEditor", w.isInEditor()), a = b(() => {
+    const e = t, s = Q(), n = ue(), r = P("isInEditor", w.isInEditor()), a = _(() => {
       const c = N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1093,13 +1094,13 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       return c.push({
         "cq-dd-title": r
       }), c;
-    }), l = U((s == null ? void 0 : s.linkDisabled) !== !0), i = b(() => e.isNested ? "-" : "__"), h = b(() => n.path && typeof n.path < "u" ? n.path : null);
+    }), l = U((s == null ? void 0 : s.linkDisabled) !== !0), i = _(() => e.isNested ? "-" : "__"), h = _(() => n.path && typeof n.path < "u" ? n.path : null);
     return ce(
       () => s == null ? void 0 : s.linkDisabled,
-      async (c, _) => {
-        c !== _ && (l.value = c !== !0);
+      async (c, b) => {
+        c !== b && (l.value = c !== !0);
       }
-    ), (c, _) => (o(), f("div", {
+    ), (c, b) => (o(), f("div", {
       id: e.id,
       class: v(a.value)
     }, [
@@ -1166,7 +1167,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
     ...O("cmp-teaser")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = b(() => {
+    const e = t, s = P("isInEditor", w.isInEditor()), n = _(() => {
       const i = N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1178,14 +1179,14 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       return i.push({
         "cq-dd-teaser": s
       }), i;
-    }), r = b(() => {
+    }), r = _(() => {
       var i, h;
       return {
         class: `${e.baseCssClass}__link`,
         href: (i = e.link) == null ? void 0 : i.url,
         ...(h = e.link) == null ? void 0 : h.attributes
       };
-    }), a = b(() => ({
+    }), a = _(() => ({
       baseCssClass: `${e.baseCssClass}__title`,
       isInEditor: s,
       isNested: !0,
@@ -1198,7 +1199,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       id: e.id,
       class: v(n.value)
     }, [
-      (o(), E(T(e.link ? B : "section"), ie(_e(e.link ? r.value : !1)), {
+      (o(), E(T(e.link ? B : "section"), ie(be(e.link ? r.value : !1)), {
         default: z(() => [
           e.pretitle || e.title || e.description ? (o(), f("div", {
             key: 0,
@@ -1218,9 +1219,9 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
               key: 3,
               class: v(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), f(D, null, oe(e.actions, (c, _) => (o(), E(B, H({
+              (o(!0), f(D, null, oe(e.actions, (c, b) => (o(), E(B, H({
                 id: c.id,
-                key: `link-${_}`,
+                key: `link-${b}`,
                 class: `${e.baseCssClass}__action-link`,
                 href: c.link.url,
                 title: c.title
@@ -1268,7 +1269,7 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
     ...O("cmp-text")
   },
   setup(t) {
-    const e = t, s = de(), n = P("isInEditor", w.isInEditor()), r = b(
+    const e = t, s = de(), n = P("isInEditor", w.isInEditor()), r = _(
       () => N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1277,16 +1278,16 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
         n,
         e.aemNoDecoration
       )
-    ), a = U(null), l = (c) => K.sanitize(c), i = b(() => {
+    ), a = U(null), l = (c) => K.sanitize(c), i = _(() => {
       const c = e.cqPath ? e.cqPath.substring(e.cqPath.lastIndexOf("/") + 1) : "";
       return e.id ? e.id : c;
     }), h = () => {
       if (a.value) {
-        const c = s.getRoutes().map((_) => _.path);
-        !w.isEditMode() && !w.isPreviewMode() && a.value.querySelectorAll("a").forEach((_) => {
-          _.classList.add("cmp-link");
-          const S = _.getAttribute("target") || "_self", R = _.getAttribute("href") || "#";
-          _.onclick = (u) => {
+        const c = s.getRoutes().map((b) => b.path);
+        !w.isEditMode() && !w.isPreviewMode() && a.value.querySelectorAll("a").forEach((b) => {
+          b.classList.add("cmp-link");
+          const S = b.getAttribute("target") || "_self", R = b.getAttribute("href") || "#";
+          b.onclick = (u) => {
             S !== "_blank" && c.includes(R) && (u.preventDefault(), s.push(R));
           };
         });
@@ -1296,7 +1297,7 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
       h();
     }), ge(() => {
       h();
-    }), (c, _) => e.richText ? (o(), f("div", {
+    }), (c, b) => e.richText ? (o(), f("div", {
       key: 0,
       id: i.value,
       ref_key: "richTextElement",
@@ -1318,7 +1319,7 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
 export {
   ct as BreadcrumbEditConfig,
   ut as ButtonEditConfig,
-  _t as CoreBreadcrumb,
+  bt as CoreBreadcrumb,
   yt as CoreButton,
   gt as CoreEmbed,
   Ye as CoreImage,
@@ -1334,6 +1335,6 @@ export {
   ft as LanguageNavigationEditConfig,
   ht as NavigationEditConfig,
   mt as TeaserEditConfig,
-  bt as TextEditConfig,
+  _t as TextEditConfig,
   vt as TitleEditConfig
 };

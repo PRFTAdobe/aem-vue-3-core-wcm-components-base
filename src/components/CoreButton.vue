@@ -77,3 +77,31 @@
     <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
   </button>
 </template>
+
+<style>
+  .cmp-button {
+    background: 0;
+    border: 0.125rem solid #7b7b7b;
+    border-radius: 0.1875rem;
+    color: #7b7b7b;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.625rem;
+    font-weight: bold;
+    padding-block: 0.3125rem;
+    padding-inline: 0.4375rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .cmp-button:hover {
+    border-color: #222;
+    color: #222;
+  }
+
+  .cmp-button__text {
+    display: inline-block;
+    line-height: 1.5;
+    vertical-align: top;
+  }
+</style>

@@ -37,6 +37,11 @@ declare const _default: import("vue").DefineComponent<{
     text: {
         type: StringConstructor;
     };
+    type: {
+        type: StringConstructor;
+        default: string;
+        validator(value: string): boolean;
+    };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     aemNoDecoration: {
         type: BooleanConstructor;
@@ -76,8 +81,14 @@ declare const _default: import("vue").DefineComponent<{
     text: {
         type: StringConstructor;
     };
+    type: {
+        type: StringConstructor;
+        default: string;
+        validator(value: string): boolean;
+    };
 }>>, {
     baseCssClass: string;
+    type: string;
     aemNoDecoration: boolean;
     containerProps: {
         [key: string]: string;

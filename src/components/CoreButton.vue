@@ -28,6 +28,13 @@
     text: {
       type: String,
     },
+    type: {
+      type: String,
+      default: 'button',
+      validator(value: string) {
+        return ['submit', 'reset', 'button'].includes(value);
+      },
+    },
     ...componentProperties('cmp-button'),
   });
 
@@ -70,7 +77,12 @@
       ></span>
       <span :class="`${props.baseCssClass}__text`">{{ props.text }}</span>
     </CoreLink>
-    <button v-else :class="className" type="button" @click="buttonClick">
+    <button
+      v-else
+      :class="className"
+      :type="props.type as 'submit' | 'reset' | 'button'"
+      @click="buttonClick"
+    >
       <span
         v-if="props.icon"
         :class="`${props.baseCssClass}__icon ${props.baseCssClass}__icon--${props.icon}`"

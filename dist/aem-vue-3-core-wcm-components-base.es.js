@@ -3,50 +3,50 @@ import { AuthoringUtils as w } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as O, componentClassNames as N } from "aem-vue-3-editable-components";
 import { useRoute as ue, useRouter as de } from "vue-router";
 import K from "dompurify";
-const ct = {
+const ut = {
   emptyLabel: "Breadcrumb",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, ut = {
+}, dt = {
   emptyLabel: "Button",
   isEmpty(t) {
     return t.text == null || t.text.length === 0;
   }
-}, dt = {
+}, pt = {
   emptyLabel: "Embed",
   isEmpty(t) {
     var s, n;
     let e = !1;
     return t.type === "URL" ? e = typeof t.url < "u" && typeof t.result < "u" && typeof ((s = t.result) == null ? void 0 : s.processor) < "u" : t.type === "EMBEDDABLE" ? e = typeof t.youTubeProps < "u" && typeof ((n = t.youTubeProps) == null ? void 0 : n.youtubeVideoId) < "u" : t.type === "HTML" && (e = !!t.html), !t || !e;
   }
-}, pt = {
+}, ft = {
   emptyLabel: "Image",
   isEmpty(t) {
     return !t || !t.src || t.src.trim().length < 1;
   }
-}, ft = {
+}, ht = {
   emptyLabel: "Language Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, ht = {
+}, mt = {
   emptyLabel: "Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, mt = {
+}, vt = {
   emptyLabel: "Teaser",
   isEmpty(t) {
     const e = (s) => (Array.isArray(s) ? s.length : s.trim().length) === 0;
     return (!t.imagePath || e(t.imagePath)) && (!t.pretitle || e(t.pretitle)) && (!t.title || e(t.title)) && (!t.description || e(t.description)) && (!t.actions || e(t.actions));
   }
-}, vt = {
+}, _t = {
   emptyLabel: "Title",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
   }
-}, _t = {
+}, bt = {
   emptyLabel: "Text",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
@@ -101,7 +101,7 @@ const ct = {
       ne(i.$slots, "default")
     ]));
   }
-}), ke = ["id", "aria-label"], bt = /* @__PURE__ */ L({
+}), ke = ["id", "aria-label"], yt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreBreadcrumb",
   props: {
@@ -175,7 +175,7 @@ const ct = {
     ], 10, ke));
   }
 });
-const yt = /* @__PURE__ */ L({
+const we = ["type"], gt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreButton",
   props: {
@@ -198,6 +198,13 @@ const yt = /* @__PURE__ */ L({
     // eslint-disable-next-line vue/require-default-prop
     text: {
       type: String
+    },
+    type: {
+      type: String,
+      default: "button",
+      validator(t) {
+        return ["submit", "reset", "button"].includes(t);
+      }
     },
     ...O("cmp-button")
   },
@@ -235,7 +242,7 @@ const yt = /* @__PURE__ */ L({
       }, 8, ["aria-label", "class", "href"])) : (o(), f("button", {
         key: 1,
         class: v(n.value),
-        type: "button",
+        type: e.type,
         onClick: r
       }, [
         e.icon ? (o(), f("span", {
@@ -245,11 +252,11 @@ const yt = /* @__PURE__ */ L({
         W("span", {
           class: v(`${e.baseCssClass}__text`)
         }, A(e.text), 3)
-      ], 2))
+      ], 10, we))
     ], 64)) : $("", !0);
   }
 });
-const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["innerHTML"], gt = /* @__PURE__ */ L({
+const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["innerHTML"], Ct = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreEmbed",
   props: {
@@ -384,7 +391,7 @@ const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["inne
         e.type === "HTML" ? (o(), f("div", {
           key: 0,
           innerHTML: `${r(e.html)}`
-        }, null, 8, $e)) : e.type === "EMBEDDABLE" ? (o(), f(B, { key: 1 }, [
+        }, null, 8, Se)) : e.type === "EMBEDDABLE" ? (o(), f(B, { key: 1 }, [
           ((p = e.youTubeProps) == null ? void 0 : p.layout) === "responsive" ? (o(), f("div", {
             key: 0,
             class: v(`${u.baseCssClass}__embeddable-wrapper`),
@@ -400,17 +407,17 @@ const we = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], xe = ["inne
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, A(e.url), 9, Se)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(B, { key: 1 }, [
+          }, A(e.url), 9, Le)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(B, { key: 1 }, [
             c.value === "photo" ? (o(), E(T(h.value), { key: 0 })) : c.value === "link" ? (o(), f("a", {
               key: 1,
               href: b.value
-            }, A(S.value), 9, Le)) : c.value === "video" || c.value === "rich" ? (o(), f("div", {
+            }, A(S.value), 9, xe)) : c.value === "video" || c.value === "rich" ? (o(), f("div", {
               key: 2,
               innerHTML: R.value
-            }, null, 8, xe)) : $("", !0)
+            }, null, 8, Te)) : $("", !0)
           ], 64)) : $("", !0)
         ], 64)) : $("", !0)
-      ], 10, we);
+      ], 10, $e);
     };
   }
 });
@@ -462,25 +469,25 @@ var pe = function() {
   );
 }(), X = typeof window < "u" && typeof document < "u" && window.document === document, F = function() {
   return typeof global < "u" && global.Math === Math ? global : typeof self < "u" && self.Math === Math ? self : typeof window < "u" && window.Math === Math ? window : Function("return this")();
-}(), Te = function() {
+}(), Pe = function() {
   return typeof requestAnimationFrame == "function" ? requestAnimationFrame.bind(F) : function(t) {
     return setTimeout(function() {
       return t(Date.now());
     }, 1e3 / 60);
   };
-}(), Pe = 2;
-function Oe(t, e) {
+}(), Oe = 2;
+function Ne(t, e) {
   var s = !1, n = !1, r = 0;
   function a() {
     s && (s = !1, t()), n && i();
   }
   function l() {
-    Te(a);
+    Pe(a);
   }
   function i() {
     var h = Date.now();
     if (s) {
-      if (h - r < Pe)
+      if (h - r < Oe)
         return;
       n = !0;
     } else
@@ -489,11 +496,11 @@ function Oe(t, e) {
   }
   return i;
 }
-var Ne = 20, Re = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Ae = typeof MutationObserver < "u", Ie = (
+var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Ie = typeof MutationObserver < "u", Me = (
   /** @class */
   function() {
     function t() {
-      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Oe(this.refresh.bind(this), Ne);
+      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Ne(this.refresh.bind(this), Re);
     }
     return t.prototype.addObserver = function(e) {
       ~this.observers_.indexOf(e) || this.observers_.push(e), this.connected_ || this.connect_();
@@ -511,7 +518,7 @@ var Ne = 20, Re = ["top", "right", "bottom", "left", "width", "height", "size", 
         return s.broadcastActive();
       }), e.length > 0;
     }, t.prototype.connect_ = function() {
-      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Ae ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
+      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Ie ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
         attributes: !0,
         childList: !0,
         characterData: !0,
@@ -520,7 +527,7 @@ var Ne = 20, Re = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, t.prototype.disconnect_ = function() {
       !X || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, t.prototype.onTransitionEnd_ = function(e) {
-      var s = e.propertyName, n = s === void 0 ? "" : s, r = Re.some(function(a) {
+      var s = e.propertyName, n = s === void 0 ? "" : s, r = Ae.some(function(a) {
         return !!~n.indexOf(a);
       });
       r && this.refresh();
@@ -554,42 +561,42 @@ function re(t) {
     return n + G(a);
   }, 0);
 }
-function Me(t) {
+function Be(t) {
   for (var e = ["top", "right", "bottom", "left"], s = {}, n = 0, r = e; n < r.length; n++) {
     var a = r[n], l = t["padding-" + a];
     s[a] = G(l);
   }
   return s;
 }
-function Be(t) {
+function De(t) {
   var e = t.getBBox();
   return V(0, 0, e.width, e.height);
 }
-function De(t) {
+function ze(t) {
   var e = t.clientWidth, s = t.clientHeight;
   if (!e && !s)
     return he;
-  var n = j(t).getComputedStyle(t), r = Me(n), a = r.left + r.right, l = r.top + r.bottom, i = G(n.width), h = G(n.height);
-  if (n.boxSizing === "border-box" && (Math.round(i + a) !== e && (i -= re(n, "left", "right") + a), Math.round(h + l) !== s && (h -= re(n, "top", "bottom") + l)), !je(t)) {
+  var n = j(t).getComputedStyle(t), r = Be(n), a = r.left + r.right, l = r.top + r.bottom, i = G(n.width), h = G(n.height);
+  if (n.boxSizing === "border-box" && (Math.round(i + a) !== e && (i -= re(n, "left", "right") + a), Math.round(h + l) !== s && (h -= re(n, "top", "bottom") + l)), !qe(t)) {
     var c = Math.round(i + a) - e, b = Math.round(h + l) - s;
     Math.abs(c) !== 1 && (i -= c), Math.abs(b) !== 1 && (h -= b);
   }
   return V(r.left, r.top, i, h);
 }
-var ze = function() {
+var je = function() {
   return typeof SVGGraphicsElement < "u" ? function(t) {
     return t instanceof j(t).SVGGraphicsElement;
   } : function(t) {
     return t instanceof j(t).SVGElement && typeof t.getBBox == "function";
   };
 }();
-function je(t) {
+function qe(t) {
   return t === j(t).document.documentElement;
 }
-function qe(t) {
-  return X ? ze(t) ? Be(t) : De(t) : he;
-}
 function He(t) {
+  return X ? je(t) ? De(t) : ze(t) : he;
+}
+function We(t) {
   var e = t.x, s = t.y, n = t.width, r = t.height, a = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, l = Object.create(a.prototype);
   return fe(l, {
     x: e,
@@ -605,30 +612,30 @@ function He(t) {
 function V(t, e, s, n) {
   return { x: t, y: e, width: s, height: n };
 }
-var We = (
+var Ue = (
   /** @class */
   function() {
     function t(e) {
       this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = V(0, 0, 0, 0), this.target = e;
     }
     return t.prototype.isActive = function() {
-      var e = qe(this.target);
+      var e = He(this.target);
       return this.contentRect_ = e, e.width !== this.broadcastWidth || e.height !== this.broadcastHeight;
     }, t.prototype.broadcastRect = function() {
       var e = this.contentRect_;
       return this.broadcastWidth = e.width, this.broadcastHeight = e.height, e;
     }, t;
   }()
-), Ue = (
+), Fe = (
   /** @class */
   function() {
     function t(e, s) {
-      var n = He(s);
+      var n = We(s);
       fe(this, { target: e, contentRect: n });
     }
     return t;
   }()
-), Fe = (
+), Ge = (
   /** @class */
   function() {
     function t(e, s, n) {
@@ -643,7 +650,7 @@ var We = (
         if (!(e instanceof j(e).Element))
           throw new TypeError('parameter 1 is not of type "Element".');
         var s = this.observations_;
-        s.has(e) || (s.set(e, new We(e)), this.controller_.addObserver(this), this.controller_.refresh());
+        s.has(e) || (s.set(e, new Ue(e)), this.controller_.addObserver(this), this.controller_.refresh());
       }
     }, t.prototype.unobserve = function(e) {
       if (!arguments.length)
@@ -664,7 +671,7 @@ var We = (
     }, t.prototype.broadcastActive = function() {
       if (this.hasActive()) {
         var e = this.callbackCtx_, s = this.activeObservations_.map(function(n) {
-          return new Ue(n.target, n.broadcastRect());
+          return new Fe(n.target, n.broadcastRect());
         });
         this.callback_.call(e, s, e), this.clearActive();
       }
@@ -682,7 +689,7 @@ var We = (
         throw new TypeError("Cannot call a class as a function.");
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
-      var s = Ie.getInstance(), n = new Fe(e, s, this);
+      var s = Me.getInstance(), n = new Ge(e, s, this);
       me.set(this, n);
     }
     return t;
@@ -698,10 +705,10 @@ var We = (
     return (e = me.get(this))[t].apply(e, arguments);
   };
 });
-var Ge = function() {
+var Ve = function() {
   return typeof F.ResizeObserver < "u" ? F.ResizeObserver : ve;
 }();
-const Ve = ["id"], Ye = /* @__PURE__ */ L({
+const Ye = ["id"], Je = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreImage",
   props: {
@@ -847,7 +854,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
           });
         });
       };
-      b = new Ge(p), b.observe(r.value), k();
+      b = new Ve(p), b.observe(r.value), k();
     }), _e(() => {
       r.value && b.unobserve(r.value);
     }), ce(
@@ -876,11 +883,11 @@ const Ve = ["id"], Ye = /* @__PURE__ */ L({
             _: 1
           }, 16, ["class", "href"])) : (o(), E(T(c.value), { key: a.value }))
         ], 64)) : $("", !0)
-      ], 14, Ve);
+      ], 14, Ye);
     };
   }
 });
-const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
+const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreLanguageNavigation",
   props: {
@@ -962,9 +969,9 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       role: "navigation"
     }, [
       (o(), E(T(r(e.items))))
-    ], 10, Je));
+    ], 10, Xe));
   }
-}), Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
+}), Qe = ["id", "aria-label"], kt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreNavigation",
   props: {
@@ -1030,9 +1037,9 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       role: "navigation"
     }, [
       (o(), E(T(r(e.items))))
-    ], 10, Xe));
+    ], 10, Qe));
   }
-}), Qe = ["id"], kt = /* @__PURE__ */ L({
+}), Ze = ["id"], wt = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreSeparator",
   props: {
@@ -1056,9 +1063,9 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
       W("hr", {
         class: v(`${e.baseCssClass}__horizontal-rule`)
       }, null, 2)
-    ], 10, Qe));
+    ], 10, Ze));
   }
-}), Ze = ["id"], Ke = /* @__PURE__ */ L({
+}), Ke = ["id"], et = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreTitle",
   props: {
@@ -1128,9 +1135,9 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
         }),
         _: 1
       }, 8, ["class"]))
-    ], 10, Ze));
+    ], 10, Ke));
   }
-}), et = ["id"], tt = ["innerHTML"], wt = /* @__PURE__ */ L({
+}), tt = ["id"], st = ["innerHTML"], $t = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreTeaser",
   props: {
@@ -1211,12 +1218,12 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
               key: 0,
               class: v(`${e.baseCssClass}__pretitle`)
             }, A(e.pretitle), 3)) : $("", !0),
-            e.title ? (o(), E(Ke, ie(H({ key: 1 }, a.value)), null, 16)) : $("", !0),
+            e.title ? (o(), E(et, ie(H({ key: 1 }, a.value)), null, 16)) : $("", !0),
             e.description ? (o(), f("div", {
               key: 2,
               class: v(`${e.baseCssClass}__description`),
               innerHTML: `${l(e.description)}`
-            }, null, 10, tt)) : $("", !0),
+            }, null, 10, st)) : $("", !0),
             e.actions && e.actions.length > 0 ? (o(), f("div", {
               key: 3,
               class: v(`${e.baseCssClass}__action-container`)
@@ -1239,7 +1246,7 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
             key: 1,
             class: v(`${e.baseCssClass}__image`)
           }, [
-            ye(Ye, {
+            ye(Je, {
               alt: e.imageAlt,
               "is-in-editor": ae(s),
               src: e.imagePath,
@@ -1249,10 +1256,10 @@ const Je = ["id", "aria-label"], Ct = /* @__PURE__ */ L({
         ]),
         _: 1
       }, 16))
-    ], 10, et));
+    ], 10, tt));
   }
 });
-const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
+const nt = ["id", "innerHTML"], it = ["id"], St = /* @__PURE__ */ L({
   inheritAttrs: !1,
   __name: "CoreText",
   props: {
@@ -1307,7 +1314,7 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
       class: v(r.value),
       "data-rte-editelement": "",
       innerHTML: `${l(e.text)}`
-    }, null, 10, st)) : (o(), f("div", {
+    }, null, 10, nt)) : (o(), f("div", {
       key: 1,
       id: i.value,
       class: v(r.value)
@@ -1315,28 +1322,28 @@ const st = ["id", "innerHTML"], nt = ["id"], $t = /* @__PURE__ */ L({
       W("p", {
         class: v(`${e.baseCssClass}__paragraph`)
       }, A(e.text), 3)
-    ], 10, nt));
+    ], 10, it));
   }
 });
 export {
-  ct as BreadcrumbEditConfig,
-  ut as ButtonEditConfig,
-  bt as CoreBreadcrumb,
-  yt as CoreButton,
-  gt as CoreEmbed,
-  Ye as CoreImage,
-  Ct as CoreLanguageNavigation,
+  ut as BreadcrumbEditConfig,
+  dt as ButtonEditConfig,
+  yt as CoreBreadcrumb,
+  gt as CoreButton,
+  Ct as CoreEmbed,
+  Je as CoreImage,
+  Et as CoreLanguageNavigation,
   D as CoreLink,
-  Et as CoreNavigation,
-  kt as CoreSeparator,
-  wt as CoreTeaser,
-  $t as CoreText,
-  Ke as CoreTitle,
-  dt as EmbedEditConfig,
-  pt as ImageEditConfig,
-  ft as LanguageNavigationEditConfig,
-  ht as NavigationEditConfig,
-  mt as TeaserEditConfig,
-  _t as TextEditConfig,
-  vt as TitleEditConfig
+  kt as CoreNavigation,
+  wt as CoreSeparator,
+  $t as CoreTeaser,
+  St as CoreText,
+  et as CoreTitle,
+  pt as EmbedEditConfig,
+  ft as ImageEditConfig,
+  ht as LanguageNavigationEditConfig,
+  mt as NavigationEditConfig,
+  vt as TeaserEditConfig,
+  bt as TextEditConfig,
+  _t as TitleEditConfig
 };

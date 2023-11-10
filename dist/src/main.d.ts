@@ -1,5 +1,6 @@
 export * from './components/CoreEditConfigs';
 export { default as CoreBreadcrumb } from './components/CoreBreadcrumb.vue';
+export { default as CoreButton } from './components/CoreButton.vue';
 export { default as CoreEmbed } from './components/CoreEmbed.vue';
 export { default as CoreImage } from './components/CoreImage.vue';
 export { default as CoreLanguageNavigation } from './components/CoreLanguageNavigation.vue';

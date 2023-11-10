@@ -29,6 +29,10 @@ interface BreadcrumbComponentProperties extends MappedComponentProperties {
     items: string | string[] | null;
 }
 export declare const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties>;
+interface ButtonComponentProperties extends MappedComponentProperties {
+    text: string | null;
+}
+export declare const ButtonEditConfig: EditConfig<ButtonComponentProperties>;
 interface EmbedComponentProperties extends MappedComponentProperties {
     result?: OEmbedResponse;
     html?: string;

@@ -42,6 +42,17 @@ export const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties> = {
   },
 };
 
+interface ButtonComponentProperties extends MappedComponentProperties {
+  text: string | null;
+}
+
+export const ButtonEditConfig: EditConfig<ButtonComponentProperties> = {
+  emptyLabel: 'Button',
+  isEmpty(props: { text: string | null }) {
+    return props.text == null || props.text.length === 0;
+  },
+};
+
 interface EmbedComponentProperties extends MappedComponentProperties {
   result?: OEmbedResponse;
   html?: string;

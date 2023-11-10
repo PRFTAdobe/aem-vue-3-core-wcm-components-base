@@ -1,4 +1,4 @@
-import { defineComponent as P, useAttrs as X, computed as _, openBlock as o, createElementBlock as h, mergeProps as q, unref as ae, renderSlot as ne, inject as O, normalizeClass as y, createElementVNode as Q, Fragment as M, renderList as oe, createBlock as w, resolveDynamicComponent as T, h as C, onMounted as Z, normalizeStyle as le, toDisplayString as D, createCommentVNode as L, ref as W, onUnmounted as be, watch as ce, withCtx as H, createTextVNode as Y, normalizeProps as ie, guardReactiveProps as _e, createVNode as ye, onUpdated as ge } from "vue";
+import { defineComponent as P, useAttrs as X, computed as _, openBlock as o, createElementBlock as h, mergeProps as q, unref as ae, renderSlot as ne, inject as O, normalizeClass as y, createElementVNode as Q, Fragment as M, renderList as oe, createBlock as w, resolveDynamicComponent as T, h as C, onMounted as Z, normalizeStyle as le, toDisplayString as B, createCommentVNode as S, ref as W, onUnmounted as be, watch as ce, withCtx as H, createTextVNode as Y, normalizeProps as ie, guardReactiveProps as _e, createVNode as ye, onUpdated as ge } from "vue";
 import { AuthoringUtils as k } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as N, componentClassNames as R } from "aem-vue-3-editable-components";
 import { useRoute as ue, useRouter as de } from "vue-router";
@@ -9,39 +9,44 @@ const ct = {
     return t.items == null || t.items.length === 0;
   }
 }, ut = {
+  emptyLabel: "Button",
+  isEmpty(t) {
+    return t.text == null || t.text.length === 0;
+  }
+}, dt = {
   emptyLabel: "Embed",
   isEmpty(t) {
     var s, n;
     let e = !1;
     return t.type === "URL" ? e = typeof t.url < "u" && typeof t.result < "u" && typeof ((s = t.result) == null ? void 0 : s.processor) < "u" : t.type === "EMBEDDABLE" ? e = typeof t.youTubeProps < "u" && typeof ((n = t.youTubeProps) == null ? void 0 : n.youtubeVideoId) < "u" : t.type === "HTML" && (e = !!t.html), !t || !e;
   }
-}, dt = {
+}, pt = {
   emptyLabel: "Image",
   isEmpty(t) {
     return !t || !t.src || t.src.trim().length < 1;
   }
-}, pt = {
+}, ft = {
   emptyLabel: "Language Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, ft = {
+}, ht = {
   emptyLabel: "Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, ht = {
+}, mt = {
   emptyLabel: "Teaser",
   isEmpty(t) {
     const e = (s) => (Array.isArray(s) ? s.length : s.trim().length) === 0;
     return (!t.imagePath || e(t.imagePath)) && (!t.pretitle || e(t.pretitle)) && (!t.title || e(t.title)) && (!t.description || e(t.description)) && (!t.actions || e(t.actions));
   }
-}, mt = {
+}, vt = {
   emptyLabel: "Title",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
   }
-}, vt = {
+}, bt = {
   emptyLabel: "Text",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
@@ -49,7 +54,7 @@ const ct = {
 }, Ce = ["href", "target"], Ee = {
   key: 1,
   class: "cmp-span"
-}, B = /* @__PURE__ */ P({
+}, D = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreLink",
   props: {
@@ -96,7 +101,7 @@ const ct = {
       ne(i.$slots, "default")
     ]));
   }
-}), we = ["id", "aria-label"], bt = /* @__PURE__ */ P({
+}), we = ["id", "aria-label"], _t = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreBreadcrumb",
   props: {
@@ -128,7 +133,7 @@ const ct = {
         return v && ($["aria-current"] = "page"), C("span", $, l);
       };
       let f = ((l) => C(
-        B,
+        D,
         {
           href: l.link.url,
           class: `${e.baseCssClass}__item-link`,
@@ -170,7 +175,7 @@ const ct = {
     ], 10, we));
   }
 });
-const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["innerHTML"], _t = /* @__PURE__ */ P({
+const ke = ["id"], $e = ["innerHTML"], Le = ["href"], Se = ["href"], Te = ["innerHTML"], yt = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreEmbed",
   props: {
@@ -201,8 +206,8 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
     const e = t, s = O("isInEditor", k.isInEditor()), n = (c, E, p = !0, d = "text/javascript") => new Promise((m, g) => {
       try {
         const b = document.createElement("script");
-        b.type = d, b.async = p, b.src = c, E && Object.keys(E).forEach((S) => {
-          b.dataset[S] = E[S];
+        b.type = d, b.async = p, b.src = c, E && Object.keys(E).forEach((L) => {
+          b.dataset[L] = E[L];
         }), b.addEventListener("load", () => {
           m({ status: !0 });
         }), b.addEventListener("error", () => {
@@ -228,14 +233,14 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
       }), c;
     }), u = () => {
       var A, I, V, ee, te, se;
-      const c = (A = e.youTubeProps) == null ? void 0 : A.youtubeVideoId, E = (I = e.youTubeProps) == null ? void 0 : I.youtubeAutoPlay, p = (V = e.youTubeProps) == null ? void 0 : V.youtubeLoop, d = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, m = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, g = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, b = `https://www.youtube.com/embed/${c}`, S = {
+      const c = (A = e.youTubeProps) == null ? void 0 : A.youtubeVideoId, E = (I = e.youTubeProps) == null ? void 0 : I.youtubeAutoPlay, p = (V = e.youTubeProps) == null ? void 0 : V.youtubeLoop, d = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, m = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, g = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, b = `https://www.youtube.com/embed/${c}`, L = {
         mute: `${+d}`,
         autoplay: `${+E}`,
         loop: `${+p}`,
         playlist: `${c}`,
         rel: `${+g}`,
         playsinline: `${+m}`
-      }, j = new URLSearchParams(S).toString();
+      }, j = new URLSearchParams(L).toString();
       return `${b}?${j}`;
     }, i = _(
       () => {
@@ -282,8 +287,8 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
       }
     });
     return Z(() => {
-      var g, b, S, j;
-      const c = ((g = e.result) == null ? void 0 : g.processor) === "pinterest", E = ((b = e.result) == null ? void 0 : b.processor) === "oembed" && ((j = (S = e.result) == null ? void 0 : S.options) == null ? void 0 : j.provider) === "Twitter";
+      var g, b, L, j;
+      const c = ((g = e.result) == null ? void 0 : g.processor) === "pinterest", E = ((b = e.result) == null ? void 0 : b.processor) === "oembed" && ((j = (L = e.result) == null ? void 0 : L.options) == null ? void 0 : j.provider) === "Twitter";
       let p = "//assets.pinterest.com/js/pinit.js";
       E && (p = "//platform.twitter.com/widgets.js");
       let d = document.querySelector(`script[src="${p}"]`), m = {};
@@ -321,16 +326,16 @@ const ke = ["id"], $e = ["innerHTML"], Se = ["href"], Le = ["href"], Te = ["inne
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, D(e.url), 9, Se)) : ((b = e.result) == null ? void 0 : b.processor) === "oembed" ? (o(), h(M, { key: 1 }, [
+          }, B(e.url), 9, Le)) : ((b = e.result) == null ? void 0 : b.processor) === "oembed" ? (o(), h(M, { key: 1 }, [
             l.value === "photo" ? (o(), w(T(f.value), { key: 0 })) : l.value === "link" ? (o(), h("a", {
               key: 1,
               href: v.value
-            }, D($.value), 9, Le)) : l.value === "video" || l.value === "rich" ? (o(), h("div", {
+            }, B($.value), 9, Se)) : l.value === "video" || l.value === "rich" ? (o(), h("div", {
               key: 2,
               innerHTML: x.value
-            }, null, 8, Te)) : L("", !0)
-          ], 64)) : L("", !0)
-        ], 64)) : L("", !0)
+            }, null, 8, Te)) : S("", !0)
+          ], 64)) : S("", !0)
+        ], 64)) : S("", !0)
       ], 10, ke);
     };
   }
@@ -482,11 +487,11 @@ function Me(t) {
   }
   return s;
 }
-function De(t) {
+function Be(t) {
   var e = t.getBBox();
   return G(0, 0, e.width, e.height);
 }
-function Be(t) {
+function De(t) {
   var e = t.clientWidth, s = t.clientHeight;
   if (!e && !s)
     return he;
@@ -508,7 +513,7 @@ function je(t) {
   return t === z(t).document.documentElement;
 }
 function qe(t) {
-  return J ? ze(t) ? De(t) : Be(t) : he;
+  return J ? ze(t) ? Be(t) : De(t) : he;
 }
 function He(t) {
   var e = t.x, s = t.y, n = t.width, r = t.height, a = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, u = Object.create(a.prototype);
@@ -723,7 +728,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
           var g;
           if (d.status >= 200 && d.status < 400) {
             let b;
-            const { responseText: S } = d, A = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(S);
+            const { responseText: L } = d, A = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(L);
             if (A && A.length >= 2) {
               const I = A[2];
               /^{[\s\S]*}$/gim.test(I) && (b = JSON.parse(I));
@@ -786,7 +791,7 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
         style: le(i.value)
       }, [
         a.value ? (o(), h(M, { key: 0 }, [
-          (m = e.imageLink) != null && m.url ? (o(), w(B, q({
+          (m = e.imageLink) != null && m.url ? (o(), w(D, q({
             key: 0,
             class: `${e.baseCssClass}__link`,
             href: e.imageLink.url
@@ -796,12 +801,12 @@ const Ve = ["id"], Ye = /* @__PURE__ */ P({
             ]),
             _: 1
           }, 16, ["class", "href"])) : (o(), w(T(l.value), { key: a.value }))
-        ], 64)) : L("", !0)
+        ], 64)) : S("", !0)
       ], 14, Ve);
     };
   }
 });
-const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
+const Je = ["id", "aria-label"], gt = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreLanguageNavigation",
   props: {
@@ -838,7 +843,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
           [i.title]
         );
         return i.level > 0 && (f = C(
-          B,
+          D,
           {
             "aria-current": `${i.active ? "page" : !1}`,
             class: `${e.baseCssClass}__item-link`,
@@ -885,7 +890,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       (o(), w(T(r(e.items))))
     ], 10, Je));
   }
-}), Xe = ["id", "aria-label"], gt = /* @__PURE__ */ P({
+}), Xe = ["id", "aria-label"], Ct = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreNavigation",
   props: {
@@ -926,7 +931,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
           },
           [
             C(
-              B,
+              D,
               {
                 "aria-current": `${i.active ? "page" : !1}`,
                 class: `${e.baseCssClass}__item-link`,
@@ -953,7 +958,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       (o(), w(T(r(e.items))))
     ], 10, Xe));
   }
-}), Qe = ["id"], Ct = /* @__PURE__ */ P({
+}), Qe = ["id"], Et = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreSeparator",
   props: {
@@ -1033,17 +1038,17 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
         default: H(() => {
           var $, x;
           return [
-            u.value ? (o(), w(B, q({
+            u.value ? (o(), w(D, q({
               key: 0,
               class: `${l.baseCssClass}${i.value}link`,
               href: (($ = e.link) == null ? void 0 : $.url) || f.value
             }, (x = e.link) == null ? void 0 : x.attributes), {
               default: H(() => [
-                Y(D(t.text), 1)
+                Y(B(t.text), 1)
               ]),
               _: 1
             }, 16, ["class", "href"])) : (o(), h(M, { key: 1 }, [
-              Y(D(t.text), 1)
+              Y(B(t.text), 1)
             ], 64))
           ];
         }),
@@ -1051,7 +1056,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       }, 8, ["class"]))
     ], 10, Ze));
   }
-}), et = ["id"], tt = ["innerHTML"], Et = /* @__PURE__ */ P({
+}), et = ["id"], tt = ["innerHTML"], wt = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreTeaser",
   props: {
@@ -1122,7 +1127,7 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
       id: e.id,
       class: y(n.value)
     }, [
-      (o(), w(T(e.link ? B : "section"), ie(_e(e.link ? r.value : !1)), {
+      (o(), w(T(e.link ? D : "section"), ie(_e(e.link ? r.value : !1)), {
         default: H(() => [
           e.pretitle || e.title || e.description ? (o(), h("div", {
             key: 0,
@@ -1131,18 +1136,18 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
             e.pretitle ? (o(), h("p", {
               key: 0,
               class: y(`${e.baseCssClass}__pretitle`)
-            }, D(e.pretitle), 3)) : L("", !0),
-            e.title ? (o(), w(Ke, ie(q({ key: 1 }, a.value)), null, 16)) : L("", !0),
+            }, B(e.pretitle), 3)) : S("", !0),
+            e.title ? (o(), w(Ke, ie(q({ key: 1 }, a.value)), null, 16)) : S("", !0),
             e.description ? (o(), h("div", {
               key: 2,
               class: y(`${e.baseCssClass}__description`),
               innerHTML: `${u(e.description)}`
-            }, null, 10, tt)) : L("", !0),
+            }, null, 10, tt)) : S("", !0),
             e.actions && e.actions.length > 0 ? (o(), h("div", {
               key: 3,
               class: y(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), h(M, null, oe(e.actions, (l, v) => (o(), w(B, q({
+              (o(!0), h(M, null, oe(e.actions, (l, v) => (o(), w(D, q({
                 id: l.id,
                 key: `link-${v}`,
                 class: `${e.baseCssClass}__action-link`,
@@ -1150,12 +1155,12 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
                 title: l.title
               }, l.link.attributes), {
                 default: H(() => [
-                  Y(D(l.title), 1)
+                  Y(B(l.title), 1)
                 ]),
                 _: 2
               }, 1040, ["id", "class", "href", "title"]))), 128))
-            ], 2)) : L("", !0)
-          ], 2)) : L("", !0),
+            ], 2)) : S("", !0)
+          ], 2)) : S("", !0),
           e.imagePath ? (o(), h("div", {
             key: 1,
             class: y(`${e.baseCssClass}__image`)
@@ -1166,14 +1171,14 @@ const Je = ["id", "aria-label"], yt = /* @__PURE__ */ P({
               src: e.imagePath,
               width: "100%"
             }, null, 8, ["alt", "is-in-editor", "src"])
-          ], 2)) : L("", !0)
+          ], 2)) : S("", !0)
         ]),
         _: 1
       }, 16))
     ], 10, et));
   }
 });
-const st = ["id", "innerHTML"], nt = ["id"], wt = /* @__PURE__ */ P({
+const st = ["id", "innerHTML"], nt = ["id"], kt = /* @__PURE__ */ P({
   inheritAttrs: !1,
   __name: "CoreText",
   props: {
@@ -1235,27 +1240,28 @@ const st = ["id", "innerHTML"], nt = ["id"], wt = /* @__PURE__ */ P({
     }, [
       Q("p", {
         class: y(`${e.baseCssClass}__paragraph`)
-      }, D(e.text), 3)
+      }, B(e.text), 3)
     ], 10, nt));
   }
 });
 export {
   ct as BreadcrumbEditConfig,
-  bt as CoreBreadcrumb,
-  _t as CoreEmbed,
+  ut as ButtonEditConfig,
+  _t as CoreBreadcrumb,
+  yt as CoreEmbed,
   Ye as CoreImage,
-  yt as CoreLanguageNavigation,
-  B as CoreLink,
-  gt as CoreNavigation,
-  Ct as CoreSeparator,
-  Et as CoreTeaser,
-  wt as CoreText,
+  gt as CoreLanguageNavigation,
+  D as CoreLink,
+  Ct as CoreNavigation,
+  Et as CoreSeparator,
+  wt as CoreTeaser,
+  kt as CoreText,
   Ke as CoreTitle,
-  ut as EmbedEditConfig,
-  dt as ImageEditConfig,
-  pt as LanguageNavigationEditConfig,
-  ft as NavigationEditConfig,
-  ht as TeaserEditConfig,
-  vt as TextEditConfig,
-  mt as TitleEditConfig
+  dt as EmbedEditConfig,
+  pt as ImageEditConfig,
+  ft as LanguageNavigationEditConfig,
+  ht as NavigationEditConfig,
+  mt as TeaserEditConfig,
+  bt as TextEditConfig,
+  vt as TitleEditConfig
 };

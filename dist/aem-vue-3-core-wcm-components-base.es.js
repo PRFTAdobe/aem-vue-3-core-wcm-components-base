@@ -59,7 +59,7 @@ const ft = {
 }, Ee = ["href", "target"], ke = {
   key: 1,
   class: "cmp-span"
-}, D = /* @__PURE__ */ O({
+}, B = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreLink",
   props: {
@@ -138,7 +138,7 @@ const ft = {
         return b && (T["aria-current"] = "page"), E("span", T, c);
       };
       let h = ((c) => E(
-        D,
+        B,
         {
           href: c.link.url,
           class: `${e.baseCssClass}__item-link`,
@@ -227,7 +227,7 @@ const we = ["type"], $t = /* @__PURE__ */ O({
       e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(a);
     };
     return (a, l) => e.text ? (o(), p(M, { key: 0 }, [
-      e.link ? (o(), C(D, {
+      e.link ? (o(), C(B, {
         key: 0,
         "aria-label": e.ariaLabel,
         class: d(n.value.join(" ")),
@@ -343,7 +343,7 @@ const Se = ["id"], xe = ["innerHTML"], wt = /* @__PURE__ */ O({
         class: d(`${e.baseCssClass}__title`)
       }, {
         default: j(() => [
-          e.url || e.handleOnClick ? (o(), C(D, {
+          e.url || e.handleOnClick ? (o(), C(B, {
             key: 0,
             class: d(`${e.baseCssClass}__title-link`),
             href: e.url || "#",
@@ -472,8 +472,8 @@ const Le = ["id"], Oe = ["innerHTML"], Te = ["href"], Pe = ["href"], Ne = ["inne
         "cq-dd-embed": s || !1
       }), u;
     }), l = () => {
-      var B, z, J, ee, te, se;
-      const u = (B = e.youTubeProps) == null ? void 0 : B.youtubeVideoId, w = (z = e.youTubeProps) == null ? void 0 : z.youtubeAutoPlay, m = (J = e.youTubeProps) == null ? void 0 : J.youtubeLoop, f = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, y = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, k = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, v = `https://www.youtube.com/embed/${u}`, A = {
+      var D, z, J, ee, te, se;
+      const u = (D = e.youTubeProps) == null ? void 0 : D.youtubeVideoId, w = (z = e.youTubeProps) == null ? void 0 : z.youtubeAutoPlay, m = (J = e.youTubeProps) == null ? void 0 : J.youtubeLoop, f = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, y = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, k = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, v = `https://www.youtube.com/embed/${u}`, A = {
         mute: `${+f}`,
         autoplay: `${+w}`,
         loop: `${+m}`,
@@ -534,13 +534,13 @@ const Le = ["id"], Oe = ["innerHTML"], Te = ["href"], Pe = ["href"], Ne = ["inne
       let f = document.querySelector(`script[src="${m}"]`), y = {};
       u && (y = {
         pinBuild: "doBuild"
-      }), f ? f.dataset.loaded === "true" ? typeof window.doBuild == "function" && window.doBuild() : f.addEventListener("load", () => {
+      }), f ? f.dataset.loaded === "true" ? (console.debug("Processor Script found!  Running doBuild"), typeof window.doBuild == "function" && window.doBuild()) : (console.debug("Processor Script loading!  Loading and running doBuild"), f.addEventListener("load", () => {
         typeof window.doBuild == "function" && window.doBuild();
-      }) : n(m, y).then(() => {
-        typeof window.doBuild == "function" && window.doBuild(), f = document.querySelector(`script[src="${m}"]`), f.dataset.loaded = (!0).toString();
-      }).catch((B) => {
-        console.error(B);
-      });
+      })) : (console.debug("Processor Script not found!  Running loadScript"), n(m, y).then(() => {
+        console.debug("Processor Script loaded!  Running doBuild"), typeof window.doBuild == "function" && window.doBuild(), f = document.querySelector(`script[src="${m}"]`), f.dataset.loaded = (!0).toString();
+      }).catch((D) => {
+        console.error(D);
+      }));
     }), (u, w) => {
       var m, f, y, k, v;
       return o(), p("div", {
@@ -655,7 +655,7 @@ function Ie(t, e) {
   }
   return i;
 }
-var Me = 20, De = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Be = typeof MutationObserver < "u", ze = (
+var Me = 20, Be = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], De = typeof MutationObserver < "u", ze = (
   /** @class */
   function() {
     function t() {
@@ -677,7 +677,7 @@ var Me = 20, De = ["top", "right", "bottom", "left", "width", "height", "size", 
         return s.broadcastActive();
       }), e.length > 0;
     }, t.prototype.connect_ = function() {
-      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Be ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
+      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), De ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
         attributes: !0,
         childList: !0,
         characterData: !0,
@@ -686,7 +686,7 @@ var Me = 20, De = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, t.prototype.disconnect_ = function() {
       !X || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, t.prototype.onTransitionEnd_ = function(e) {
-      var s = e.propertyName, n = s === void 0 ? "" : s, r = De.some(function(a) {
+      var s = e.propertyName, n = s === void 0 ? "" : s, r = Be.some(function(a) {
         return !!~n.indexOf(a);
       });
       r && this.refresh();
@@ -968,9 +968,9 @@ const Qe = ["id"], Ze = /* @__PURE__ */ O({
           var k;
           if (f.status >= 200 && f.status < 400) {
             let v;
-            const { responseText: A } = f, B = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(A);
-            if (B && B.length >= 2) {
-              const z = B[2];
+            const { responseText: A } = f, D = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(A);
+            if (D && D.length >= 2) {
+              const z = D[2];
               /^{[\s\S]*}$/gim.test(z) && (v = JSON.parse(z));
             }
             v && ((k = v.set) != null && k.relation) && Array.isArray(v.set.relation) && v.set.relation.forEach(
@@ -1031,7 +1031,7 @@ const Qe = ["id"], Ze = /* @__PURE__ */ O({
         style: le(i.value)
       }, [
         a.value ? (o(), p(M, { key: 0 }, [
-          (y = e.imageLink) != null && y.url ? (o(), C(D, W({
+          (y = e.imageLink) != null && y.url ? (o(), C(B, W({
             key: 0,
             class: `${e.baseCssClass}__link`,
             href: e.imageLink.url
@@ -1083,7 +1083,7 @@ const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
           [i.title]
         );
         return i.level > 0 && (h = E(
-          D,
+          B,
           {
             "aria-current": `${i.active ? "page" : !1}`,
             class: `${e.baseCssClass}__item-link`,
@@ -1171,7 +1171,7 @@ const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
           },
           [
             E(
-              D,
+              B,
               {
                 "aria-current": `${i.active ? "page" : !1}`,
                 class: `${e.baseCssClass}__item-link`,
@@ -1278,7 +1278,7 @@ const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
         default: j(() => {
           var T, I;
           return [
-            l.value ? (o(), C(D, W({
+            l.value ? (o(), C(B, W({
               key: 0,
               class: `${c.baseCssClass}${i.value}link`,
               href: ((T = e.link) == null ? void 0 : T.url) || h.value
@@ -1367,7 +1367,7 @@ const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
       id: e.id,
       class: d(n.value)
     }, [
-      (o(), C(x(e.link ? D : "section"), ie(be(e.link ? r.value : !1)), {
+      (o(), C(x(e.link ? B : "section"), ie(be(e.link ? r.value : !1)), {
         default: j(() => [
           e.pretitle || e.title || e.description ? (o(), p("div", {
             key: 0,
@@ -1387,7 +1387,7 @@ const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
               key: 3,
               class: d(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), p(M, null, oe(e.actions, (c, b) => (o(), C(D, W({
+              (o(!0), p(M, null, oe(e.actions, (c, b) => (o(), C(B, W({
                 id: c.id,
                 key: `link-${b}`,
                 class: `${e.baseCssClass}__action-link`,
@@ -1493,7 +1493,7 @@ export {
   St as CoreEmbed,
   Ze as CoreImage,
   xt as CoreLanguageNavigation,
-  D as CoreLink,
+  B as CoreLink,
   Lt as CoreNavigation,
   Ot as CoreSeparator,
   Tt as CoreTeaser,

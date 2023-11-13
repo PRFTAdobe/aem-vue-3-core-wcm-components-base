@@ -238,8 +238,10 @@
     }
 
     if (!processorScript) {
+      console.debug('Processor Script not found!  Running loadScript');
       loadScript(url, dataset)
         .then(() => {
+          console.debug('Processor Script loaded!  Running doBuild');
           if (typeof window.doBuild === 'function') {
             window.doBuild();
           }
@@ -253,10 +255,12 @@
     } else if (
       (processorScript as HTMLScriptElement).dataset.loaded === 'true'
     ) {
+      console.debug('Processor Script found!  Running doBuild');
       if (typeof window.doBuild === 'function') {
         window.doBuild();
       }
     } else {
+      console.debug('Processor Script loading!  Loading and running doBuild');
       processorScript.addEventListener('load', () => {
         if (typeof window.doBuild === 'function') {
           window.doBuild();

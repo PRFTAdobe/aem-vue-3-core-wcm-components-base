@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import DOMPurify from 'dompurify';
-  import { computed, h, inject, onMounted, PropType } from 'vue';
+  import { computed, h, inject, onMounted, onUpdated, PropType } from 'vue';
   import {
     componentClassNames,
     componentProperties,
@@ -218,7 +218,7 @@
     return undefined;
   });
 
-  onMounted(() => {
+  const executeProcessorScript = () => {
     const isPinterest = props.result?.processor === 'pinterest';
     const isTwitter =
       props.result?.processor === 'oembed' &&
@@ -267,7 +267,15 @@
         }
       });
     }
+  };
+
+  onMounted(() => {
+    executeProcessorScript();
   });
+
+  onUpdated(() => {
+    executeProcessorScript();
+  })
 
   defineOptions({
     inheritAttrs: false,

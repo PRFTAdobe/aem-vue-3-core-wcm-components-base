@@ -31,6 +31,7 @@
         "src/*"
       ]
     },
+    "rootDir": ".",
     "types": [
       "@types/jest",
       "@types/node"

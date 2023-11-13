@@ -1,60 +1,65 @@
-import { defineComponent as L, useAttrs as Q, computed as _, openBlock as o, createElementBlock as f, mergeProps as H, unref as ae, renderSlot as ne, inject as P, normalizeClass as v, createElementVNode as W, Fragment as B, renderList as oe, createBlock as E, resolveDynamicComponent as T, h as C, withCtx as z, createCommentVNode as $, toDisplayString as A, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as _e, watch as ce, createTextVNode as J, normalizeProps as ie, guardReactiveProps as be, createVNode as ye, onUpdated as ge } from "vue";
-import { AuthoringUtils as w } from "@adobe/aem-spa-page-model-manager";
-import { componentProperties as O, componentClassNames as N } from "aem-vue-3-editable-components";
+import { defineComponent as O, useAttrs as Q, computed as _, openBlock as o, createElementBlock as p, mergeProps as W, unref as ae, renderSlot as ne, inject as L, normalizeClass as d, createElementVNode as P, Fragment as M, renderList as oe, createBlock as C, resolveDynamicComponent as x, h as E, withCtx as j, createCommentVNode as g, toDisplayString as S, createTextVNode as F, onMounted as Z, normalizeStyle as le, ref as U, onUnmounted as ye, watch as ce, normalizeProps as ie, guardReactiveProps as be, createVNode as ve, onUpdated as ge } from "vue";
+import { AuthoringUtils as $ } from "@adobe/aem-spa-page-model-manager";
+import { componentProperties as N, componentClassNames as R, ComponentMapping as Ce } from "aem-vue-3-editable-components";
 import { useRoute as ue, useRouter as de } from "vue-router";
 import K from "dompurify";
-const ut = {
+const ft = {
   emptyLabel: "Breadcrumb",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, dt = {
+}, ht = {
   emptyLabel: "Button",
   isEmpty(t) {
     return t.text == null || t.text.length === 0;
   }
-}, pt = {
+}, mt = {
+  emptyLabel: "Download",
+  isEmpty(t) {
+    return (typeof t.url > "u" || t.url === null || t.url.length === 0) && (typeof t.handleOnClick > "u" || t.handleOnClick === null);
+  }
+}, _t = {
   emptyLabel: "Embed",
   isEmpty(t) {
     var s, n;
     let e = !1;
     return t.type === "URL" ? e = typeof t.url < "u" && typeof t.result < "u" && typeof ((s = t.result) == null ? void 0 : s.processor) < "u" : t.type === "EMBEDDABLE" ? e = typeof t.youTubeProps < "u" && typeof ((n = t.youTubeProps) == null ? void 0 : n.youtubeVideoId) < "u" : t.type === "HTML" && (e = !!t.html), !t || !e;
   }
-}, ft = {
+}, yt = {
   emptyLabel: "Image",
   isEmpty(t) {
     return !t || !t.src || t.src.trim().length < 1;
   }
-}, ht = {
+}, bt = {
   emptyLabel: "Language Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, mt = {
+}, vt = {
   emptyLabel: "Navigation",
   isEmpty(t) {
     return t.items == null || t.items.length === 0;
   }
-}, vt = {
+}, gt = {
   emptyLabel: "Teaser",
   isEmpty(t) {
     const e = (s) => (Array.isArray(s) ? s.length : s.trim().length) === 0;
     return (!t.imagePath || e(t.imagePath)) && (!t.pretitle || e(t.pretitle)) && (!t.title || e(t.title)) && (!t.description || e(t.description)) && (!t.actions || e(t.actions));
   }
-}, _t = {
+}, Ct = {
   emptyLabel: "Title",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
   }
-}, bt = {
+}, Et = {
   emptyLabel: "Text",
   isEmpty(t) {
     return !t || !t.text || t.text.trim().length < 1;
   }
-}, Ce = ["href", "target"], Ee = {
+}, Ee = ["href", "target"], ke = {
   key: 1,
   class: "cmp-span"
-}, D = /* @__PURE__ */ L({
+}, D = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreLink",
   props: {
@@ -86,22 +91,22 @@ const ut = {
       return n.path && typeof n.path < "u" && n.path === e.href && i.push("cmp-link--active"), i;
     }), l = (i) => {
       const h = r.getRoutes().map((c) => c.path);
-      !w.isEditMode() && !w.isPreviewMode() && e.target !== "_blank" && h.includes(e.href) && (i.preventDefault(), r.push({
+      !$.isEditMode() && !$.isPreviewMode() && e.target !== "_blank" && h.includes(e.href) && (i.preventDefault(), r.push({
         path: e.href
       }));
     };
-    return (i, h) => e.navigable ? (o(), f("a", H({
+    return (i, h) => e.navigable ? (o(), p("a", W({
       key: 0,
       class: a.value,
       href: e.href,
       target: e.target
     }, { ...ae(s) }, { onClick: l }), [
       ne(i.$slots, "default")
-    ], 16, Ce)) : (o(), f("span", Ee, [
+    ], 16, Ee)) : (o(), p("span", ke, [
       ne(i.$slots, "default")
     ]));
   }
-}), ke = ["id", "aria-label"], yt = /* @__PURE__ */ L({
+}), $e = ["id", "aria-label"], kt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreBreadcrumb",
   props: {
@@ -113,11 +118,11 @@ const ut = {
     items: {
       type: Array
     },
-    ...O("cmp-breadcrumb")
+    ...N("cmp-breadcrumb")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
-      () => N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -127,12 +132,12 @@ const ut = {
       )
     ), r = (a) => {
       const l = (c, b = !1) => {
-        const S = {
+        const T = {
           itemProp: "name"
         };
-        return b && (S["aria-current"] = "page"), C("span", S, c);
+        return b && (T["aria-current"] = "page"), E("span", T, c);
       };
-      let h = ((c) => C(
+      let h = ((c) => E(
         D,
         {
           href: c.link.url,
@@ -142,7 +147,7 @@ const ut = {
         },
         () => l(c.title)
       ))(a);
-      return a.active && (h = l(a.title, !0)), C(
+      return a.active && (h = l(a.title, !0)), E(
         "li",
         {
           class: [
@@ -158,24 +163,24 @@ const ut = {
         h
       );
     };
-    return (a, l) => (o(), f("nav", {
+    return (a, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.ariaLabel,
-      class: v(n.value)
+      class: d(n.value)
     }, [
-      W("ol", {
-        class: v(`${e.baseCssClass}__list`),
+      P("ol", {
+        class: d(`${e.baseCssClass}__list`),
         itemScope: "true",
         itemType: "http://schema.org/BreadcrumbList"
       }, [
-        (o(!0), f(B, null, oe(e.items, (i) => (o(), E(T(r(i)), {
+        (o(!0), p(M, null, oe(e.items, (i) => (o(), C(x(r(i)), {
           key: i.toString()
         }))), 128))
       ], 2)
-    ], 10, ke));
+    ], 10, $e));
   }
 });
-const we = ["type"], gt = /* @__PURE__ */ L({
+const we = ["type"], $t = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreButton",
   props: {
@@ -206,11 +211,11 @@ const we = ["type"], gt = /* @__PURE__ */ L({
         return ["submit", "reset", "button"].includes(t);
       }
     },
-    ...O("cmp-button")
+    ...N("cmp-button")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
-      () => N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -221,42 +226,196 @@ const we = ["type"], gt = /* @__PURE__ */ L({
     ), r = (a) => {
       e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(a);
     };
-    return (a, l) => e.text ? (o(), f(B, { key: 0 }, [
-      e.link ? (o(), E(D, {
+    return (a, l) => e.text ? (o(), p(M, { key: 0 }, [
+      e.link ? (o(), C(D, {
         key: 0,
         "aria-label": e.ariaLabel,
-        class: v(n.value.join(" ")),
+        class: d(n.value.join(" ")),
         href: e.link,
         onClick: r
       }, {
-        default: z(() => [
-          e.icon ? (o(), f("span", {
+        default: j(() => [
+          e.icon ? (o(), p("span", {
             key: 0,
-            class: v(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
-          }, null, 2)) : $("", !0),
-          W("span", {
-            class: v(`${e.baseCssClass}__text`)
-          }, A(e.text), 3)
+            class: d(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
+          }, null, 2)) : g("", !0),
+          P("span", {
+            class: d(`${e.baseCssClass}__text`)
+          }, S(e.text), 3)
         ]),
         _: 1
-      }, 8, ["aria-label", "class", "href"])) : (o(), f("button", {
+      }, 8, ["aria-label", "class", "href"])) : (o(), p("button", {
         key: 1,
-        class: v(n.value),
+        class: d(n.value),
         type: e.type,
         onClick: r
       }, [
-        e.icon ? (o(), f("span", {
+        e.icon ? (o(), p("span", {
           key: 0,
-          class: v(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
-        }, null, 2)) : $("", !0),
-        W("span", {
-          class: v(`${e.baseCssClass}__text`)
-        }, A(e.text), 3)
+          class: d(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
+        }, null, 2)) : g("", !0),
+        P("span", {
+          class: d(`${e.baseCssClass}__text`)
+        }, S(e.text), 3)
       ], 10, we))
-    ], 64)) : $("", !0);
+    ], 64)) : g("", !0);
   }
 });
-const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["innerHTML"], Ct = /* @__PURE__ */ L({
+const Se = ["id"], xe = ["innerHTML"], wt = /* @__PURE__ */ O({
+  inheritAttrs: !1,
+  __name: "CoreDownload",
+  props: {
+    actionText: {
+      type: String,
+      default: "Download"
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    description: {
+      type: String
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    extension: {
+      type: String
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    filename: {
+      type: String
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    format: {
+      type: String
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    handleOnClick: {
+      type: Function
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    size: {
+      type: String
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    title: {
+      type: String
+    },
+    titleType: {
+      type: String,
+      default: "h3"
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    url: {
+      type: String
+    },
+    ...N("cmp-download")
+  },
+  setup(t) {
+    const e = t, s = L("isInEditor", $.isInEditor()), n = L("componentMapping", new Ce()), r = _(() => {
+      const h = R(
+        e.baseCssClass,
+        e.appliedCssClassNames,
+        e.cssClassNames,
+        e.containerProps,
+        s,
+        e.aemNoDecoration
+      );
+      return s && h.push("cq-dd-file"), h;
+    }), a = _(
+      () => !(e.url && e.url.length > 0) || e.handleOnClick && typeof e.handleOnClick == "function"
+    ), l = _(() => {
+      const h = n.get(
+        "stanley/components/button"
+      );
+      return E(h, {
+        class: `${e.baseCssClass}__action`,
+        link: e.url || "#",
+        handleOnClick: e.handleOnClick,
+        text: e.actionText
+      });
+    }), i = (h) => {
+      e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(h);
+    };
+    return (h, c) => a.value ? g("", !0) : (o(), p("div", {
+      key: 0,
+      id: e.id,
+      class: d(r.value)
+    }, [
+      e.title ? (o(), C(x(e.titleType), {
+        key: 0,
+        class: d(`${e.baseCssClass}__title`)
+      }, {
+        default: j(() => [
+          e.url || e.handleOnClick ? (o(), C(D, {
+            key: 0,
+            class: d(`${e.baseCssClass}__title-link`),
+            href: e.url || "#",
+            onClick: i
+          }, {
+            default: j(() => [
+              F(S(e.title), 1)
+            ]),
+            _: 1
+          }, 8, ["class", "href"])) : (o(), p(M, { key: 1 }, [
+            F(S(e.title), 1)
+          ], 64))
+        ]),
+        _: 1
+      }, 8, ["class"])) : g("", !0),
+      e.description ? (o(), p("div", {
+        key: 1,
+        class: d(`${e.baseCssClass}__description`),
+        innerHTML: e.description
+      }, null, 10, xe)) : g("", !0),
+      e.filename || e.size || e.format ? (o(), p("dl", {
+        key: 2,
+        class: d(`${e.baseCssClass}__properties`)
+      }, [
+        e.filename ? (o(), p("div", {
+          key: 0,
+          class: d([
+            `${e.baseCssClass}__property`,
+            `${e.baseCssClass}__property--filename`
+          ])
+        }, [
+          P("dt", {
+            class: d(`${e.baseCssClass}__property-label`)
+          }, "Filename", 2),
+          P("dd", {
+            class: d(`${e.baseCssClass}__property-content`)
+          }, S(e.filename), 3)
+        ], 2)) : g("", !0),
+        e.size ? (o(), p("div", {
+          key: 1,
+          class: d([
+            `${e.baseCssClass}__property`,
+            `${e.baseCssClass}__property--size`
+          ])
+        }, [
+          P("dt", {
+            class: d(`${e.baseCssClass}__property-label`)
+          }, "Size", 2),
+          P("dd", {
+            class: d(`${e.baseCssClass}__property-content`)
+          }, S(e.size), 3)
+        ], 2)) : g("", !0),
+        e.format ? (o(), p("div", {
+          key: 2,
+          class: d([
+            `${e.baseCssClass}__property`,
+            `${e.baseCssClass}__property--format`
+          ])
+        }, [
+          P("dt", {
+            class: d(`${e.baseCssClass}__property-label`)
+          }, "Format", 2),
+          P("dd", {
+            class: d(`${e.baseCssClass}__property-content`)
+          }, S(e.format), 3)
+        ], 2)) : g("", !0)
+      ], 2)) : g("", !0),
+      (o(), C(x(l.value)))
+    ], 10, Se));
+  }
+});
+const Le = ["id"], Oe = ["innerHTML"], Te = ["href"], Pe = ["href"], Ne = ["innerHTML"], St = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreEmbed",
   props: {
@@ -281,27 +440,27 @@ const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["inne
       type: Object,
       default: () => ({})
     },
-    ...O("cmp-embed")
+    ...N("cmp-embed")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = (u, k, p = !0, d = "text/javascript") => new Promise((m, g) => {
+    const e = t, s = L("isInEditor", $.isInEditor()), n = (u, w, m = !0, f = "text/javascript") => new Promise((y, k) => {
       try {
-        const y = document.createElement("script");
-        y.type = d, y.async = p, y.src = u, k && Object.keys(k).forEach((x) => {
-          y.dataset[x] = k[x];
-        }), y.addEventListener("load", () => {
-          m({ status: !0 });
-        }), y.addEventListener("error", () => {
-          g({
+        const v = document.createElement("script");
+        v.type = f, v.async = m, v.src = u, w && Object.keys(w).forEach((A) => {
+          v.dataset[A] = w[A];
+        }), v.addEventListener("load", () => {
+          y({ status: !0 });
+        }), v.addEventListener("error", () => {
+          k({
             status: !1,
             message: "Failed to load the script ＄{FILE_URL}"
           });
-        }), document.body.appendChild(y);
-      } catch (y) {
-        g(y);
+        }), document.body.appendChild(v);
+      } catch (v) {
+        k(v);
       }
     }), r = (u) => K.sanitize(u), a = _(() => {
-      const u = N(
+      const u = R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -313,28 +472,28 @@ const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["inne
         "cq-dd-embed": s || !1
       }), u;
     }), l = () => {
-      var I, M, Y, ee, te, se;
-      const u = (I = e.youTubeProps) == null ? void 0 : I.youtubeVideoId, k = (M = e.youTubeProps) == null ? void 0 : M.youtubeAutoPlay, p = (Y = e.youTubeProps) == null ? void 0 : Y.youtubeLoop, d = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, m = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, g = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, y = `https://www.youtube.com/embed/${u}`, x = {
-        mute: `${+d}`,
-        autoplay: `${+k}`,
-        loop: `${+p}`,
+      var B, z, J, ee, te, se;
+      const u = (B = e.youTubeProps) == null ? void 0 : B.youtubeVideoId, w = (z = e.youTubeProps) == null ? void 0 : z.youtubeAutoPlay, m = (J = e.youTubeProps) == null ? void 0 : J.youtubeLoop, f = (ee = e.youTubeProps) == null ? void 0 : ee.youtubeMute, y = (te = e.youTubeProps) == null ? void 0 : te.youtubePlaysInline, k = (se = e.youTubeProps) == null ? void 0 : se.youtubeRel, v = `https://www.youtube.com/embed/${u}`, A = {
+        mute: `${+f}`,
+        autoplay: `${+w}`,
+        loop: `${+m}`,
         playlist: `${u}`,
-        rel: `${+g}`,
-        playsinline: `${+m}`
-      }, q = new URLSearchParams(x).toString();
-      return `${y}?${q}`;
+        rel: `${+k}`,
+        playsinline: `${+y}`
+      }, H = new URLSearchParams(A).toString();
+      return `${v}?${H}`;
     }, i = _(
       () => {
-        var u, k, p, d, m;
-        return C("iFrame", {
+        var u, w, m, f, y;
+        return E("iFrame", {
           type: "text/html",
-          width: ((u = e.youTubeProps) == null ? void 0 : u.layout) === "responsive" ? "100%" : (k = e.youTubeProps) == null ? void 0 : k.youtubeWidth,
-          height: ((p = e.youTubeProps) == null ? void 0 : p.layout) === "responsive" ? "100%" : (d = e.youTubeProps) == null ? void 0 : d.youtubeHeight,
+          width: ((u = e.youTubeProps) == null ? void 0 : u.layout) === "responsive" ? "100%" : (w = e.youTubeProps) == null ? void 0 : w.youtubeWidth,
+          height: ((m = e.youTubeProps) == null ? void 0 : m.layout) === "responsive" ? "100%" : (f = e.youTubeProps) == null ? void 0 : f.youtubeHeight,
           src: l(),
           frameborder: 0,
           class: `${e.baseCssClass}__embeddable-iframe`,
           allowfullscreen: !0,
-          allow: (m = e.youTubeProps) != null && m.youtubeAutoPlay ? "autoplay; fullscreen;" : "fullscreen;",
+          allow: (y = e.youTubeProps) != null && y.youtubeAutoPlay ? "autoplay; fullscreen;" : "fullscreen;",
           title: "YouTube Video",
           ariaLabel: "YouTube Video"
         });
@@ -342,14 +501,14 @@ const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["inne
     ), h = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
-        return C("img", {
+        return E("img", {
           title: u == null ? void 0 : u.title,
           width: u == null ? void 0 : u.width,
           height: u == null ? void 0 : u.height,
           src: u == null ? void 0 : u.url
         });
       }
-      return C("img");
+      return E("img");
     }), c = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
@@ -358,66 +517,66 @@ const $e = ["id"], Se = ["innerHTML"], Le = ["href"], xe = ["href"], Te = ["inne
     }), b = _(() => {
       if (e.result && e.result.options && e.result.options.response)
         return e.result.options.response.url;
-    }), S = _(() => {
+    }), T = _(() => {
       if (e.result && e.result.options && e.result.options.response)
         return e.result.options.response.title;
-    }), R = _(() => {
+    }), I = _(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: u } = e.result.options;
         return u.html;
       }
     });
     return Z(() => {
-      var g, y, x, q;
-      const u = ((g = e.result) == null ? void 0 : g.processor) === "pinterest", k = ((y = e.result) == null ? void 0 : y.processor) === "oembed" && ((q = (x = e.result) == null ? void 0 : x.options) == null ? void 0 : q.provider) === "Twitter";
-      let p = "//assets.pinterest.com/js/pinit.js";
-      k && (p = "//platform.twitter.com/widgets.js");
-      let d = document.querySelector(`script[src="${p}"]`), m = {};
-      u && (m = {
+      var k, v, A, H;
+      const u = ((k = e.result) == null ? void 0 : k.processor) === "pinterest", w = ((v = e.result) == null ? void 0 : v.processor) === "oembed" && ((H = (A = e.result) == null ? void 0 : A.options) == null ? void 0 : H.provider) === "Twitter";
+      let m = "//assets.pinterest.com/js/pinit.js";
+      w && (m = "//platform.twitter.com/widgets.js");
+      let f = document.querySelector(`script[src="${m}"]`), y = {};
+      u && (y = {
         pinBuild: "doBuild"
-      }), d ? d.dataset.loaded === "true" ? typeof window.doBuild == "function" && window.doBuild() : d.addEventListener("load", () => {
+      }), f ? f.dataset.loaded === "true" ? typeof window.doBuild == "function" && window.doBuild() : f.addEventListener("load", () => {
         typeof window.doBuild == "function" && window.doBuild();
-      }) : n(p, m).then(() => {
-        typeof window.doBuild == "function" && window.doBuild(), d = document.querySelector(`script[src="${p}"]`), d.dataset.loaded = (!0).toString();
-      }).catch((I) => {
-        console.error(I);
+      }) : n(m, y).then(() => {
+        typeof window.doBuild == "function" && window.doBuild(), f = document.querySelector(`script[src="${m}"]`), f.dataset.loaded = (!0).toString();
+      }).catch((B) => {
+        console.error(B);
       });
-    }), (u, k) => {
-      var p, d, m, g, y;
-      return o(), f("div", {
+    }), (u, w) => {
+      var m, f, y, k, v;
+      return o(), p("div", {
         id: e.id,
-        class: v(a.value)
+        class: d(a.value)
       }, [
-        e.type === "HTML" ? (o(), f("div", {
+        e.type === "HTML" ? (o(), p("div", {
           key: 0,
           innerHTML: `${r(e.html)}`
-        }, null, 8, Se)) : e.type === "EMBEDDABLE" ? (o(), f(B, { key: 1 }, [
-          ((p = e.youTubeProps) == null ? void 0 : p.layout) === "responsive" ? (o(), f("div", {
+        }, null, 8, Oe)) : e.type === "EMBEDDABLE" ? (o(), p(M, { key: 1 }, [
+          ((m = e.youTubeProps) == null ? void 0 : m.layout) === "responsive" ? (o(), p("div", {
             key: 0,
-            class: v(`${u.baseCssClass}__embeddable-wrapper`),
+            class: d(`${u.baseCssClass}__embeddable-wrapper`),
             style: le({
-              "padding-bottom": ((d = e.youTubeProps) == null ? void 0 : d.layout) === "responsive" ? `${(m = t.youTubeProps) == null ? void 0 : m.youtubeAspectRatio}%` : 0
+              "padding-bottom": ((f = e.youTubeProps) == null ? void 0 : f.layout) === "responsive" ? `${(y = t.youTubeProps) == null ? void 0 : y.youtubeAspectRatio}%` : 0
             })
           }, [
-            (o(), E(T(i.value)))
-          ], 6)) : (o(), E(T(i.value), { key: 1 }))
-        ], 64)) : e.type === "URL" ? (o(), f(B, { key: 2 }, [
-          ((g = e.result) == null ? void 0 : g.processor) === "pinterest" ? (o(), f("a", {
+            (o(), C(x(i.value)))
+          ], 6)) : (o(), C(x(i.value), { key: 1 }))
+        ], 64)) : e.type === "URL" ? (o(), p(M, { key: 2 }, [
+          ((k = e.result) == null ? void 0 : k.processor) === "pinterest" ? (o(), p("a", {
             key: 0,
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, A(e.url), 9, Le)) : ((y = e.result) == null ? void 0 : y.processor) === "oembed" ? (o(), f(B, { key: 1 }, [
-            c.value === "photo" ? (o(), E(T(h.value), { key: 0 })) : c.value === "link" ? (o(), f("a", {
+          }, S(e.url), 9, Te)) : ((v = e.result) == null ? void 0 : v.processor) === "oembed" ? (o(), p(M, { key: 1 }, [
+            c.value === "photo" ? (o(), C(x(h.value), { key: 0 })) : c.value === "link" ? (o(), p("a", {
               key: 1,
               href: b.value
-            }, A(S.value), 9, xe)) : c.value === "video" || c.value === "rich" ? (o(), f("div", {
+            }, S(T.value), 9, Pe)) : c.value === "video" || c.value === "rich" ? (o(), p("div", {
               key: 2,
-              innerHTML: R.value
-            }, null, 8, Te)) : $("", !0)
-          ], 64)) : $("", !0)
-        ], 64)) : $("", !0)
-      ], 10, $e);
+              innerHTML: I.value
+            }, null, 8, Ne)) : g("", !0)
+          ], 64)) : g("", !0)
+        ], 64)) : g("", !0)
+      ], 10, Le);
     };
   }
 });
@@ -467,27 +626,27 @@ var pe = function() {
       }, e;
     }()
   );
-}(), X = typeof window < "u" && typeof document < "u" && window.document === document, F = function() {
+}(), X = typeof window < "u" && typeof document < "u" && window.document === document, G = function() {
   return typeof global < "u" && global.Math === Math ? global : typeof self < "u" && self.Math === Math ? self : typeof window < "u" && window.Math === Math ? window : Function("return this")();
-}(), Pe = function() {
-  return typeof requestAnimationFrame == "function" ? requestAnimationFrame.bind(F) : function(t) {
+}(), Re = function() {
+  return typeof requestAnimationFrame == "function" ? requestAnimationFrame.bind(G) : function(t) {
     return setTimeout(function() {
       return t(Date.now());
     }, 1e3 / 60);
   };
-}(), Oe = 2;
-function Ne(t, e) {
+}(), Ae = 2;
+function Ie(t, e) {
   var s = !1, n = !1, r = 0;
   function a() {
     s && (s = !1, t()), n && i();
   }
   function l() {
-    Pe(a);
+    Re(a);
   }
   function i() {
     var h = Date.now();
     if (s) {
-      if (h - r < Oe)
+      if (h - r < Ae)
         return;
       n = !0;
     } else
@@ -496,11 +655,11 @@ function Ne(t, e) {
   }
   return i;
 }
-var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Ie = typeof MutationObserver < "u", Me = (
+var Me = 20, De = ["top", "right", "bottom", "left", "width", "height", "size", "weight"], Be = typeof MutationObserver < "u", ze = (
   /** @class */
   function() {
     function t() {
-      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Ne(this.refresh.bind(this), Re);
+      this.connected_ = !1, this.mutationEventsAdded_ = !1, this.mutationsObserver_ = null, this.observers_ = [], this.onTransitionEnd_ = this.onTransitionEnd_.bind(this), this.refresh = Ie(this.refresh.bind(this), Me);
     }
     return t.prototype.addObserver = function(e) {
       ~this.observers_.indexOf(e) || this.observers_.push(e), this.connected_ || this.connect_();
@@ -518,7 +677,7 @@ var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", 
         return s.broadcastActive();
       }), e.length > 0;
     }, t.prototype.connect_ = function() {
-      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Ie ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
+      !X || this.connected_ || (document.addEventListener("transitionend", this.onTransitionEnd_), window.addEventListener("resize", this.refresh), Be ? (this.mutationsObserver_ = new MutationObserver(this.refresh), this.mutationsObserver_.observe(document, {
         attributes: !0,
         childList: !0,
         characterData: !0,
@@ -527,7 +686,7 @@ var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, t.prototype.disconnect_ = function() {
       !X || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, t.prototype.onTransitionEnd_ = function(e) {
-      var s = e.propertyName, n = s === void 0 ? "" : s, r = Ae.some(function(a) {
+      var s = e.propertyName, n = s === void 0 ? "" : s, r = De.some(function(a) {
         return !!~n.indexOf(a);
       });
       r && this.refresh();
@@ -546,11 +705,11 @@ var Re = 20, Ae = ["top", "right", "bottom", "left", "width", "height", "size", 
     });
   }
   return t;
-}, j = function(t) {
+}, q = function(t) {
   var e = t && t.ownerDocument && t.ownerDocument.defaultView;
-  return e || F;
-}, he = V(0, 0, 0, 0);
-function G(t) {
+  return e || G;
+}, he = Y(0, 0, 0, 0);
+function V(t) {
   return parseFloat(t) || 0;
 }
 function re(t) {
@@ -558,45 +717,45 @@ function re(t) {
     e[s - 1] = arguments[s];
   return e.reduce(function(n, r) {
     var a = t["border-" + r + "-width"];
-    return n + G(a);
+    return n + V(a);
   }, 0);
 }
-function Be(t) {
+function je(t) {
   for (var e = ["top", "right", "bottom", "left"], s = {}, n = 0, r = e; n < r.length; n++) {
     var a = r[n], l = t["padding-" + a];
-    s[a] = G(l);
+    s[a] = V(l);
   }
   return s;
 }
-function De(t) {
+function qe(t) {
   var e = t.getBBox();
-  return V(0, 0, e.width, e.height);
+  return Y(0, 0, e.width, e.height);
 }
-function ze(t) {
+function He(t) {
   var e = t.clientWidth, s = t.clientHeight;
   if (!e && !s)
     return he;
-  var n = j(t).getComputedStyle(t), r = Be(n), a = r.left + r.right, l = r.top + r.bottom, i = G(n.width), h = G(n.height);
-  if (n.boxSizing === "border-box" && (Math.round(i + a) !== e && (i -= re(n, "left", "right") + a), Math.round(h + l) !== s && (h -= re(n, "top", "bottom") + l)), !qe(t)) {
+  var n = q(t).getComputedStyle(t), r = je(n), a = r.left + r.right, l = r.top + r.bottom, i = V(n.width), h = V(n.height);
+  if (n.boxSizing === "border-box" && (Math.round(i + a) !== e && (i -= re(n, "left", "right") + a), Math.round(h + l) !== s && (h -= re(n, "top", "bottom") + l)), !Fe(t)) {
     var c = Math.round(i + a) - e, b = Math.round(h + l) - s;
     Math.abs(c) !== 1 && (i -= c), Math.abs(b) !== 1 && (h -= b);
   }
-  return V(r.left, r.top, i, h);
+  return Y(r.left, r.top, i, h);
 }
-var je = function() {
+var We = function() {
   return typeof SVGGraphicsElement < "u" ? function(t) {
-    return t instanceof j(t).SVGGraphicsElement;
+    return t instanceof q(t).SVGGraphicsElement;
   } : function(t) {
-    return t instanceof j(t).SVGElement && typeof t.getBBox == "function";
+    return t instanceof q(t).SVGElement && typeof t.getBBox == "function";
   };
 }();
-function qe(t) {
-  return t === j(t).document.documentElement;
+function Fe(t) {
+  return t === q(t).document.documentElement;
 }
-function He(t) {
-  return X ? je(t) ? De(t) : ze(t) : he;
+function Ue(t) {
+  return X ? We(t) ? qe(t) : He(t) : he;
 }
-function We(t) {
+function Ge(t) {
   var e = t.x, s = t.y, n = t.width, r = t.height, a = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, l = Object.create(a.prototype);
   return fe(l, {
     x: e,
@@ -609,33 +768,33 @@ function We(t) {
     left: e
   }), l;
 }
-function V(t, e, s, n) {
+function Y(t, e, s, n) {
   return { x: t, y: e, width: s, height: n };
 }
-var Ue = (
+var Ve = (
   /** @class */
   function() {
     function t(e) {
-      this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = V(0, 0, 0, 0), this.target = e;
+      this.broadcastWidth = 0, this.broadcastHeight = 0, this.contentRect_ = Y(0, 0, 0, 0), this.target = e;
     }
     return t.prototype.isActive = function() {
-      var e = He(this.target);
+      var e = Ue(this.target);
       return this.contentRect_ = e, e.width !== this.broadcastWidth || e.height !== this.broadcastHeight;
     }, t.prototype.broadcastRect = function() {
       var e = this.contentRect_;
       return this.broadcastWidth = e.width, this.broadcastHeight = e.height, e;
     }, t;
   }()
-), Fe = (
+), Ye = (
   /** @class */
   function() {
     function t(e, s) {
-      var n = We(s);
+      var n = Ge(s);
       fe(this, { target: e, contentRect: n });
     }
     return t;
   }()
-), Ge = (
+), Je = (
   /** @class */
   function() {
     function t(e, s, n) {
@@ -647,16 +806,16 @@ var Ue = (
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
       if (!(typeof Element > "u" || !(Element instanceof Object))) {
-        if (!(e instanceof j(e).Element))
+        if (!(e instanceof q(e).Element))
           throw new TypeError('parameter 1 is not of type "Element".');
         var s = this.observations_;
-        s.has(e) || (s.set(e, new Ue(e)), this.controller_.addObserver(this), this.controller_.refresh());
+        s.has(e) || (s.set(e, new Ve(e)), this.controller_.addObserver(this), this.controller_.refresh());
       }
     }, t.prototype.unobserve = function(e) {
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
       if (!(typeof Element > "u" || !(Element instanceof Object))) {
-        if (!(e instanceof j(e).Element))
+        if (!(e instanceof q(e).Element))
           throw new TypeError('parameter 1 is not of type "Element".');
         var s = this.observations_;
         s.has(e) && (s.delete(e), s.size || this.controller_.removeObserver(this));
@@ -671,7 +830,7 @@ var Ue = (
     }, t.prototype.broadcastActive = function() {
       if (this.hasActive()) {
         var e = this.callbackCtx_, s = this.activeObservations_.map(function(n) {
-          return new Fe(n.target, n.broadcastRect());
+          return new Ye(n.target, n.broadcastRect());
         });
         this.callback_.call(e, s, e), this.clearActive();
       }
@@ -681,7 +840,7 @@ var Ue = (
       return this.activeObservations_.length > 0;
     }, t;
   }()
-), me = typeof WeakMap < "u" ? /* @__PURE__ */ new WeakMap() : new pe(), ve = (
+), me = typeof WeakMap < "u" ? /* @__PURE__ */ new WeakMap() : new pe(), _e = (
   /** @class */
   function() {
     function t(e) {
@@ -689,7 +848,7 @@ var Ue = (
         throw new TypeError("Cannot call a class as a function.");
       if (!arguments.length)
         throw new TypeError("1 argument required, but only 0 present.");
-      var s = Me.getInstance(), n = new Ge(e, s, this);
+      var s = ze.getInstance(), n = new Je(e, s, this);
       me.set(this, n);
     }
     return t;
@@ -700,15 +859,15 @@ var Ue = (
   "unobserve",
   "disconnect"
 ].forEach(function(t) {
-  ve.prototype[t] = function() {
+  _e.prototype[t] = function() {
     var e;
     return (e = me.get(this))[t].apply(e, arguments);
   };
 });
-var Ve = function() {
-  return typeof F.ResizeObserver < "u" ? F.ResizeObserver : ve;
+var Xe = function() {
+  return typeof G.ResizeObserver < "u" ? G.ResizeObserver : _e;
 }();
-const Ye = ["id"], Je = /* @__PURE__ */ L({
+const Qe = ["id"], Ze = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreImage",
   props: {
@@ -743,24 +902,24 @@ const Ye = ["id"], Je = /* @__PURE__ */ L({
     width: {
       type: String
     },
-    ...O("cmp-image")
+    ...N("cmp-image")
   },
   setup(t) {
-    const e = t, s = Q(), n = P("isInEditor", w.isInEditor()), r = U(null), a = U(e.src);
+    const e = t, s = Q(), n = L("isInEditor", $.isInEditor()), r = U(null), a = U(e.src);
     let l = {};
     e.smartCropRendition && s.srcset && (a.value = s.srcset);
     const i = _(() => {
-      let p;
+      let m;
       if (e.width) {
-        const { width: d } = e;
-        let m = "px";
-        /^(\d+|(\.\d+))(\.\d+)?%$/.test(d) && (m = ""), p = {
-          "--asset-max-inline-size": `${d}${m}`
+        const { width: f } = e;
+        let y = "px";
+        /^(\d+|(\.\d+))(\.\d+)?%$/.test(f) && (y = ""), m = {
+          "--asset-max-inline-size": `${f}${y}`
         };
       }
-      return p;
+      return m;
     }), h = _(() => {
-      const p = N(
+      const m = R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -768,22 +927,22 @@ const Ye = ["id"], Je = /* @__PURE__ */ L({
         n,
         e.aemNoDecoration
       );
-      return p.push({
+      return m.push({
         "cq-dd-image": n || !1
-      }), p;
+      }), m;
     }), c = _(() => {
-      const p = C(
+      const m = E(
         "figcaption",
         {
           class: `${e.baseCssClass}__title`,
           itemProp: "caption"
         },
         e.title
-      ), d = C("meta", {
+      ), f = E("meta", {
         content: e.title,
         itemProp: "caption"
-      }), m = [
-        C("img", {
+      }), y = [
+        E("img", {
           alt: e.alt,
           src: a.value,
           class: [
@@ -792,46 +951,46 @@ const Ye = ["id"], Je = /* @__PURE__ */ L({
           ]
         })
       ];
-      return e.title && (m.push(p), e.displayPopupTitle && m.push(d)), () => m;
+      return e.title && (y.push(m), e.displayPopupTitle && y.push(f)), () => y;
     });
     let b;
-    const S = (p) => {
-      let d;
-      const { clientWidth: m } = r.value.parentNode;
-      return p.reverse(), p.forEach((g) => {
-        parseInt(g, 10) > m && (d = g);
-      }), d;
-    }, R = () => {
-      const p = {};
+    const T = (m) => {
+      let f;
+      const { clientWidth: y } = r.value.parentNode;
+      return m.reverse(), m.forEach((k) => {
+        parseInt(k, 10) > y && (f = k);
+      }), f;
+    }, I = () => {
+      const m = {};
       if (e.src) {
-        const d = new XMLHttpRequest(), m = `${e.src.split("?")[0]}?req=set,json`;
-        d.open("GET", m, !1), d.onload = () => {
-          var g;
-          if (d.status >= 200 && d.status < 400) {
-            let y;
-            const { responseText: x } = d, I = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(x);
-            if (I && I.length >= 2) {
-              const M = I[2];
-              /^{[\s\S]*}$/gim.test(M) && (y = JSON.parse(M));
+        const f = new XMLHttpRequest(), y = `${e.src.split("?")[0]}?req=set,json`;
+        f.open("GET", y, !1), f.onload = () => {
+          var k;
+          if (f.status >= 200 && f.status < 400) {
+            let v;
+            const { responseText: A } = f, B = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(A);
+            if (B && B.length >= 2) {
+              const z = B[2];
+              /^{[\s\S]*}$/gim.test(z) && (v = JSON.parse(z));
             }
-            y && ((g = y.set) != null && g.relation) && Array.isArray(y.set.relation) && y.set.relation.forEach(
-              (M) => {
-                p[parseInt(M.userdata.SmartCropWidth, 10)] = `:${M.userdata.SmartCropDef}`;
+            v && ((k = v.set) != null && k.relation) && Array.isArray(v.set.relation) && v.set.relation.forEach(
+              (z) => {
+                m[parseInt(z.userdata.SmartCropWidth, 10)] = `:${z.userdata.SmartCropDef}`;
               }
             );
           }
-        }, d.send();
+        }, f.send();
       }
-      return p;
+      return m;
     }, u = () => {
-      Object.keys(l).length === 0 && (l = R());
-      const p = S(Object.keys(l));
-      if (p) {
-        const d = e.src.replace(
+      Object.keys(l).length === 0 && (l = I());
+      const m = T(Object.keys(l));
+      if (m) {
+        const f = e.src.replace(
           "?",
-          `${l[p]}?`
+          `${l[m]}?`
         );
-        a.value = d.replace(
+        a.value = f.replace(
           "{dpr}",
           (window.devicePixelRatio || 1).toString()
         );
@@ -840,54 +999,54 @@ const Ye = ["id"], Je = /* @__PURE__ */ L({
           "{dpr}",
           (window.devicePixelRatio || 1).toString()
         );
-    }, k = () => {
+    }, w = () => {
       e.smartCropRendition ? e.smartCropRendition === "SmartCrop:Auto" && s.srcset ? (a.value = s.srcset, u()) : a.value = e.src.replace(
         "{dpr}",
         (window.devicePixelRatio || 1).toString()
       ) : a.value = e.src;
     };
     return Z(() => {
-      const p = (d) => {
+      const m = (f) => {
         window.requestAnimationFrame(() => {
-          e.smartCropRendition === "SmartCrop:Auto" && s.srcset && r.value && Array.isArray(d) && d.length && d.forEach(() => {
+          e.smartCropRendition === "SmartCrop:Auto" && s.srcset && r.value && Array.isArray(f) && f.length && f.forEach(() => {
             u();
           });
         });
       };
-      b = new Ve(p), b.observe(r.value), k();
-    }), _e(() => {
+      b = new Xe(m), b.observe(r.value), w();
+    }), ye(() => {
       r.value && b.unobserve(r.value);
     }), ce(
       () => e.src,
-      async (p, d) => {
-        p !== d && k();
+      async (m, f) => {
+        m !== f && w();
       }
-    ), (p, d) => {
-      var m;
-      return o(), f("div", {
+    ), (m, f) => {
+      var y;
+      return o(), p("div", {
         id: e.id,
         ref_key: "image",
         ref: r,
-        class: v(h.value),
+        class: d(h.value),
         style: le(i.value)
       }, [
-        a.value ? (o(), f(B, { key: 0 }, [
-          (m = e.imageLink) != null && m.url ? (o(), E(D, H({
+        a.value ? (o(), p(M, { key: 0 }, [
+          (y = e.imageLink) != null && y.url ? (o(), C(D, W({
             key: 0,
             class: `${e.baseCssClass}__link`,
             href: e.imageLink.url
           }, e.imageLink.attributes), {
-            default: z(() => [
-              (o(), E(T(c.value), { key: a.value }))
+            default: j(() => [
+              (o(), C(x(c.value), { key: a.value }))
             ]),
             _: 1
-          }, 16, ["class", "href"])) : (o(), E(T(c.value), { key: a.value }))
-        ], 64)) : $("", !0)
-      ], 14, Ye);
+          }, 16, ["class", "href"])) : (o(), C(x(c.value), { key: a.value }))
+        ], 64)) : g("", !0)
+      ], 14, Qe);
     };
   }
 });
-const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
+const Ke = ["id", "aria-label"], xt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreLanguageNavigation",
   props: {
@@ -899,11 +1058,11 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       type: String,
       default: ""
     },
-    ...O("cmp-languagenavigation")
+    ...N("cmp-languagenavigation")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
-      () => N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -915,7 +1074,7 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       if ((a || []).length === 0 || typeof a > "u")
         return;
       const l = a.map((i) => {
-        let h = C(
+        let h = E(
           "span",
           {
             class: `${e.baseCssClass}__item-title`,
@@ -923,7 +1082,7 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
           },
           [i.title]
         );
-        return i.level > 0 && (h = C(
+        return i.level > 0 && (h = E(
           D,
           {
             "aria-current": `${i.active ? "page" : !1}`,
@@ -935,7 +1094,7 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
             rel: "alternate"
           },
           () => i.title
-        )), C(
+        )), E(
           "li",
           {
             class: [
@@ -954,24 +1113,24 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
           ]
         );
       });
-      return C(
+      return E(
         "ul",
         { class: `${e.baseCssClass}__group` },
         l
       );
     };
-    return (a, l) => (o(), f("nav", {
+    return (a, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Language Navigation",
-      class: v(n.value),
+      class: d(n.value),
       itemScope: "",
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
     }, [
-      (o(), E(T(r(e.items))))
-    ], 10, Xe));
+      (o(), C(x(r(e.items))))
+    ], 10, Ke));
   }
-}), Qe = ["id", "aria-label"], kt = /* @__PURE__ */ L({
+}), et = ["id", "aria-label"], Lt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreNavigation",
   props: {
@@ -983,11 +1142,11 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       type: String,
       default: ""
     },
-    ...O("cmp-navigation")
+    ...N("cmp-navigation")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
-      () => N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -999,7 +1158,7 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       if ((a || []).length === 0 || typeof a > "u")
         return;
       const l = a.map(
-        (i) => C(
+        (i) => E(
           "li",
           {
             class: [
@@ -1011,7 +1170,7 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
             ]
           },
           [
-            C(
+            E(
               D,
               {
                 "aria-current": `${i.active ? "page" : !1}`,
@@ -1026,28 +1185,28 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
           ]
         )
       );
-      return C("ul", { class: `${e.baseCssClass}__group` }, l);
+      return E("ul", { class: `${e.baseCssClass}__group` }, l);
     };
-    return (a, l) => (o(), f("nav", {
+    return (a, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Navigation",
-      class: v(n.value),
+      class: d(n.value),
       itemScope: "",
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
     }, [
-      (o(), E(T(r(e.items))))
-    ], 10, Qe));
+      (o(), C(x(r(e.items))))
+    ], 10, et));
   }
-}), Ze = ["id"], wt = /* @__PURE__ */ L({
+}), tt = ["id"], Ot = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreSeparator",
   props: {
-    ...O("cmp-separator")
+    ...N("cmp-separator")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(
-      () => N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -1056,16 +1215,16 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
         e.aemNoDecoration
       )
     );
-    return (r, a) => (o(), f("div", {
+    return (r, a) => (o(), p("div", {
       id: e.id,
-      class: v(n.value)
+      class: d(n.value)
     }, [
-      W("hr", {
-        class: v(`${e.baseCssClass}__horizontal-rule`)
+      P("hr", {
+        class: d(`${e.baseCssClass}__horizontal-rule`)
       }, null, 2)
-    ], 10, Ze));
+    ], 10, tt));
   }
-}), Ke = ["id"], et = /* @__PURE__ */ L({
+}), st = ["id"], nt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreTitle",
   props: {
@@ -1088,11 +1247,11 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       type: String,
       default: "h1"
     },
-    ...O("cmp-title")
+    ...N("cmp-title")
   },
   setup(t) {
-    const e = t, s = Q(), n = ue(), r = P("isInEditor", w.isInEditor()), a = _(() => {
-      const c = N(
+    const e = t, s = Q(), n = ue(), r = L("isInEditor", $.isInEditor()), a = _(() => {
+      const c = R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -1109,35 +1268,35 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       async (c, b) => {
         c !== b && (l.value = c !== !0);
       }
-    ), (c, b) => (o(), f("div", {
+    ), (c, b) => (o(), p("div", {
       id: e.id,
-      class: v(a.value)
+      class: d(a.value)
     }, [
-      (o(), E(T(e.type), {
-        class: v(`${c.baseCssClass}${i.value}text`)
+      (o(), C(x(e.type), {
+        class: d(`${c.baseCssClass}${i.value}text`)
       }, {
-        default: z(() => {
-          var S, R;
+        default: j(() => {
+          var T, I;
           return [
-            l.value ? (o(), E(D, H({
+            l.value ? (o(), C(D, W({
               key: 0,
               class: `${c.baseCssClass}${i.value}link`,
-              href: ((S = e.link) == null ? void 0 : S.url) || h.value
-            }, (R = e.link) == null ? void 0 : R.attributes), {
-              default: z(() => [
-                J(A(t.text), 1)
+              href: ((T = e.link) == null ? void 0 : T.url) || h.value
+            }, (I = e.link) == null ? void 0 : I.attributes), {
+              default: j(() => [
+                F(S(t.text), 1)
               ]),
               _: 1
-            }, 16, ["class", "href"])) : (o(), f(B, { key: 1 }, [
-              J(A(t.text), 1)
+            }, 16, ["class", "href"])) : (o(), p(M, { key: 1 }, [
+              F(S(t.text), 1)
             ], 64))
           ];
         }),
         _: 1
       }, 8, ["class"]))
-    ], 10, Ke));
+    ], 10, st));
   }
-}), tt = ["id"], st = ["innerHTML"], $t = /* @__PURE__ */ L({
+}), it = ["id"], rt = ["innerHTML"], Tt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreTeaser",
   props: {
@@ -1173,11 +1332,11 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       type: String,
       default: "h2"
     },
-    ...O("cmp-teaser")
+    ...N("cmp-teaser")
   },
   setup(t) {
-    const e = t, s = P("isInEditor", w.isInEditor()), n = _(() => {
-      const i = N(
+    const e = t, s = L("isInEditor", $.isInEditor()), n = _(() => {
+      const i = R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -1204,62 +1363,62 @@ const Xe = ["id", "aria-label"], Et = /* @__PURE__ */ L({
       text: e.title,
       type: e.titleType
     })), l = (i) => K.sanitize(i);
-    return (i, h) => (o(), f("div", {
+    return (i, h) => (o(), p("div", {
       id: e.id,
-      class: v(n.value)
+      class: d(n.value)
     }, [
-      (o(), E(T(e.link ? D : "section"), ie(be(e.link ? r.value : !1)), {
-        default: z(() => [
-          e.pretitle || e.title || e.description ? (o(), f("div", {
+      (o(), C(x(e.link ? D : "section"), ie(be(e.link ? r.value : !1)), {
+        default: j(() => [
+          e.pretitle || e.title || e.description ? (o(), p("div", {
             key: 0,
-            class: v(`${e.baseCssClass}__content`)
+            class: d(`${e.baseCssClass}__content`)
           }, [
-            e.pretitle ? (o(), f("p", {
+            e.pretitle ? (o(), p("p", {
               key: 0,
-              class: v(`${e.baseCssClass}__pretitle`)
-            }, A(e.pretitle), 3)) : $("", !0),
-            e.title ? (o(), E(et, ie(H({ key: 1 }, a.value)), null, 16)) : $("", !0),
-            e.description ? (o(), f("div", {
+              class: d(`${e.baseCssClass}__pretitle`)
+            }, S(e.pretitle), 3)) : g("", !0),
+            e.title ? (o(), C(nt, ie(W({ key: 1 }, a.value)), null, 16)) : g("", !0),
+            e.description ? (o(), p("div", {
               key: 2,
-              class: v(`${e.baseCssClass}__description`),
+              class: d(`${e.baseCssClass}__description`),
               innerHTML: `${l(e.description)}`
-            }, null, 10, st)) : $("", !0),
-            e.actions && e.actions.length > 0 ? (o(), f("div", {
+            }, null, 10, rt)) : g("", !0),
+            e.actions && e.actions.length > 0 ? (o(), p("div", {
               key: 3,
-              class: v(`${e.baseCssClass}__action-container`)
+              class: d(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), f(B, null, oe(e.actions, (c, b) => (o(), E(D, H({
+              (o(!0), p(M, null, oe(e.actions, (c, b) => (o(), C(D, W({
                 id: c.id,
                 key: `link-${b}`,
                 class: `${e.baseCssClass}__action-link`,
                 href: c.link.url,
                 title: c.title
               }, c.link.attributes), {
-                default: z(() => [
-                  J(A(c.title), 1)
+                default: j(() => [
+                  F(S(c.title), 1)
                 ]),
                 _: 2
               }, 1040, ["id", "class", "href", "title"]))), 128))
-            ], 2)) : $("", !0)
-          ], 2)) : $("", !0),
-          e.imagePath ? (o(), f("div", {
+            ], 2)) : g("", !0)
+          ], 2)) : g("", !0),
+          e.imagePath ? (o(), p("div", {
             key: 1,
-            class: v(`${e.baseCssClass}__image`)
+            class: d(`${e.baseCssClass}__image`)
           }, [
-            ye(Je, {
+            ve(Ze, {
               alt: e.imageAlt,
               "is-in-editor": ae(s),
               src: e.imagePath,
               width: "100%"
             }, null, 8, ["alt", "is-in-editor", "src"])
-          ], 2)) : $("", !0)
+          ], 2)) : g("", !0)
         ]),
         _: 1
       }, 16))
-    ], 10, tt));
+    ], 10, it));
   }
 });
-const nt = ["id", "innerHTML"], it = ["id"], St = /* @__PURE__ */ L({
+const at = ["id", "innerHTML"], ot = ["id"], Pt = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreText",
   props: {
@@ -1275,11 +1434,11 @@ const nt = ["id", "innerHTML"], it = ["id"], St = /* @__PURE__ */ L({
     text: {
       type: String
     },
-    ...O("cmp-text")
+    ...N("cmp-text")
   },
   setup(t) {
-    const e = t, s = de(), n = P("isInEditor", w.isInEditor()), r = _(
-      () => N(
+    const e = t, s = de(), n = L("isInEditor", $.isInEditor()), r = _(
+      () => R(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -1293,11 +1452,11 @@ const nt = ["id", "innerHTML"], it = ["id"], St = /* @__PURE__ */ L({
     }), h = () => {
       if (a.value) {
         const c = s.getRoutes().map((b) => b.path);
-        !w.isEditMode() && !w.isPreviewMode() && a.value.querySelectorAll("a").forEach((b) => {
+        !$.isEditMode() && !$.isPreviewMode() && a.value.querySelectorAll("a").forEach((b) => {
           b.classList.add("cmp-link");
-          const S = b.getAttribute("target") || "_self", R = b.getAttribute("href") || "#";
+          const T = b.getAttribute("target") || "_self", I = b.getAttribute("href") || "#";
           b.onclick = (u) => {
-            S !== "_blank" && c.includes(R) && (u.preventDefault(), s.push(R));
+            T !== "_blank" && c.includes(I) && (u.preventDefault(), s.push(I));
           };
         });
       }
@@ -1306,44 +1465,46 @@ const nt = ["id", "innerHTML"], it = ["id"], St = /* @__PURE__ */ L({
       h();
     }), ge(() => {
       h();
-    }), (c, b) => e.richText ? (o(), f("div", {
+    }), (c, b) => e.richText ? (o(), p("div", {
       key: 0,
       id: i.value,
       ref_key: "richTextElement",
       ref: a,
-      class: v(r.value),
+      class: d(r.value),
       "data-rte-editelement": "",
       innerHTML: `${l(e.text)}`
-    }, null, 10, nt)) : (o(), f("div", {
+    }, null, 10, at)) : (o(), p("div", {
       key: 1,
       id: i.value,
-      class: v(r.value)
+      class: d(r.value)
     }, [
-      W("p", {
-        class: v(`${e.baseCssClass}__paragraph`)
-      }, A(e.text), 3)
-    ], 10, it));
+      P("p", {
+        class: d(`${e.baseCssClass}__paragraph`)
+      }, S(e.text), 3)
+    ], 10, ot));
   }
 });
 export {
-  ut as BreadcrumbEditConfig,
-  dt as ButtonEditConfig,
-  yt as CoreBreadcrumb,
-  gt as CoreButton,
-  Ct as CoreEmbed,
-  Je as CoreImage,
-  Et as CoreLanguageNavigation,
+  ft as BreadcrumbEditConfig,
+  ht as ButtonEditConfig,
+  kt as CoreBreadcrumb,
+  $t as CoreButton,
+  wt as CoreDownload,
+  St as CoreEmbed,
+  Ze as CoreImage,
+  xt as CoreLanguageNavigation,
   D as CoreLink,
-  kt as CoreNavigation,
-  wt as CoreSeparator,
-  $t as CoreTeaser,
-  St as CoreText,
-  et as CoreTitle,
-  pt as EmbedEditConfig,
-  ft as ImageEditConfig,
-  ht as LanguageNavigationEditConfig,
-  mt as NavigationEditConfig,
-  vt as TeaserEditConfig,
-  bt as TextEditConfig,
-  _t as TitleEditConfig
+  Lt as CoreNavigation,
+  Ot as CoreSeparator,
+  Tt as CoreTeaser,
+  Pt as CoreText,
+  nt as CoreTitle,
+  mt as DownloadEditConfig,
+  _t as EmbedEditConfig,
+  yt as ImageEditConfig,
+  bt as LanguageNavigationEditConfig,
+  vt as NavigationEditConfig,
+  gt as TeaserEditConfig,
+  Et as TextEditConfig,
+  Ct as TitleEditConfig
 };

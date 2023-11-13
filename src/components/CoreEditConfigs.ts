@@ -53,6 +53,29 @@ export const ButtonEditConfig: EditConfig<ButtonComponentProperties> = {
   },
 };
 
+interface DownloadComponentProperties extends MappedComponentProperties {
+  url: string | undefined | null;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  handleOnClick: Function | undefined | null;
+}
+
+export const DownloadEditConfig: EditConfig<DownloadComponentProperties> = {
+  emptyLabel: 'Download',
+  isEmpty(props: {
+    url: string | undefined | null;
+    // eslint-disable-next-line @typescript-eslint/ban-types
+    handleOnClick: Function | undefined | null;
+  }) {
+    return (
+      (typeof props.url === 'undefined' ||
+        props.url === null ||
+        props.url.length === 0) &&
+      (typeof props.handleOnClick === 'undefined' ||
+        props.handleOnClick === null)
+    );
+  },
+};
+
 interface EmbedComponentProperties extends MappedComponentProperties {
   result?: OEmbedResponse;
   html?: string;

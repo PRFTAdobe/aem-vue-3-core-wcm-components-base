@@ -1,16 +1,3 @@
-import { PropType } from 'vue';
-interface TeaserLink {
-    attributes: {
-        [key: string]: string;
-    };
-    url: string;
-    valid: boolean;
-}
-interface TeaserAction {
-    title: string;
-    link: TeaserLink;
-    id: unknown;
-}
 declare const _default: import("vue").DefineComponent<{
     aemNoDecoration: {
         type: BooleanConstructor;
@@ -24,7 +11,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     containerProps: {
-        type: PropType<{
+        type: import("vue").PropType<{
             [key: string]: string;
         }>;
         default: () => void;
@@ -35,23 +22,26 @@ declare const _default: import("vue").DefineComponent<{
     id: {
         type: StringConstructor;
     };
-    actions: {
-        type: PropType<TeaserAction[]>;
+    actionText: {
+        type: StringConstructor;
+        default: string;
     };
     description: {
         type: StringConstructor;
     };
-    imageAlt: {
-        type: StringConstructor;
-        default: string;
-    };
-    imagePath: {
+    extension: {
         type: StringConstructor;
     };
-    link: {
-        type: PropType<TeaserLink>;
+    filename: {
+        type: StringConstructor;
     };
-    pretitle: {
+    format: {
+        type: StringConstructor;
+    };
+    handleOnClick: {
+        type: FunctionConstructor;
+    };
+    size: {
         type: StringConstructor;
     };
     title: {
@@ -60,6 +50,9 @@ declare const _default: import("vue").DefineComponent<{
     titleType: {
         type: StringConstructor;
         default: string;
+    };
+    url: {
+        type: StringConstructor;
     };
 }, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     aemNoDecoration: {
@@ -74,7 +67,7 @@ declare const _default: import("vue").DefineComponent<{
         default: string;
     };
     containerProps: {
-        type: PropType<{
+        type: import("vue").PropType<{
             [key: string]: string;
         }>;
         default: () => void;
@@ -85,23 +78,26 @@ declare const _default: import("vue").DefineComponent<{
     id: {
         type: StringConstructor;
     };
-    actions: {
-        type: PropType<TeaserAction[]>;
+    actionText: {
+        type: StringConstructor;
+        default: string;
     };
     description: {
         type: StringConstructor;
     };
-    imageAlt: {
-        type: StringConstructor;
-        default: string;
-    };
-    imagePath: {
+    extension: {
         type: StringConstructor;
     };
-    link: {
-        type: PropType<TeaserLink>;
+    filename: {
+        type: StringConstructor;
     };
-    pretitle: {
+    format: {
+        type: StringConstructor;
+    };
+    handleOnClick: {
+        type: FunctionConstructor;
+    };
+    size: {
         type: StringConstructor;
     };
     title: {
@@ -111,13 +107,16 @@ declare const _default: import("vue").DefineComponent<{
         type: StringConstructor;
         default: string;
     };
+    url: {
+        type: StringConstructor;
+    };
 }>>, {
     baseCssClass: string;
     aemNoDecoration: boolean;
     containerProps: {
         [key: string]: string;
     };
+    actionText: string;
     titleType: string;
-    imageAlt: string;
 }, {}>;
 export default _default;

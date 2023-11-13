@@ -33,6 +33,11 @@ interface ButtonComponentProperties extends MappedComponentProperties {
     text: string | null;
 }
 export declare const ButtonEditConfig: EditConfig<ButtonComponentProperties>;
+interface DownloadComponentProperties extends MappedComponentProperties {
+    url: string | undefined | null;
+    handleOnClick: Function | undefined | null;
+}
+export declare const DownloadEditConfig: EditConfig<DownloadComponentProperties>;
 interface EmbedComponentProperties extends MappedComponentProperties {
     result?: OEmbedResponse;
     html?: string;

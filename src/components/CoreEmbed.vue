@@ -223,10 +223,8 @@
     let processorScript = document.querySelector(`script[src="${url}"]`);
 
     if (!processorScript) {
-      console.debug('Processor Script not found!  Running loadScript');
       loadScript(url)
         .then(() => {
-          console.debug('Processor Script loaded!  Running PinUtils build');
           if (typeof window.PinUtils?.build === 'function') {
             window.PinUtils.build();
           }
@@ -240,14 +238,10 @@
     } else if (
       (processorScript as HTMLScriptElement).dataset.loaded === 'true'
     ) {
-      console.debug('Processor Script found!  Running PinUtils build');
       if (typeof window.PinUtils?.build === 'function') {
         window.PinUtils.build();
       }
     } else {
-      console.debug(
-        'Processor Script loading!  Loading and running PinUtils build',
-      );
       processorScript.addEventListener('load', () => {
         if (typeof window.PinUtils?.build === 'function') {
           window.PinUtils.build();

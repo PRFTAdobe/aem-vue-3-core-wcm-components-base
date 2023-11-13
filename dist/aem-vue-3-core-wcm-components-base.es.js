@@ -319,7 +319,7 @@ const Se = ["id"], xe = ["innerHTML"], wt = /* @__PURE__ */ O({
       );
       return s && h.push("cq-dd-file"), h;
     }), a = _(
-      () => !(e.url && e.url.length > 0) || e.handleOnClick && typeof e.handleOnClick == "function"
+      () => !(e.url && e.url.length > 0 || e.handleOnClick && typeof e.handleOnClick == "function")
     ), l = _(() => {
       const h = n.get(
         "stanley/components/button"

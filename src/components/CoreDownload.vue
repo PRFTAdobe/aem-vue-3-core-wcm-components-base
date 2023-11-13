@@ -72,8 +72,10 @@
 
   const isEmpty = computed(
     () =>
-      !(props.url && props.url.length > 0) ||
-      (props.handleOnClick && typeof props.handleOnClick === 'function'),
+      !(
+        (props.url && props.url.length > 0) ||
+        (props.handleOnClick && typeof props.handleOnClick === 'function')
+      ),
   );
 
   const actionButton = computed((): VNode => {

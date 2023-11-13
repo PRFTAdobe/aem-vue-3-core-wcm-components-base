@@ -9,8 +9,10 @@
 
   declare global {
     interface Window {
-      // eslint-disable-next-line @typescript-eslint/ban-types
-      doBuild?: Function;
+      PinUtils: {
+        // eslint-disable-next-line @typescript-eslint/ban-types
+        build?: Function;
+      };
     }
   }
 
@@ -71,9 +73,6 @@
 
   const loadScript = (
     source: string,
-    dataset?: {
-      [key: string]: string;
-    },
     async: boolean = true,
     type: string = 'text/javascript',
   ) =>
@@ -83,11 +82,6 @@
         scriptElement.type = type;
         scriptElement.async = async;
         scriptElement.src = source;
-        if (dataset) {
-          Object.keys(dataset).forEach((key) => {
-            scriptElement.dataset[key] = dataset[key];
-          });
-        }
 
         scriptElement.addEventListener('load', () => {
           resolve({ status: true });
@@ -219,7 +213,6 @@
   });
 
   const executeProcessorScript = () => {
-    const isPinterest = props.result?.processor === 'pinterest';
     const isTwitter =
       props.result?.processor === 'oembed' &&
       props.result?.options?.provider === 'Twitter';
@@ -229,21 +222,13 @@
     }
     let processorScript = document.querySelector(`script[src="${url}"]`);
 
-    let dataset = {};
-
-    if (isPinterest) {
-      dataset = {
-        pinBuild: 'doBuild',
-      };
-    }
-
     if (!processorScript) {
       console.debug('Processor Script not found!  Running loadScript');
-      loadScript(url, dataset)
+      loadScript(url)
         .then(() => {
-          console.debug('Processor Script loaded!  Running doBuild');
-          if (typeof window.doBuild === 'function') {
-            window.doBuild();
+          console.debug('Processor Script loaded!  Running PinUtils build');
+          if (typeof window.PinUtils?.build === 'function') {
+            window.PinUtils.build();
           }
           processorScript = document.querySelector(`script[src="${url}"]`);
           (processorScript as HTMLScriptElement).dataset.loaded =
@@ -255,15 +240,17 @@
     } else if (
       (processorScript as HTMLScriptElement).dataset.loaded === 'true'
     ) {
-      console.debug('Processor Script found!  Running doBuild');
-      if (typeof window.doBuild === 'function') {
-        window.doBuild();
+      console.debug('Processor Script found!  Running PinUtils build');
+      if (typeof window.PinUtils?.build === 'function') {
+        window.PinUtils.build();
       }
     } else {
-      console.debug('Processor Script loading!  Loading and running doBuild');
+      console.debug(
+        'Processor Script loading!  Loading and running PinUtils build',
+      );
       processorScript.addEventListener('load', () => {
-        if (typeof window.doBuild === 'function') {
-          window.doBuild();
+        if (typeof window.PinUtils?.build === 'function') {
+          window.PinUtils.build();
         }
       });
     }
@@ -275,7 +262,7 @@
 
   onUpdated(() => {
     executeProcessorScript();
-  })
+  });
 
   defineOptions({
     inheritAttrs: false,

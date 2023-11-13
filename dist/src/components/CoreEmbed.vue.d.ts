@@ -1,7 +1,9 @@
 import { PropType } from 'vue';
 declare global {
     interface Window {
-        doBuild?: Function;
+        PinUtils: {
+            build?: Function;
+        };
     }
 }
 interface OEmbedResponse {

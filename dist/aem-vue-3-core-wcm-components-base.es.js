@@ -1549,7 +1549,8 @@ const pt = ["id"], Ft = /* @__PURE__ */ D({
       }), 128))
     ], 10, pt)) : g("", !0);
   }
-}), ft = ["id", "aria-label"], Yt = /* @__PURE__ */ D({
+});
+const ft = ["id", "aria-label"], Yt = /* @__PURE__ */ D({
   inheritAttrs: !1,
   __name: "CoreNavigation",
   props: {

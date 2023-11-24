@@ -120,3 +120,35 @@
     </li>
   </ul>
 </template>
+
+<style>
+  .cmp-list__item {
+    margin-block-start: 8px;
+  }
+
+  .cmp-list__item:first-child {
+    margin-block-start: 0;
+  }
+
+  .cmp-list__item article {
+    display: inline;
+  }
+
+  .cmp-list__item-link {
+    text-decoration: underline;
+  }
+
+  .cmp-list__item-title,
+  .cmp-list__item-date,
+  .cmp-list__item-description {
+    font-size: 14px;
+  }
+
+  .cmp-list span:not(:first-child) {
+    margin-inline-start: 8px;
+  }
+
+  .cmp-list__item-description {
+    color: #7b7b7b;
+  }
+</style>

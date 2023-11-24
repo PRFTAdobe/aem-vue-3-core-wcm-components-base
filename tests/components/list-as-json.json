@@ -1,0 +1,658 @@
+{
+  "type": "ul",
+  "content": [
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Title"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-16"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/title.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a page heading"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Text"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-22"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/text.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a rich text paragraph"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Image"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-02-15"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/image.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display an image asset"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Button"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-09"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/button.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a button or anchor button"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Teaser"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-12-08"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/teaser.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Link an image and text"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Download"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-05-27"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/download.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display an asset for download"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "List"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-16"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/list.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a list of pages"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Experience Fragment"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-08-20"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/experience-fragment.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display an experience fragment"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Content Fragment"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-16"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/content-fragment.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a content fragment asset"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Content Fragment List"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-04-01"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/content-fragment-list.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a list of content fragments"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Embed"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-08-29"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/embed.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Embed a third-party widget"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Social Sharing"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-09"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/social-sharing.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Add social sharing links"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    },
+    {
+      "type": "li",
+      "content": [
+        {
+          "type": "article",
+          "content": [
+            {
+              "type": "a",
+              "content": [
+                {
+                  "type": "span",
+                  "content": [
+                    "Separator"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-title"
+                  }
+                },
+                {
+                  "type": "span",
+                  "content": [
+                    "2019-01-09"
+                  ],
+                  "attributes": {
+                    "class": "cmp-list__item-date"
+                  }
+                }
+              ],
+              "attributes": {
+                "class": "cmp-list__item-link cmp-link",
+                "href": "/content/core-components-examples/library/page-authoring/separator.html",
+                "target": "_self"
+              }
+            },
+            {
+              "type": "span",
+              "content": [
+                "Display a section divider"
+              ],
+              "attributes": {
+                "class": "cmp-list__item-description"
+              }
+            }
+          ]
+        }
+      ],
+      "attributes": {
+        "class": "cmp-list__item"
+      }
+    }
+  ],
+  "attributes": {
+    "class": "cmp-list"
+  }
+}

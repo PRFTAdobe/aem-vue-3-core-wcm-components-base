@@ -35,6 +35,17 @@ interface BreadcrumbComponentProperties extends MappedComponentProperties {
   items: string | string[] | null;
 }
 
+interface ListItem {
+  index?: number;
+  url?: string;
+  lastModified?: number;
+  lastModifiedFormatted?: string;
+  description?: string;
+  path: string;
+  title: string;
+  showModificationDate?: boolean;
+}
+
 export const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties> = {
   emptyLabel: 'Breadcrumb',
   isEmpty(props: { items: string | string[] | null }) {
@@ -134,6 +145,18 @@ export const LanguageNavigationEditConfig: EditConfig<LanguageNavigationComponen
       return props.items == null || props.items.length === 0;
     },
   };
+
+interface ListComponentProperties extends MappedComponentProperties {
+  items: ListItem[] | null;
+}
+
+export const ListEditConfig: EditConfig<ListComponentProperties> = {
+  emptyLabel: 'List',
+
+  isEmpty(props: { items: ListItem[] | null }) {
+    return props.items === null || props.items.length === 0;
+  },
+};
 
 interface NavigationComponentProperties extends MappedComponentProperties {
   items: string[] | null;

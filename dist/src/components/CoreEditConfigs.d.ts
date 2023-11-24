@@ -28,6 +28,16 @@ interface YouTubeProps {
 interface BreadcrumbComponentProperties extends MappedComponentProperties {
     items: string | string[] | null;
 }
+interface ListItem {
+    index?: number;
+    url?: string;
+    lastModified?: number;
+    lastModifiedFormatted?: string;
+    description?: string;
+    path: string;
+    title: string;
+    showModificationDate?: boolean;
+}
 export declare const BreadcrumbEditConfig: EditConfig<BreadcrumbComponentProperties>;
 interface ButtonComponentProperties extends MappedComponentProperties {
     text: string | null;
@@ -54,6 +64,10 @@ interface LanguageNavigationComponentProperties extends MappedComponentPropertie
     items: string[] | null;
 }
 export declare const LanguageNavigationEditConfig: EditConfig<LanguageNavigationComponentProperties>;
+interface ListComponentProperties extends MappedComponentProperties {
+    items: ListItem[] | null;
+}
+export declare const ListEditConfig: EditConfig<ListComponentProperties>;
 interface NavigationComponentProperties extends MappedComponentProperties {
     items: string[] | null;
 }

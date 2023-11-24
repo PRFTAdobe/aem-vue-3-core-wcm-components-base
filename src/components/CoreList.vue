@@ -8,9 +8,15 @@
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
   import CoreLink from '@/components/CoreLink.vue';
 
+  interface ListItemLink {
+    valid: boolean;
+    url: string;
+    attributes?: object;
+  }
+
   interface ListItem {
     index?: number;
-    url?: string;
+    link?: ListItemLink;
     lastModified?: number;
     lastModifiedFormatted?: string;
     description?: string;
@@ -59,7 +65,7 @@
     }
     if (item.lastModified && dateFormatString) {
       const lastModifiedDate = new Date(item.lastModified);
-      return date.format(lastModifiedDate, dateFormatString);
+      return date.format(lastModifiedDate, dateFormatString.toUpperCase());
     }
     return '';
   };
@@ -82,9 +88,9 @@
     >
       <article>
         <CoreLink
-          v-if="props.linkItems && item.url"
+          v-if="props.linkItems && item.link?.url"
           :class="`${props.baseCssClass}__item-link`"
-          :href="item.url!"
+          :href="item.link.url!"
         >
           <span :class="`${props.baseCssClass}__item-title`">{{
             item.title

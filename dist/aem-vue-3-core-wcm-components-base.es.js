@@ -1,4 +1,4 @@
-import { defineComponent as D, useAttrs as re, computed as v, openBlock as o, createElementBlock as p, mergeProps as W, unref as _e, renderSlot as fe, inject as L, normalizeClass as c, createElementVNode as T, Fragment as A, renderList as ie, createBlock as x, resolveDynamicComponent as O, h as S, withCtx as B, createCommentVNode as g, toDisplayString as $, createTextVNode as V, onMounted as ae, onUpdated as ye, normalizeStyle as ve, ref as J, onUnmounted as Te, watch as be, normalizeProps as he, guardReactiveProps as Le, createVNode as De } from "vue";
+import { defineComponent as D, useAttrs as re, computed as v, openBlock as o, createElementBlock as p, mergeProps as W, unref as _e, renderSlot as fe, inject as L, normalizeClass as u, createElementVNode as T, Fragment as A, renderList as ie, createBlock as x, resolveDynamicComponent as O, h as S, withCtx as B, createCommentVNode as g, toDisplayString as $, createTextVNode as V, onMounted as ae, onUpdated as ye, normalizeStyle as ve, ref as J, onUnmounted as Te, watch as be, normalizeProps as he, guardReactiveProps as Le, createVNode as De } from "vue";
 import { AuthoringUtils as w } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as P, componentClassNames as N, ComponentMapping as Oe } from "aem-vue-3-editable-components";
 import { useRoute as ge, useRouter as Ce } from "vue-router";
@@ -95,12 +95,12 @@ const xt = {
       const a = [e.class, e.baseCssClass];
       return n.path && typeof n.path < "u" && n.path === e.href && a.push("cmp-link--active"), a;
     }), l = (a) => {
-      const u = r.getRoutes().map((d) => d.path);
-      !w.isEditMode() && !w.isPreviewMode() && e.target !== "_blank" && u.includes(e.href) && (a.preventDefault(), r.push({
+      const d = r.getRoutes().map((c) => c.path);
+      !w.isEditMode() && !w.isPreviewMode() && e.target !== "_blank" && d.includes(e.href) && (a.preventDefault(), r.push({
         path: e.href
       }));
     };
-    return (a, u) => e.navigable ? (o(), p("a", W({
+    return (a, d) => e.navigable ? (o(), p("a", W({
       key: 0,
       class: i.value,
       href: e.href,
@@ -136,23 +136,23 @@ const xt = {
         e.aemNoDecoration
       )
     ), r = (i) => {
-      const l = (d, m = !1) => {
+      const l = (c, m = !1) => {
         const C = {
           itemProp: "name"
         };
-        return m && (C["aria-current"] = "page"), S("span", C, d);
+        return m && (C["aria-current"] = "page"), S("span", C, c);
       };
-      let u = ((d) => S(
+      let d = ((c) => S(
         z,
         {
-          href: d.link.url,
+          href: c.link.url,
           class: `${e.baseCssClass}__item-link`,
           itemProp: "item",
-          navigable: d.navigable
+          navigable: c.navigable
         },
-        () => l(d.title)
+        () => l(c.title)
       ))(i);
-      return i.active && (u = l(i.title, !0)), S(
+      return i.active && (d = l(i.title, !0)), S(
         "li",
         {
           class: [
@@ -165,16 +165,16 @@ const xt = {
           itemScope: !0,
           itemType: "http://schema.org/ListItem"
         },
-        u
+        d
       );
     };
     return (i, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.ariaLabel,
-      class: c(n.value)
+      class: u(n.value)
     }, [
       T("ol", {
-        class: c(`${e.baseCssClass}__list`),
+        class: u(`${e.baseCssClass}__list`),
         itemScope: "true",
         itemType: "http://schema.org/BreadcrumbList"
       }, [
@@ -235,32 +235,32 @@ const Ie = ["type"], zt = /* @__PURE__ */ D({
       e.link ? (o(), x(z, {
         key: 0,
         "aria-label": e.ariaLabel,
-        class: c(n.value.join(" ")),
+        class: u(n.value.join(" ")),
         href: e.link,
         onClick: r
       }, {
         default: B(() => [
           e.icon ? (o(), p("span", {
             key: 0,
-            class: c(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
+            class: u(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
           }, null, 2)) : g("", !0),
           T("span", {
-            class: c(`${e.baseCssClass}__text`)
+            class: u(`${e.baseCssClass}__text`)
           }, $(e.text), 3)
         ]),
         _: 1
       }, 8, ["aria-label", "class", "href"])) : (o(), p("button", {
         key: 1,
-        class: c(n.value),
+        class: u(n.value),
         type: e.type,
         onClick: r
       }, [
         e.icon ? (o(), p("span", {
           key: 0,
-          class: c(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
+          class: u(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
         }, null, 2)) : g("", !0),
         T("span", {
-          class: c(`${e.baseCssClass}__text`)
+          class: u(`${e.baseCssClass}__text`)
         }, $(e.text), 3)
       ], 10, Ie))
     ], 64)) : g("", !0);
@@ -314,7 +314,7 @@ const Re = ["id"], ze = ["innerHTML"], Ht = /* @__PURE__ */ D({
   },
   setup(t) {
     const e = t, s = L("isInEditor", w.isInEditor()), n = L("componentMapping", new Oe()), r = v(() => {
-      const u = N(
+      const d = N(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -322,35 +322,35 @@ const Re = ["id"], ze = ["innerHTML"], Ht = /* @__PURE__ */ D({
         s,
         e.aemNoDecoration
       );
-      return s && u.push("cq-dd-file"), u;
+      return s && d.push("cq-dd-file"), d;
     }), i = v(
       () => !(e.url && e.url.length > 0 || e.handleOnClick && typeof e.handleOnClick == "function")
     ), l = v(() => {
-      const u = n.get(
+      const d = n.get(
         "stanley/components/button"
       );
-      return S(u, {
+      return S(d, {
         class: `${e.baseCssClass}__action`,
         link: e.url || "#",
         handleOnClick: e.handleOnClick,
         text: e.actionText
       });
-    }), a = (u) => {
-      e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(u);
+    }), a = (d) => {
+      e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(d);
     };
-    return (u, d) => i.value ? g("", !0) : (o(), p("div", {
+    return (d, c) => i.value ? g("", !0) : (o(), p("div", {
       key: 0,
       id: e.id,
-      class: c(r.value)
+      class: u(r.value)
     }, [
       e.title ? (o(), x(O(e.titleType), {
         key: 0,
-        class: c(`${e.baseCssClass}__title`)
+        class: u(`${e.baseCssClass}__title`)
       }, {
         default: B(() => [
           e.url || e.handleOnClick ? (o(), x(z, {
             key: 0,
-            class: c(`${e.baseCssClass}__title-link`),
+            class: u(`${e.baseCssClass}__title-link`),
             href: e.url || "#",
             onClick: a
           }, {
@@ -366,53 +366,53 @@ const Re = ["id"], ze = ["innerHTML"], Ht = /* @__PURE__ */ D({
       }, 8, ["class"])) : g("", !0),
       e.description ? (o(), p("div", {
         key: 1,
-        class: c(`${e.baseCssClass}__description`),
+        class: u(`${e.baseCssClass}__description`),
         innerHTML: e.description
       }, null, 10, ze)) : g("", !0),
       e.filename || e.size || e.format ? (o(), p("dl", {
         key: 2,
-        class: c(`${e.baseCssClass}__properties`)
+        class: u(`${e.baseCssClass}__properties`)
       }, [
         e.filename ? (o(), p("div", {
           key: 0,
-          class: c([
+          class: u([
             `${e.baseCssClass}__property`,
             `${e.baseCssClass}__property--filename`
           ])
         }, [
           T("dt", {
-            class: c(`${e.baseCssClass}__property-label`)
+            class: u(`${e.baseCssClass}__property-label`)
           }, "Filename", 2),
           T("dd", {
-            class: c(`${e.baseCssClass}__property-content`)
+            class: u(`${e.baseCssClass}__property-content`)
           }, $(e.filename), 3)
         ], 2)) : g("", !0),
         e.size ? (o(), p("div", {
           key: 1,
-          class: c([
+          class: u([
             `${e.baseCssClass}__property`,
             `${e.baseCssClass}__property--size`
           ])
         }, [
           T("dt", {
-            class: c(`${e.baseCssClass}__property-label`)
+            class: u(`${e.baseCssClass}__property-label`)
           }, "Size", 2),
           T("dd", {
-            class: c(`${e.baseCssClass}__property-content`)
+            class: u(`${e.baseCssClass}__property-content`)
           }, $(e.size), 3)
         ], 2)) : g("", !0),
         e.format ? (o(), p("div", {
           key: 2,
-          class: c([
+          class: u([
             `${e.baseCssClass}__property`,
             `${e.baseCssClass}__property--format`
           ])
         }, [
           T("dt", {
-            class: c(`${e.baseCssClass}__property-label`)
+            class: u(`${e.baseCssClass}__property-label`)
           }, "Format", 2),
           T("dd", {
-            class: c(`${e.baseCssClass}__property-content`)
+            class: u(`${e.baseCssClass}__property-content`)
           }, $(e.format), 3)
         ], 2)) : g("", !0)
       ], 2)) : g("", !0),
@@ -420,7 +420,7 @@ const Re = ["id"], ze = ["innerHTML"], Ht = /* @__PURE__ */ D({
     ], 10, Re));
   }
 });
-const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["innerHTML"], Bt = /* @__PURE__ */ D({
+const He = ["id"], Be = ["innerHTML"], Ue = ["href"], Fe = ["href"], Ye = ["innerHTML"], Bt = /* @__PURE__ */ D({
   inheritAttrs: !1,
   __name: "CoreEmbed",
   props: {
@@ -475,8 +475,8 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
         "cq-dd-embed": s || !1
       }), h;
     }), l = () => {
-      var F, te, ce, ue, de, pe;
-      const h = (F = e.youTubeProps) == null ? void 0 : F.youtubeVideoId, _ = (te = e.youTubeProps) == null ? void 0 : te.youtubeAutoPlay, f = (ce = e.youTubeProps) == null ? void 0 : ce.youtubeLoop, b = (ue = e.youTubeProps) == null ? void 0 : ue.youtubeMute, k = (de = e.youTubeProps) == null ? void 0 : de.youtubePlaysInline, E = (pe = e.youTubeProps) == null ? void 0 : pe.youtubeRel, I = `https://www.youtube.com/embed/${h}`, R = {
+      var U, te, ce, ue, de, pe;
+      const h = (U = e.youTubeProps) == null ? void 0 : U.youtubeVideoId, _ = (te = e.youTubeProps) == null ? void 0 : te.youtubeAutoPlay, f = (ce = e.youTubeProps) == null ? void 0 : ce.youtubeLoop, b = (ue = e.youTubeProps) == null ? void 0 : ue.youtubeMute, k = (de = e.youTubeProps) == null ? void 0 : de.youtubePlaysInline, E = (pe = e.youTubeProps) == null ? void 0 : pe.youtubeRel, I = `https://www.youtube.com/embed/${h}`, R = {
         mute: `${+b}`,
         autoplay: `${+_}`,
         loop: `${+f}`,
@@ -501,7 +501,7 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
           ariaLabel: "YouTube Video"
         });
       }
-    ), u = v(() => {
+    ), d = v(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: h } = e.result.options;
         return S("img", {
@@ -512,7 +512,7 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
         });
       }
       return S("img");
-    }), d = v(() => {
+    }), c = v(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: h } = e.result.options;
         return h.type;
@@ -552,7 +552,7 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
       var f, b, k, E, I;
       return o(), p("div", {
         id: e.id,
-        class: c(i.value)
+        class: u(i.value)
       }, [
         e.type === "HTML" ? (o(), p("div", {
           key: 0,
@@ -560,7 +560,7 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
         }, null, 8, Be)) : e.type === "EMBEDDABLE" ? (o(), p(A, { key: 1 }, [
           ((f = e.youTubeProps) == null ? void 0 : f.layout) === "responsive" ? (o(), p("div", {
             key: 0,
-            class: c(`${h.baseCssClass}__embeddable-wrapper`),
+            class: u(`${h.baseCssClass}__embeddable-wrapper`),
             style: ve({
               "padding-bottom": ((b = e.youTubeProps) == null ? void 0 : b.layout) === "responsive" ? `${(k = t.youTubeProps) == null ? void 0 : k.youtubeAspectRatio}%` : 0
             })
@@ -573,11 +573,11 @@ const He = ["id"], Be = ["innerHTML"], Fe = ["href"], Ue = ["href"], Ye = ["inne
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, $(e.url), 9, Fe)) : ((I = e.result) == null ? void 0 : I.processor) === "oembed" ? (o(), p(A, { key: 1 }, [
-            d.value === "photo" ? (o(), x(O(u.value), { key: 0 })) : d.value === "link" ? (o(), p("a", {
+          }, $(e.url), 9, Ue)) : ((I = e.result) == null ? void 0 : I.processor) === "oembed" ? (o(), p(A, { key: 1 }, [
+            c.value === "photo" ? (o(), x(O(d.value), { key: 0 })) : c.value === "link" ? (o(), p("a", {
               key: 1,
               href: m.value
-            }, $(C.value), 9, Ue)) : d.value === "video" || d.value === "rich" ? (o(), p("div", {
+            }, $(C.value), 9, Fe)) : c.value === "video" || c.value === "rich" ? (o(), p("div", {
               key: 2,
               innerHTML: H.value
             }, null, 8, Ye)) : g("", !0)
@@ -651,14 +651,14 @@ function We(t, e) {
     qe(i);
   }
   function a() {
-    var u = Date.now();
+    var d = Date.now();
     if (s) {
-      if (u - r < je)
+      if (d - r < je)
         return;
       n = !0;
     } else
       s = !0, n = !1, setTimeout(l, e);
-    r = u;
+    r = d;
   }
   return a;
 }
@@ -742,12 +742,12 @@ function Ke(t) {
   var e = t.clientWidth, s = t.clientHeight;
   if (!e && !s)
     return ke;
-  var n = q(t).getComputedStyle(t), r = Xe(n), i = r.left + r.right, l = r.top + r.bottom, a = Q(n.width), u = Q(n.height);
-  if (n.boxSizing === "border-box" && (Math.round(a + i) !== e && (a -= me(n, "left", "right") + i), Math.round(u + l) !== s && (u -= me(n, "top", "bottom") + l)), !tt(t)) {
-    var d = Math.round(a + i) - e, m = Math.round(u + l) - s;
-    Math.abs(d) !== 1 && (a -= d), Math.abs(m) !== 1 && (u -= m);
+  var n = q(t).getComputedStyle(t), r = Xe(n), i = r.left + r.right, l = r.top + r.bottom, a = Q(n.width), d = Q(n.height);
+  if (n.boxSizing === "border-box" && (Math.round(a + i) !== e && (a -= me(n, "left", "right") + i), Math.round(d + l) !== s && (d -= me(n, "top", "bottom") + l)), !tt(t)) {
+    var c = Math.round(a + i) - e, m = Math.round(d + l) - s;
+    Math.abs(c) !== 1 && (a -= c), Math.abs(m) !== 1 && (d -= m);
   }
-  return ee(r.left, r.top, a, u);
+  return ee(r.left, r.top, a, d);
 }
 var et = function() {
   return typeof SVGGraphicsElement < "u" ? function(t) {
@@ -925,7 +925,7 @@ const lt = ["id"], ct = /* @__PURE__ */ D({
         };
       }
       return _;
-    }), u = v(() => {
+    }), d = v(() => {
       const _ = N(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -937,7 +937,7 @@ const lt = ["id"], ct = /* @__PURE__ */ D({
       return _.push({
         "cq-dd-image": n || !1
       }), _;
-    }), d = v(() => {
+    }), c = v(() => {
       const _ = S(
         "figcaption",
         {
@@ -977,12 +977,12 @@ const lt = ["id"], ct = /* @__PURE__ */ D({
             let E;
             const { responseText: I } = f, j = /^(?:\/\*jsonp\*\/)?\s*([^()]+)\(([\s\S]+),\s*"[0-9]*"\);?$/gim.exec(I);
             if (j && j.length >= 2) {
-              const F = j[2];
-              /^{[\s\S]*}$/gim.test(F) && (E = JSON.parse(F));
+              const U = j[2];
+              /^{[\s\S]*}$/gim.test(U) && (E = JSON.parse(U));
             }
             E && ((k = E.set) != null && k.relation) && Array.isArray(E.set.relation) && E.set.relation.forEach(
-              (F) => {
-                _[parseInt(F.userdata.SmartCropWidth, 10)] = `:${F.userdata.SmartCropDef}`;
+              (U) => {
+                _[parseInt(U.userdata.SmartCropWidth, 10)] = `:${U.userdata.SmartCropDef}`;
               }
             );
           }
@@ -1034,7 +1034,7 @@ const lt = ["id"], ct = /* @__PURE__ */ D({
         id: e.id,
         ref_key: "image",
         ref: r,
-        class: c(u.value),
+        class: u(d.value),
         style: ve(a.value)
       }, [
         i.value ? (o(), p(A, { key: 0 }, [
@@ -1044,16 +1044,16 @@ const lt = ["id"], ct = /* @__PURE__ */ D({
             href: e.imageLink.url
           }, e.imageLink.attributes), {
             default: B(() => [
-              (o(), x(O(d.value), { key: i.value }))
+              (o(), x(O(c.value), { key: i.value }))
             ]),
             _: 1
-          }, 16, ["class", "href"])) : (o(), x(O(d.value), { key: i.value }))
+          }, 16, ["class", "href"])) : (o(), x(O(c.value), { key: i.value }))
         ], 64)) : g("", !0)
       ], 14, lt);
     };
   }
 });
-const ut = ["id", "aria-label"], Ft = /* @__PURE__ */ D({
+const ut = ["id", "aria-label"], Ut = /* @__PURE__ */ D({
   inheritAttrs: !1,
   __name: "CoreLanguageNavigation",
   props: {
@@ -1081,7 +1081,7 @@ const ut = ["id", "aria-label"], Ft = /* @__PURE__ */ D({
       if ((i || []).length === 0 || typeof i > "u")
         return;
       const l = i.map((a) => {
-        let u = S(
+        let d = S(
           "span",
           {
             class: `${e.baseCssClass}__item-title`,
@@ -1089,7 +1089,7 @@ const ut = ["id", "aria-label"], Ft = /* @__PURE__ */ D({
           },
           [a.title]
         );
-        return a.level > 0 && (u = S(
+        return a.level > 0 && (d = S(
           z,
           {
             "aria-current": `${a.active ? "page" : !1}`,
@@ -1115,7 +1115,7 @@ const ut = ["id", "aria-label"], Ft = /* @__PURE__ */ D({
             ]
           },
           [
-            u,
+            d,
             r(a.children)
           ]
         );
@@ -1129,7 +1129,7 @@ const ut = ["id", "aria-label"], Ft = /* @__PURE__ */ D({
     return (i, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Language Navigation",
-      class: c(n.value),
+      class: u(n.value),
       itemScope: "",
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
@@ -1322,7 +1322,7 @@ var ne = {}, Z = {}, G = "en", le = {
     return t;
   },
   res: le
-}, U = function(t, e, s, n) {
+}, F = function(t, e, s, n) {
   var r = {}, i;
   for (i in t)
     r[i] = t[i];
@@ -1339,19 +1339,19 @@ M.compile = function(t) {
   return n;
 };
 M.format = function(t, e, s) {
-  var n = this || y, r = typeof e == "string" ? n.compile(e) : e, i = t.getTimezoneOffset(), l = n.addMinutes(t, s ? i : 0), a = n._formatter, u = "";
+  var n = this || y, r = typeof e == "string" ? n.compile(e) : e, i = t.getTimezoneOffset(), l = n.addMinutes(t, s ? i : 0), a = n._formatter, d = "";
   l.getTimezoneOffset = function() {
     return s ? 0 : i;
   };
-  for (var d = 1, m = r.length, C; d < m; d++)
-    C = r[d], u += a[C] ? a.post(a[C](l, r[0])) : C.replace(/\[(.*)]/, "$1");
-  return u;
+  for (var c = 1, m = r.length, C; c < m; c++)
+    C = r[c], d += a[C] ? a.post(a[C](l, r[0])) : C.replace(/\[(.*)]/, "$1");
+  return d;
 };
 M.preparse = function(t, e) {
   var s = this || y, n = typeof e == "string" ? s.compile(e) : e, r = { Y: 1970, M: 1, D: 1, H: 0, A: 0, h: 0, m: 0, s: 0, S: 0, Z: 0, _index: 0, _length: 0, _match: 0 }, i = /\[(.*)]/, l = s._parser, a = 0;
   t = l.pre(t);
-  for (var u = 1, d = n.length, m, C; u < d; u++)
-    if (m = n[u], l[m]) {
+  for (var d = 1, c = n.length, m, C; d < c; d++)
+    if (m = n[d], l[m]) {
       if (C = l[m](t.slice(a), n[0]), !C.length)
         break;
       a += C.length, r[C.token || m.charAt(0)] = C.value, r._match++;
@@ -1438,22 +1438,22 @@ M.locale = function(t, e) {
 M.plugin = function(t, e) {
   Z[t] || (Z[t] = e);
 };
-K = U(M);
-y = U(M);
+K = F(M);
+y = F(M);
 y.locale = function(t) {
   var e = typeof t == "function" ? t : y.locale[t];
   if (!e)
     return G;
   G = e(M);
-  var s = ne[G] || {}, n = U(le, s.res, !0), r = U(Se, s.formatter, !0, n), i = U(we, s.parser, !0, n);
+  var s = ne[G] || {}, n = F(le, s.res, !0), r = F(Se, s.formatter, !0, n), i = F(we, s.parser, !0, n);
   y._formatter = K._formatter = r, y._parser = K._parser = i;
   for (var l in Z)
     y.extend(Z[l]);
   return G;
 };
 y.extend = function(t) {
-  var e = U(y._parser.res, t.res), s = t.extender || {};
-  y._formatter = U(y._formatter, t.formatter, !1, e), y._parser = U(y._parser, t.parser, !1, e);
+  var e = F(y._parser.res, t.res), s = t.extender || {};
+  y._formatter = F(y._formatter, t.formatter, !1, e), y._parser = F(y._parser, t.parser, !1, e);
   for (var n in s)
     y[n] || (y[n] = s[n]);
 };
@@ -1462,7 +1462,7 @@ y.plugin = function(t) {
   e && y.extend(Z[e(M, K)] || {});
 };
 var dt = y;
-const pt = ["id"], Ut = /* @__PURE__ */ D({
+const pt = ["id"], Ft = /* @__PURE__ */ D({
   inheritAttrs: !1,
   __name: "CoreList",
   props: {
@@ -1500,50 +1500,53 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
         return i.lastModifiedFormatted;
       if (i.lastModified && l) {
         const a = new Date(i.lastModified);
-        return dt.format(a, l);
+        return dt.format(a, l.toUpperCase());
       }
       return "";
     };
     return (i, l) => e.items && e.items.length ? (o(), p("ul", {
       key: 0,
       id: e.id,
-      class: c(n.value)
+      class: u(n.value)
     }, [
-      (o(!0), p(A, null, ie(e.items, (a, u) => (o(), p("li", {
-        key: u,
-        class: c(`${e.baseCssClass}__item`)
-      }, [
-        T("article", null, [
-          e.linkItems && a.url ? (o(), x(z, {
-            key: 0,
-            class: c(`${e.baseCssClass}__item-link`),
-            href: a.url
-          }, {
-            default: B(() => [
+      (o(!0), p(A, null, ie(e.items, (a, d) => {
+        var c;
+        return o(), p("li", {
+          key: d,
+          class: u(`${e.baseCssClass}__item`)
+        }, [
+          T("article", null, [
+            e.linkItems && ((c = a.link) != null && c.url) ? (o(), x(z, {
+              key: 0,
+              class: u(`${e.baseCssClass}__item-link`),
+              href: a.link.url
+            }, {
+              default: B(() => [
+                T("span", {
+                  class: u(`${e.baseCssClass}__item-title`)
+                }, $(a.title), 3),
+                e.showModificationDate ? (o(), p("span", {
+                  key: 0,
+                  class: u(`${e.baseCssClass}__item-date`)
+                }, $(r(a, e.dateFormatString)), 3)) : g("", !0)
+              ]),
+              _: 2
+            }, 1032, ["class", "href"])) : (o(), p(A, { key: 1 }, [
               T("span", {
-                class: c(`${e.baseCssClass}__item-title`)
+                class: u(`${e.baseCssClass}__item-title`)
               }, $(a.title), 3),
               e.showModificationDate ? (o(), p("span", {
                 key: 0,
-                class: c(`${e.baseCssClass}__item-date`)
+                class: u(`${e.baseCssClass}__item-date`)
               }, $(r(a, e.dateFormatString)), 3)) : g("", !0)
-            ]),
-            _: 2
-          }, 1032, ["class", "href"])) : (o(), p(A, { key: 1 }, [
-            T("span", {
-              class: c(`${e.baseCssClass}__item-title`)
-            }, $(a.title), 3),
-            e.showModificationDate ? (o(), p("span", {
-              key: 0,
-              class: c(`${e.baseCssClass}__item-date`)
-            }, $(r(a, e.dateFormatString)), 3)) : g("", !0)
-          ], 64)),
-          e.showDescription ? (o(), p("span", {
-            key: 2,
-            class: c(`${e.baseCssClass}__item-description`)
-          }, $(a.description), 3)) : g("", !0)
-        ])
-      ], 2))), 128))
+            ], 64)),
+            e.showDescription ? (o(), p("span", {
+              key: 2,
+              class: u(`${e.baseCssClass}__item-description`)
+            }, $(a.description), 3)) : g("", !0)
+          ])
+        ], 2);
+      }), 128))
     ], 10, pt)) : g("", !0);
   }
 }), ft = ["id", "aria-label"], Yt = /* @__PURE__ */ D({
@@ -1606,7 +1609,7 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
     return (i, l) => (o(), p("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Navigation",
-      class: c(n.value),
+      class: u(n.value),
       itemScope: "",
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
@@ -1633,10 +1636,10 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
     );
     return (r, i) => (o(), p("div", {
       id: e.id,
-      class: c(n.value)
+      class: u(n.value)
     }, [
       T("hr", {
-        class: c(`${e.baseCssClass}__horizontal-rule`)
+        class: u(`${e.baseCssClass}__horizontal-rule`)
       }, null, 2)
     ], 10, ht));
   }
@@ -1667,7 +1670,7 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
   },
   setup(t) {
     const e = t, s = re(), n = ge(), r = L("isInEditor", w.isInEditor()), i = v(() => {
-      const d = N(
+      const c = N(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -1675,29 +1678,29 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
         r,
         e.aemNoDecoration
       );
-      return d.push({
+      return c.push({
         "cq-dd-title": r
-      }), d;
-    }), l = J((s == null ? void 0 : s.linkDisabled) !== !0), a = v(() => e.isNested ? "-" : "__"), u = v(() => n.path && typeof n.path < "u" ? n.path : null);
+      }), c;
+    }), l = J((s == null ? void 0 : s.linkDisabled) !== !0), a = v(() => e.isNested ? "-" : "__"), d = v(() => n.path && typeof n.path < "u" ? n.path : null);
     return be(
       () => s == null ? void 0 : s.linkDisabled,
-      async (d, m) => {
-        d !== m && (l.value = d !== !0);
+      async (c, m) => {
+        c !== m && (l.value = c !== !0);
       }
-    ), (d, m) => (o(), p("div", {
+    ), (c, m) => (o(), p("div", {
       id: e.id,
-      class: c(i.value)
+      class: u(i.value)
     }, [
       (o(), x(O(e.type), {
-        class: c(`${d.baseCssClass}${a.value}text`)
+        class: u(`${c.baseCssClass}${a.value}text`)
       }, {
         default: B(() => {
           var C, H;
           return [
             l.value ? (o(), x(z, W({
               key: 0,
-              class: `${d.baseCssClass}${a.value}link`,
-              href: ((C = e.link) == null ? void 0 : C.url) || u.value
+              class: `${c.baseCssClass}${a.value}link`,
+              href: ((C = e.link) == null ? void 0 : C.url) || d.value
             }, (H = e.link) == null ? void 0 : H.attributes), {
               default: B(() => [
                 V($(t.text), 1)
@@ -1764,11 +1767,11 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
         "cq-dd-teaser": s
       }), a;
     }), r = v(() => {
-      var a, u;
+      var a, d;
       return {
         class: `${e.baseCssClass}__link`,
         href: (a = e.link) == null ? void 0 : a.url,
-        ...(u = e.link) == null ? void 0 : u.attributes
+        ...(d = e.link) == null ? void 0 : d.attributes
       };
     }), i = v(() => ({
       baseCssClass: `${e.baseCssClass}__title`,
@@ -1779,39 +1782,39 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
       text: e.title,
       type: e.titleType
     })), l = (a) => oe.sanitize(a);
-    return (a, u) => (o(), p("div", {
+    return (a, d) => (o(), p("div", {
       id: e.id,
-      class: c(n.value)
+      class: u(n.value)
     }, [
       (o(), x(O(e.link ? z : "section"), he(Le(e.link ? r.value : !1)), {
         default: B(() => [
           e.pretitle || e.title || e.description ? (o(), p("div", {
             key: 0,
-            class: c(`${e.baseCssClass}__content`)
+            class: u(`${e.baseCssClass}__content`)
           }, [
             e.pretitle ? (o(), p("p", {
               key: 0,
-              class: c(`${e.baseCssClass}__pretitle`)
+              class: u(`${e.baseCssClass}__pretitle`)
             }, $(e.pretitle), 3)) : g("", !0),
             e.title ? (o(), x(_t, he(W({ key: 1 }, i.value)), null, 16)) : g("", !0),
             e.description ? (o(), p("div", {
               key: 2,
-              class: c(`${e.baseCssClass}__description`),
+              class: u(`${e.baseCssClass}__description`),
               innerHTML: `${l(e.description)}`
             }, null, 10, vt)) : g("", !0),
             e.actions && e.actions.length > 0 ? (o(), p("div", {
               key: 3,
-              class: c(`${e.baseCssClass}__action-container`)
+              class: u(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), p(A, null, ie(e.actions, (d, m) => (o(), x(z, W({
-                id: d.id,
+              (o(!0), p(A, null, ie(e.actions, (c, m) => (o(), x(z, W({
+                id: c.id,
                 key: `link-${m}`,
                 class: `${e.baseCssClass}__action-link`,
-                href: d.link.url,
-                title: d.title
-              }, d.link.attributes), {
+                href: c.link.url,
+                title: c.title
+              }, c.link.attributes), {
                 default: B(() => [
-                  V($(d.title), 1)
+                  V($(c.title), 1)
                 ]),
                 _: 2
               }, 1040, ["id", "class", "href", "title"]))), 128))
@@ -1819,7 +1822,7 @@ const pt = ["id"], Ut = /* @__PURE__ */ D({
           ], 2)) : g("", !0),
           e.imagePath ? (o(), p("div", {
             key: 1,
-            class: c(`${e.baseCssClass}__image`)
+            class: u(`${e.baseCssClass}__image`)
           }, [
             De(ct, {
               alt: e.imageAlt,
@@ -1862,40 +1865,40 @@ const bt = ["id", "innerHTML"], gt = ["id"], Wt = /* @__PURE__ */ D({
         n,
         e.aemNoDecoration
       )
-    ), i = J(null), l = (d) => oe.sanitize(d), a = v(() => {
-      const d = e.cqPath ? e.cqPath.substring(e.cqPath.lastIndexOf("/") + 1) : "";
-      return e.id ? e.id : d;
-    }), u = () => {
+    ), i = J(null), l = (c) => oe.sanitize(c), a = v(() => {
+      const c = e.cqPath ? e.cqPath.substring(e.cqPath.lastIndexOf("/") + 1) : "";
+      return e.id ? e.id : c;
+    }), d = () => {
       if (i.value) {
-        const d = s.getRoutes().map((m) => m.path);
+        const c = s.getRoutes().map((m) => m.path);
         !w.isEditMode() && !w.isPreviewMode() && i.value.querySelectorAll("a").forEach((m) => {
           m.classList.add("cmp-link");
           const C = m.getAttribute("target") || "_self", H = m.getAttribute("href") || "#";
           m.onclick = (Y) => {
-            C !== "_blank" && d.includes(H) && (Y.preventDefault(), s.push(H));
+            C !== "_blank" && c.includes(H) && (Y.preventDefault(), s.push(H));
           };
         });
       }
     };
     return ae(() => {
-      u();
+      d();
     }), ye(() => {
-      u();
-    }), (d, m) => e.richText ? (o(), p("div", {
+      d();
+    }), (c, m) => e.richText ? (o(), p("div", {
       key: 0,
       id: a.value,
       ref_key: "richTextElement",
       ref: i,
-      class: c(r.value),
+      class: u(r.value),
       "data-rte-editelement": "",
       innerHTML: `${l(e.text)}`
     }, null, 10, bt)) : (o(), p("div", {
       key: 1,
       id: a.value,
-      class: c(r.value)
+      class: u(r.value)
     }, [
       T("p", {
-        class: c(`${e.baseCssClass}__paragraph`)
+        class: u(`${e.baseCssClass}__paragraph`)
       }, $(e.text), 3)
     ], 10, gt));
   }
@@ -1908,9 +1911,9 @@ export {
   Ht as CoreDownload,
   Bt as CoreEmbed,
   ct as CoreImage,
-  Ft as CoreLanguageNavigation,
+  Ut as CoreLanguageNavigation,
   z as CoreLink,
-  Ut as CoreList,
+  Ft as CoreList,
   Yt as CoreNavigation,
   qt as CoreSeparator,
   jt as CoreTeaser,

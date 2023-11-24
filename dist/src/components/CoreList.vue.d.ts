@@ -1,7 +1,12 @@
 import { PropType } from 'vue';
+interface ListItemLink {
+    valid: boolean;
+    url: string;
+    attributes?: object;
+}
 interface ListItem {
     index?: number;
-    url?: string;
+    link?: ListItemLink;
     lastModified?: number;
     lastModifiedFormatted?: string;
     description?: string;

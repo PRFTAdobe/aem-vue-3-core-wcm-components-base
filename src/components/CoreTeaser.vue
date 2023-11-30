@@ -241,6 +241,10 @@
     color: #eee;
   }
 
+  .cmp-teaser__action-container {
+    margin-block-start: 16px;
+  }
+
   @media only screen and (width >= 480px) {
     .cmp-teaser__content {
       font-size: 14px;

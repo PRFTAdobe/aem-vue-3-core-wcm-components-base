@@ -202,7 +202,7 @@
   }
 
   .cmp-teaser__description > p {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1;
   }
 
@@ -256,7 +256,7 @@
       padding-inline: 32px;
     }
 
-    .cmp-teaser__content > p {
+    .cmp-teaser__description > p {
       font-size: 14px;
     }
 

@@ -177,12 +177,15 @@
   .cmp-teaser__content {
     display: flex;
     flex-direction: column;
-    font-size: 12px;
     justify-content: flex-end;
     min-block-size: 160px;
     min-inline-size: 240px;
     padding-block: 16px;
     padding-inline: 16px;
+  }
+
+  .cmp-teaser__content > p {
+    font-size: 12px;
   }
 
   .cmp-teaser__image ~ .cmp-teaser__content {
@@ -194,7 +197,7 @@
     position: absolute;
   }
 
-  .cmp-teaser__title {
+  .cmp-teaser__title-text {
     font-size: 20px;
     line-height: 1.5;
     margin-block: 0;
@@ -216,7 +219,11 @@
       padding-inline: 32px;
     }
 
-    .cmp-teaser__title {
+    .cmp-teaser__content > p {
+      font-size: 14px;
+    }
+
+    .cmp-teaser__title-text {
       font-size: 30px;
     }
   }

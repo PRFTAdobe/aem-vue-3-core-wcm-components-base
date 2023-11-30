@@ -40,6 +40,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     cqType: {
         type: StringConstructor;
+        default: string;
     };
     description: {
         type: StringConstructor;
@@ -93,6 +94,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     cqType: {
         type: StringConstructor;
+        default: string;
     };
     description: {
         type: StringConstructor;
@@ -123,6 +125,7 @@ declare const _default: import("vue").DefineComponent<{
     containerProps: {
         [key: string]: string;
     };
+    cqType: string;
     titleType: string;
     imageAlt: string;
 }, {}>;

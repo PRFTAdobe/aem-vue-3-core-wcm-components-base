@@ -7,11 +7,18 @@
   import date from 'date-and-time';
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
   import CoreLink from '@/components/CoreLink.vue';
+  import CoreTeaser from '@/components/CoreTeaser.vue';
 
   interface ListItemLink {
     valid: boolean;
     url: string;
     attributes?: object;
+  }
+
+  interface TeaserLink {
+    attributes: { [key: string]: string };
+    url: string;
+    valid: boolean;
   }
 
   interface ListItem {
@@ -33,6 +40,9 @@
     // eslint-disable-next-line vue/require-default-prop
     dateFormatString: {
       type: String,
+    },
+    displayItemAsTeaser: {
+      type: Boolean,
     },
     showDescription: {
       type: Boolean,
@@ -77,7 +87,9 @@
 
 <template>
   <ul
-    v-if="props.items && props.items.length"
+    v-if="
+      props.items && props.items.length && props.displayItemAsTeaser !== true
+    "
     :id="props.id"
     :class="className"
   >
@@ -119,6 +131,15 @@
       </article>
     </li>
   </ul>
+  <template v-else-if="props.items && props.items.length">
+    <CoreTeaser
+      v-for="(item, index) in props.items"
+      :key="index"
+      :description="item.description"
+      :link="item.link as TeaserLink"
+      :title="item.title"
+    />
+  </template>
 </template>
 
 <style>

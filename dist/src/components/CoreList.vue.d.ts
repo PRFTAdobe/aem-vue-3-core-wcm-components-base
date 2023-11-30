@@ -44,6 +44,9 @@ declare const _default: import("vue").DefineComponent<{
     dateFormatString: {
         type: StringConstructor;
     };
+    displayItemAsTeaser: {
+        type: BooleanConstructor;
+    };
     showDescription: {
         type: BooleanConstructor;
     };
@@ -83,6 +86,9 @@ declare const _default: import("vue").DefineComponent<{
     dateFormatString: {
         type: StringConstructor;
     };
+    displayItemAsTeaser: {
+        type: BooleanConstructor;
+    };
     showDescription: {
         type: BooleanConstructor;
     };
@@ -98,6 +104,7 @@ declare const _default: import("vue").DefineComponent<{
     containerProps: {
         [key: string]: string;
     };
+    displayItemAsTeaser: boolean;
     showDescription: boolean;
     showModificationDate: boolean;
     linkItems: boolean;

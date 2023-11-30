@@ -29,9 +29,9 @@
     actions: {
       type: Array as PropType<TeaserAction[]>,
     },
-    // eslint-disable-next-line vue/require-default-prop
     cqType: {
       type: String,
+      default: '',
     },
     // eslint-disable-next-line vue/require-default-prop
     description: {
@@ -88,7 +88,7 @@
 
   const actionButton = (action: TeaserAction): VNode => {
     let buttonComponent = CoreButton;
-    if (props.cqType?.endsWith('/teaser')) {
+    if (props.cqType.endsWith('/teaser')) {
       buttonComponent = componentMapping.get(
         props.cqType!.replace('/teaser', '/button'),
       ) as typeof CoreButton;

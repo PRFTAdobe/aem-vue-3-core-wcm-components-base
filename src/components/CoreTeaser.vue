@@ -243,6 +243,9 @@
   }
 
   .cmp-teaser__action-container {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 8px;
     margin-block-start: 16px;
   }
 

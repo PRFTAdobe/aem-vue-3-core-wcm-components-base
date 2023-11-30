@@ -38,6 +38,9 @@ declare const _default: import("vue").DefineComponent<{
     actions: {
         type: PropType<TeaserAction[]>;
     };
+    cqType: {
+        type: StringConstructor;
+    };
     description: {
         type: StringConstructor;
     };
@@ -87,6 +90,9 @@ declare const _default: import("vue").DefineComponent<{
     };
     actions: {
         type: PropType<TeaserAction[]>;
+    };
+    cqType: {
+        type: StringConstructor;
     };
     description: {
         type: StringConstructor;

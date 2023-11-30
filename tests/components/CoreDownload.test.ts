@@ -18,6 +18,7 @@ describe('CoreDownload ->', () => {
   let captured = false;
   const PROPS_DATA = {
     actionText: 'Download now!!!',
+    cqType: 'stanley/components/download',
     description:
       '<p>Asset uploaded directly from a local file system</p>\\r\\n',
     extension: 'jpg',

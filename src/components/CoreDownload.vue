@@ -7,11 +7,16 @@
   import { computed, h, inject, VNode } from 'vue';
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
   import CoreLink from '@/components/CoreLink.vue';
+  import CoreButton from '@/components/CoreButton.vue';
 
   const props = defineProps({
     actionText: {
       type: String,
       default: 'Download',
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    cqType: {
+      type: String,
     },
     // eslint-disable-next-line vue/require-default-prop
     description: {
@@ -79,9 +84,12 @@
   );
 
   const actionButton = computed((): VNode => {
-    const buttonComponent = componentMapping.get(
-      'stanley/components/button',
-    ) as VNode;
+    let buttonComponent = CoreButton;
+    if (props.cqType?.endsWith('/download')) {
+      buttonComponent = componentMapping.get(
+        props.cqType!.replace('/download', '/button'),
+      ) as typeof CoreButton;
+    }
     return h(buttonComponent, {
       class: `${props.baseCssClass}__action`,
       link: props.url || '#',

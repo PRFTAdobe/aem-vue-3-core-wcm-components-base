@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+  /* eslint-disable vue/no-deprecated-filter */
   import {
     componentClassNames,
     componentProperties,
   } from 'aem-vue-3-editable-components';
-  import { computed, inject } from 'vue';
+  import { computed, inject, useAttrs } from 'vue';
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
   import CoreLink from '@/components/CoreLink.vue';
 
@@ -38,6 +39,7 @@
     ...componentProperties('cmp-button'),
   });
 
+  const attrs = useAttrs();
   const isInEditor = inject('isInEditor', AuthoringUtils.isInEditor());
 
   const className = computed(() =>
@@ -69,6 +71,7 @@
       :aria-label="props.ariaLabel"
       :class="(className as string[]).join(' ')"
       :href="props.link"
+      v-bind="attrs"
       @click="buttonClick"
     >
       <span
@@ -81,6 +84,7 @@
       v-else
       :class="className"
       :type="props.type as 'submit' | 'reset' | 'button'"
+      v-bind="attrs"
       @click="buttonClick"
     >
       <span

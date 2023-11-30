@@ -99,7 +99,7 @@
     "@adobe/aem-spa-page-model-manager": "~1.5.0",
     "aem-vue-3-editable-components": "github:PRFTAdobe/aem-vue-3-editable-components",
     "dompurify": "~3.0.6",
-    "vue": "~3.3.9",
+    "vue": "~3.3.4",
     "vue-router": "~4.2.5"
   },
   "browserslist": [

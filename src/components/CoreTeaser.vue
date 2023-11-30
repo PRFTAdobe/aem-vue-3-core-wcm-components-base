@@ -1,14 +1,16 @@
 <script lang="ts" setup>
   import {
     componentClassNames,
+    ComponentMapping,
     componentProperties,
   } from 'aem-vue-3-editable-components';
-  import { computed, inject, PropType } from 'vue';
+  import { computed, h, inject, PropType, VNode } from 'vue';
   import { AuthoringUtils } from '@adobe/aem-spa-page-model-manager';
   import CoreTitle from '@/components/CoreTitle.vue';
   import CoreLink from '@/components/CoreLink.vue';
   import DOMPurify from 'dompurify';
   import CoreImage from '@/components/CoreImage.vue';
+  import CoreButton from '@/components/CoreButton.vue';
 
   interface TeaserLink {
     attributes: { [key: string]: string };
@@ -26,6 +28,10 @@
     // eslint-disable-next-line vue/require-default-prop
     actions: {
       type: Array as PropType<TeaserAction[]>,
+    },
+    // eslint-disable-next-line vue/require-default-prop
+    cqType: {
+      type: String,
     },
     // eslint-disable-next-line vue/require-default-prop
     description: {
@@ -59,6 +65,7 @@
   });
 
   const isInEditor = inject('isInEditor', AuthoringUtils.isInEditor());
+  const componentMapping = inject('componentMapping', new ComponentMapping());
 
   const className = computed(() => {
     const componentClass = componentClassNames(
@@ -74,6 +81,23 @@
     });
     return componentClass;
   });
+
+  const actionButton = (action: TeaserAction): VNode => {
+    let buttonComponent = CoreButton;
+    if (props.cqType?.endsWith('/teaser')) {
+      buttonComponent = componentMapping.get(
+        props.cqType!.replace('/teaser', '/button'),
+      ) as typeof CoreButton;
+    }
+    return h(buttonComponent, {
+      class: `${props.baseCssClass}__action-link`,
+      'aria-label': action.title,
+      link: action.link.url,
+      text: action.title,
+      id: action.id as string,
+      ...action.link.attributes,
+    });
+  };
 
   const linkProps = computed(() => ({
     class: `${props.baseCssClass}__link`,
@@ -121,17 +145,11 @@
           v-if="props.actions && props.actions.length > 0"
           :class="`${props.baseCssClass}__action-container`"
         >
-          <CoreLink
+          <component
+            :is="actionButton(action)"
             v-for="(action, index) in props.actions"
-            :id="action.id"
             :key="`link-${index}`"
-            :class="`${props.baseCssClass}__action-link`"
-            :href="action.link.url"
-            :title="action.title"
-            v-bind="action.link.attributes"
-          >
-            {{ action['title'] }}
-          </CoreLink>
+          />
         </div>
       </div>
       <div v-if="props.imagePath" :class="`${props.baseCssClass}__image`">
@@ -147,128 +165,67 @@
 </template>
 
 <style>
-  :root {
-    --color-pale-grey: #c4bfbc;
-    --color-white: #fff;
-    --size-1x: 8px;
-    --size-2x: calc(var(--size-1x) * 2);
-    --size-3x: calc(var(--size-1x) * 3);
-  }
-
   .cmp-teaser {
-    block-size: 100%;
+    background-color: #f5f5f5;
+    color: #555;
     display: block;
     inline-size: 100%;
     overflow: hidden;
     position: relative;
   }
 
-  .cmp-teaser > a,
-  .cmp-teaser__title a {
-    text-decoration: none;
-  }
-
-  .cmp-teaser > a:hover {
-    text-decoration: underline;
-  }
-
   .cmp-teaser__content {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 12px;
     justify-content: flex-end;
     min-block-size: 160px;
     min-inline-size: 240px;
-    padding-block: var(--size-3x);
-    padding-inline: var(--size-3x);
+    padding-block: 16px;
+    padding-inline: 16px;
   }
 
-  .cmp-teaser__content:not(:only-child) {
+  .cmp-teaser__image ~ .cmp-teaser__content {
+    background-color: rgb(115 115 115 / 60%);
+    color: #f5f5f5;
     inset: 0;
-    inset-block-end: 0;
-    inset-inline: 0;
     min-block-size: auto;
     min-inline-size: auto;
     position: absolute;
-    z-index: 1;
   }
 
-  .cmp-teaser .cmp-teaser__content:only-child {
-    background-color: var(--color-pale-grey);
-  }
-
-  .cmp-teaser__title-text {
+  .cmp-teaser__title {
+    font-size: 20px;
     line-height: 1.5;
     margin-block: 0;
     margin-inline: 0;
   }
 
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__title-text,
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__title-text a {
-    color: var(--color-white);
-  }
-
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__title,
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__pretitle,
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__description {
-    background-color: rgb(0 0 0 / 50%);
-    box-decoration-break: clone;
-    color: var(--color-white);
-    display: table;
-    font-weight: bolder;
-    inline-size: fit-content;
-    margin-block-end: 4px;
-    padding-block: var(--size-1x);
-    padding-inline: var(--size-1x);
-  }
-
-  .cmp-teaser__content p {
-    margin-block: 0 var(--size-3x);
-    margin-inline: 0 0;
-    padding-block: 0;
-    padding-inline: 0;
-  }
-
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__description {
-    --heading-color: var(--color-white);
-  }
-
-  .cmp-teaser__description p:last-child {
-    margin-block-end: 0;
-  }
-
-  .cmp-teaser__action-link {
-    border: 2px solid currentcolor;
-    border-radius: 2px;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: bold;
-    margin-block: var(--size-1x) 0;
-    margin-inline: 0 4px;
-    padding-block: 4px;
-    padding-inline: var(--size-1x);
+  .cmp-teaser__title-link {
     text-decoration: none;
-    text-transform: uppercase;
   }
 
-  .cmp-teaser__content:not(:only-child) .cmp-teaser__action-link {
-    background-color: rgb(0 0 0 / 50%);
-    border-color: var(--color-white);
-    color: var(--color-white);
+  .cmp-teaser__description *:last-child {
+    margin-block-end: 0;
   }
 
   @media only screen and (width >= 480px) {
     .cmp-teaser__content {
-      font-size: var(--size-2x);
-      padding-block: var(--size-3x);
-      padding-inline: var(--size-3x);
+      font-size: 14px;
+      padding-block: 32px;
+      padding-inline: 32px;
     }
 
-    .cmp-teaser__action-link {
-      margin-block: var(--size-2x) 0;
-      margin-inline: 0 var(--size-1x);
-      padding-block: var(--size-1x);
-      padding-inline: var(--size-2x);
+    .cmp-teaser__title {
+      font-size: 30px;
     }
+  }
+
+  .cmp-teaser__image ~ .cmp-teaser__content .cmp-teaser__title-link {
+    color: #fff;
+  }
+
+  .cmp-teaser__image ~ .cmp-teaser__content .cmp-teaser__title-link:hover {
+    color: #eee;
   }
 </style>

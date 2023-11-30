@@ -194,11 +194,11 @@
 
   .cmp-teaser--with-image .cmp-teaser__content {
     background-color: rgb(115 115 115 / 60%);
-    color: #f5f5f5;
     grid-column-start: 1;
     grid-row-start: 1;
     min-block-size: auto;
     min-inline-size: auto;
+    z-index: 1;
   }
 
   .cmp-teaser__content > p {
@@ -212,12 +212,20 @@
     margin-inline: 0;
   }
 
+  .cmp-teaser--with-image .cmp-teaser__title-text {
+    color: #f5f5f5;
+  }
+
   .cmp-teaser__title-link {
     text-decoration: none;
   }
 
   .cmp-teaser__description *:last-child {
     margin-block-end: 0;
+  }
+
+  .cmp-teaser--with-image .cmp-teaser__description {
+    color: #f5f5f5;
   }
 
   .cmp-teaser__image {

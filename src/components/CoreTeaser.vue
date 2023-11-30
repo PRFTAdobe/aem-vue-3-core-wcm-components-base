@@ -224,7 +224,7 @@
     margin-block-end: 0;
   }
 
-  .cmp-teaser--with-image .cmp-teaser__description {
+  .cmp-teaser--with-image .cmp-teaser__description > p {
     color: #f5f5f5;
   }
 

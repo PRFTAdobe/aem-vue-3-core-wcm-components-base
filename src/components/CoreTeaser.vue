@@ -177,7 +177,8 @@
     overflow: hidden;
   }
 
-  .cmp-teaser--with-image > section {
+  .cmp-teaser--with-image > section,
+  .cmp-teaser__link {
     display: grid;
     grid-template-columns: 1fr;
   }
@@ -234,7 +235,8 @@
     grid-row-start: 1;
   }
 
-  .cmp-teaser--with-image .cmp-teaser__title-link {
+  .cmp-teaser--with-image .cmp-teaser__title-link,
+  .cmp-teaser--with-image .cmp-teaser__title-link.cmp-link--active {
     color: #fff;
   }
 

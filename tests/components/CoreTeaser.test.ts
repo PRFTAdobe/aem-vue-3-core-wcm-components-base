@@ -107,7 +107,6 @@ describe('CoreTeaser ->', () => {
     const wrapper = mount(CoreTeaser, {
       propsData: defaultProps,
     });
-
     expect(wrapper.find('.cmp-teaser__content').exists()).toBeTruthy();
     expect(wrapper.find('.cmp-teaser__action-container').exists()).toBeTruthy();
     expect(wrapper.find('.cmp-teaser__image').exists()).toBeTruthy();

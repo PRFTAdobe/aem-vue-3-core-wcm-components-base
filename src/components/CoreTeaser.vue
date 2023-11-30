@@ -175,7 +175,11 @@
     display: block;
     inline-size: 100%;
     overflow: hidden;
-    position: relative;
+  }
+
+  .cmp-teaser--with-image > section {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .cmp-teaser__content {
@@ -188,17 +192,17 @@
     padding-inline: 16px;
   }
 
-  .cmp-teaser__content > p {
-    font-size: 12px;
-  }
-
-  .cmp-teaser__image ~ .cmp-teaser__content {
+  .cmp-teaser--with-image .cmp-teaser__content {
     background-color: rgb(115 115 115 / 60%);
     color: #f5f5f5;
-    inset: 0;
+    grid-column-start: 1;
+    grid-row-start: 1;
     min-block-size: auto;
     min-inline-size: auto;
-    position: absolute;
+  }
+
+  .cmp-teaser__content > p {
+    font-size: 12px;
   }
 
   .cmp-teaser__title-text {
@@ -216,6 +220,19 @@
     margin-block-end: 0;
   }
 
+  .cmp-teaser__image {
+    grid-column-start: 1;
+    grid-row-start: 1;
+  }
+
+  .cmp-teaser--with-image .cmp-teaser__title-link {
+    color: #fff;
+  }
+
+  .cmp-teaser--with-image .cmp-teaser__title-link:hover {
+    color: #eee;
+  }
+
   @media only screen and (width >= 480px) {
     .cmp-teaser__content {
       font-size: 14px;
@@ -230,13 +247,5 @@
     .cmp-teaser__title-text {
       font-size: 30px;
     }
-  }
-
-  .cmp-teaser__image ~ .cmp-teaser__content .cmp-teaser__title-link {
-    color: #fff;
-  }
-
-  .cmp-teaser__image ~ .cmp-teaser__content .cmp-teaser__title-link:hover {
-    color: #eee;
   }
 </style>

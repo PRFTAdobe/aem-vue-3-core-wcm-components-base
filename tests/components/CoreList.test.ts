@@ -7,7 +7,7 @@ import {
 } from 'vue-router-mock';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { HTMLToJSON } from 'html-to-json-parser';
-import listAsJson from './list-as-json.json';
+import listAsJson from './CoreList.json';
 
 describe('CoreList ->', () => {
   const router = createRouterMock();

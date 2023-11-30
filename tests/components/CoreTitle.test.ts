@@ -6,8 +6,13 @@ import {
 } from 'vue-router-mock';
 import CoreTitle from '@/components/CoreTitle.vue';
 import { TitleEditConfig } from '@/components/CoreEditConfigs';
+import { MappedComponentProperties } from 'aem-vue-3-editable-components';
 
 describe('CoreTitle ->', () => {
+  interface TitleComponentProperties extends MappedComponentProperties {
+    text: string;
+  }
+
   const router = createRouterMock();
   router.addRoute({ path: '/page1', component: { template: 'Page One' } });
 
@@ -19,16 +24,16 @@ describe('CoreTitle ->', () => {
   config.plugins.VueWrapper.install(VueRouterMock);
 
   it('Has a proper isEmpty function', () => {
-    const propsOne = {
+    const propsOne: TitleComponentProperties = {
+      cqPath: '',
       text: 'some title',
-      linkDisabled: false,
     };
 
     expect(TitleEditConfig.isEmpty(propsOne)).toEqual(false);
 
-    const propsTwo = {
+    const propsTwo: TitleComponentProperties = {
+      cqPath: '',
       text: '',
-      linkDisabled: false,
     };
 
     expect(TitleEditConfig.isEmpty(propsTwo)).toEqual(true);
@@ -55,7 +60,7 @@ describe('CoreTitle ->', () => {
     const anchor = wrapper.find('a');
     expect(anchor.exists()).toBeFalsy();
 
-    const heading = wrapper.find('h3');
+    const heading = wrapper.find('h1');
     expect(heading.exists()).toBeTruthy();
   });
 

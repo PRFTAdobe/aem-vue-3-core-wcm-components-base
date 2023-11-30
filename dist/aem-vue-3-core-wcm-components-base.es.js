@@ -1,4 +1,4 @@
-import { defineComponent as O, useAttrs as te, computed as v, openBlock as o, createElementBlock as u, mergeProps as Y, unref as G, renderSlot as he, inject as L, normalizeClass as p, createElementVNode as T, Fragment as R, renderList as ae, createBlock as $, resolveDynamicComponent as D, h as w, withCtx as U, createCommentVNode as C, toDisplayString as S, createTextVNode as J, onMounted as oe, onUpdated as ye, normalizeStyle as ve, ref as X, onUnmounted as De, watch as be, normalizeProps as me, guardReactiveProps as Oe, createVNode as Pe } from "vue";
+import { defineComponent as O, useAttrs as te, computed as v, openBlock as o, createElementBlock as u, mergeProps as Y, unref as G, renderSlot as he, inject as L, normalizeClass as p, createElementVNode as T, Fragment as R, renderList as ae, createBlock as $, resolveDynamicComponent as D, h as w, withCtx as U, createCommentVNode as C, toDisplayString as S, createTextVNode as J, onMounted as oe, onUpdated as _e, normalizeStyle as ve, ref as X, onUnmounted as De, watch as be, normalizeProps as me, guardReactiveProps as Oe, createVNode as Pe } from "vue";
 import { AuthoringUtils as x } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as P, componentClassNames as N, ComponentMapping as ge } from "aem-vue-3-editable-components";
 import { useRoute as Ce, useRouter as Ee } from "vue-router";
@@ -448,10 +448,10 @@ const wt = {
     ...P("cmp-embed")
   },
   setup(t) {
-    const e = t, s = L("isInEditor", x.isInEditor()), n = (m, _ = !0, h = "text/javascript") => new Promise((g, k) => {
+    const e = t, s = L("isInEditor", x.isInEditor()), n = (m, y = !0, h = "text/javascript") => new Promise((g, k) => {
       try {
         const E = document.createElement("script");
-        E.type = h, E.async = _, E.src = m, E.addEventListener("load", () => {
+        E.type = h, E.async = y, E.src = m, E.addEventListener("load", () => {
           g({ status: !0 });
         }), E.addEventListener("error", () => {
           k({
@@ -476,9 +476,9 @@ const wt = {
       }), m;
     }), l = () => {
       var B, ne, ue, de, pe, fe;
-      const m = (B = e.youTubeProps) == null ? void 0 : B.youtubeVideoId, _ = (ne = e.youTubeProps) == null ? void 0 : ne.youtubeAutoPlay, h = (ue = e.youTubeProps) == null ? void 0 : ue.youtubeLoop, g = (de = e.youTubeProps) == null ? void 0 : de.youtubeMute, k = (pe = e.youTubeProps) == null ? void 0 : pe.youtubePlaysInline, E = (fe = e.youTubeProps) == null ? void 0 : fe.youtubeRel, I = `https://www.youtube.com/embed/${m}`, z = {
+      const m = (B = e.youTubeProps) == null ? void 0 : B.youtubeVideoId, y = (ne = e.youTubeProps) == null ? void 0 : ne.youtubeAutoPlay, h = (ue = e.youTubeProps) == null ? void 0 : ue.youtubeLoop, g = (de = e.youTubeProps) == null ? void 0 : de.youtubeMute, k = (pe = e.youTubeProps) == null ? void 0 : pe.youtubePlaysInline, E = (fe = e.youTubeProps) == null ? void 0 : fe.youtubeRel, I = `https://www.youtube.com/embed/${m}`, z = {
         mute: `${+g}`,
-        autoplay: `${+_}`,
+        autoplay: `${+y}`,
         loop: `${+h}`,
         playlist: `${m}`,
         rel: `${+E}`,
@@ -487,10 +487,10 @@ const wt = {
       return `${I}?${W}`;
     }, a = v(
       () => {
-        var m, _, h, g, k;
+        var m, y, h, g, k;
         return w("iFrame", {
           type: "text/html",
-          width: ((m = e.youTubeProps) == null ? void 0 : m.layout) === "responsive" ? "100%" : (_ = e.youTubeProps) == null ? void 0 : _.youtubeWidth,
+          width: ((m = e.youTubeProps) == null ? void 0 : m.layout) === "responsive" ? "100%" : (y = e.youTubeProps) == null ? void 0 : y.youtubeWidth,
           height: ((h = e.youTubeProps) == null ? void 0 : h.layout) === "responsive" ? "100%" : (g = e.youTubeProps) == null ? void 0 : g.youtubeHeight,
           src: l(),
           frameborder: 0,
@@ -531,24 +531,24 @@ const wt = {
     }), F = () => {
       var g, k, E, I;
       const m = ((g = e.result) == null ? void 0 : g.processor) === "oembed" && ((E = (k = e.result) == null ? void 0 : k.options) == null ? void 0 : E.provider) === "Twitter";
-      let _ = "//assets.pinterest.com/js/pinit.js";
-      m && (_ = "//platform.twitter.com/widgets.js");
-      let h = document.querySelector(`script[src="${_}"]`);
+      let y = "//assets.pinterest.com/js/pinit.js";
+      m && (y = "//platform.twitter.com/widgets.js");
+      let h = document.querySelector(`script[src="${y}"]`);
       h ? h.dataset.loaded === "true" ? typeof ((I = window.PinUtils) == null ? void 0 : I.build) == "function" && window.PinUtils.build() : h.addEventListener("load", () => {
         var z;
         typeof ((z = window.PinUtils) == null ? void 0 : z.build) == "function" && window.PinUtils.build();
-      }) : n(_).then(() => {
+      }) : n(y).then(() => {
         var z;
-        typeof ((z = window.PinUtils) == null ? void 0 : z.build) == "function" && window.PinUtils.build(), h = document.querySelector(`script[src="${_}"]`), h.dataset.loaded = "true";
+        typeof ((z = window.PinUtils) == null ? void 0 : z.build) == "function" && window.PinUtils.build(), h = document.querySelector(`script[src="${y}"]`), h.dataset.loaded = "true";
       }).catch((z) => {
         console.error(z);
       });
     };
     return oe(() => {
       F();
-    }), ye(() => {
+    }), _e(() => {
       F();
-    }), (m, _) => {
+    }), (m, y) => {
       var h, g, k, E, I;
       return o(), u("div", {
         id: e.id,
@@ -719,7 +719,7 @@ var Ze = 20, Ge = ["top", "right", "bottom", "left", "width", "height", "size", 
 function K(t) {
   return parseFloat(t) || 0;
 }
-function _e(t) {
+function ye(t) {
   for (var e = [], s = 1; s < arguments.length; s++)
     e[s - 1] = arguments[s];
   return e.reduce(function(n, r) {
@@ -743,7 +743,7 @@ function et(t) {
   if (!e && !s)
     return Se;
   var n = j(t).getComputedStyle(t), r = Qe(n), i = r.left + r.right, l = r.top + r.bottom, a = K(n.width), d = K(n.height);
-  if (n.boxSizing === "border-box" && (Math.round(a + i) !== e && (a -= _e(n, "left", "right") + i), Math.round(d + l) !== s && (d -= _e(n, "top", "bottom") + l)), !st(t)) {
+  if (n.boxSizing === "border-box" && (Math.round(a + i) !== e && (a -= ye(n, "left", "right") + i), Math.round(d + l) !== s && (d -= ye(n, "top", "bottom") + l)), !st(t)) {
     var c = Math.round(a + i) - e, f = Math.round(d + l) - s;
     Math.abs(c) !== 1 && (a -= c), Math.abs(f) !== 1 && (d -= f);
   }
@@ -916,17 +916,17 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
     let l = {};
     e.smartCropRendition && s.srcset && (i.value = s.srcset);
     const a = v(() => {
-      let _;
+      let y;
       if (e.width) {
         const { width: h } = e;
         let g = "px";
-        /^(\d+|(\.\d+))(\.\d+)?%$/.test(h) && (g = ""), _ = {
+        /^(\d+|(\.\d+))(\.\d+)?%$/.test(h) && (g = ""), y = {
           "--asset-max-inline-size": `${h}${g}`
         };
       }
-      return _;
+      return y;
     }), d = v(() => {
-      const _ = N(
+      const y = N(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -934,11 +934,11 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
         n,
         e.aemNoDecoration
       );
-      return _.push({
+      return y.push({
         "cq-dd-image": n || !1
-      }), _;
+      }), y;
     }), c = v(() => {
-      const _ = w(
+      const y = w(
         "figcaption",
         {
           class: `${e.baseCssClass}__title`,
@@ -958,17 +958,17 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
           ]
         })
       ];
-      return e.title && (g.push(_), e.displayPopupTitle && g.push(h)), () => g;
+      return e.title && (g.push(y), e.displayPopupTitle && g.push(h)), () => g;
     });
     let f;
-    const b = (_) => {
+    const b = (y) => {
       let h;
       const { clientWidth: g } = r.value.parentNode;
-      return _.reverse(), _.forEach((k) => {
+      return y.reverse(), y.forEach((k) => {
         parseInt(k, 10) > g && (h = k);
       }), h;
     }, A = () => {
-      const _ = {};
+      const y = {};
       if (e.src) {
         const h = new XMLHttpRequest(), g = `${e.src.split("?")[0]}?req=set,json`;
         h.open("GET", g, !1), h.onload = () => {
@@ -982,20 +982,20 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
             }
             E && ((k = E.set) != null && k.relation) && Array.isArray(E.set.relation) && E.set.relation.forEach(
               (B) => {
-                _[parseInt(B.userdata.SmartCropWidth, 10)] = `:${B.userdata.SmartCropDef}`;
+                y[parseInt(B.userdata.SmartCropWidth, 10)] = `:${B.userdata.SmartCropDef}`;
               }
             );
           }
         }, h.send();
       }
-      return _;
+      return y;
     }, F = () => {
       Object.keys(l).length === 0 && (l = A());
-      const _ = b(Object.keys(l));
-      if (_) {
+      const y = b(Object.keys(l));
+      if (y) {
         const h = e.src.replace(
           "?",
-          `${l[_]}?`
+          `${l[y]}?`
         );
         i.value = h.replace(
           "{dpr}",
@@ -1013,22 +1013,22 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
       ) : i.value = e.src;
     };
     return oe(() => {
-      const _ = (h) => {
+      const y = (h) => {
         window.requestAnimationFrame(() => {
           e.smartCropRendition === "SmartCrop:Auto" && s.srcset && r.value && Array.isArray(h) && h.length && h.forEach(() => {
             F();
           });
         });
       };
-      f = new lt(_), f.observe(r.value), m();
+      f = new lt(y), f.observe(r.value), m();
     }), De(() => {
       r.value && f.unobserve(r.value);
     }), be(
       () => e.src,
-      async (_, h) => {
-        _ !== h && m();
+      async (y, h) => {
+        y !== h && m();
       }
-    ), (_, h) => {
+    ), (y, h) => {
       var g;
       return o(), u("div", {
         id: e.id,
@@ -1331,14 +1331,14 @@ var ie = {}, V = {}, Z = "en", ce = {
 }, M = {
   _formatter: Te,
   _parser: Le
-}, ee, y;
+}, ee, _;
 M.compile = function(t) {
   for (var e = /\[([^[\]]|\[[^[\]]*])*]|([A-Za-z])\2+|\.{3}|./g, s, n = [t]; s = e.exec(t); )
     n[n.length] = s[0];
   return n;
 };
 M.format = function(t, e, s) {
-  var n = this || y, r = typeof e == "string" ? n.compile(e) : e, i = t.getTimezoneOffset(), l = n.addMinutes(t, s ? i : 0), a = n._formatter, d = "";
+  var n = this || _, r = typeof e == "string" ? n.compile(e) : e, i = t.getTimezoneOffset(), l = n.addMinutes(t, s ? i : 0), a = n._formatter, d = "";
   l.getTimezoneOffset = function() {
     return s ? 0 : i;
   };
@@ -1347,7 +1347,7 @@ M.format = function(t, e, s) {
   return d;
 };
 M.preparse = function(t, e) {
-  var s = this || y, n = typeof e == "string" ? s.compile(e) : e, r = { Y: 1970, M: 1, D: 1, H: 0, A: 0, h: 0, m: 0, s: 0, S: 0, Z: 0, _index: 0, _length: 0, _match: 0 }, i = /\[(.*)]/, l = s._parser, a = 0;
+  var s = this || _, n = typeof e == "string" ? s.compile(e) : e, r = { Y: 1970, M: 1, D: 1, H: 0, A: 0, h: 0, m: 0, s: 0, S: 0, Z: 0, _index: 0, _length: 0, _match: 0 }, i = /\[(.*)]/, l = s._parser, a = 0;
   t = l.pre(t);
   for (var d = 1, c = n.length, f, b; d < c; d++)
     if (f = n[d], l[f]) {
@@ -1366,40 +1366,40 @@ M.preparse = function(t, e) {
   return r.H = r.H || l.h12(r.h, r.A), r._index = a, r._length = t.length, r;
 };
 M.parse = function(t, e, s) {
-  var n = this || y, r = typeof e == "string" ? n.compile(e) : e, i = n.preparse(t, r);
+  var n = this || _, r = typeof e == "string" ? n.compile(e) : e, i = n.preparse(t, r);
   return n.isValid(i) ? (i.M -= i.Y < 100 ? 22801 : 1, s || ~n._parser.find(r, "ZZ").value ? new Date(Date.UTC(i.Y, i.M, i.D, i.H, i.m + i.Z, i.s, i.S)) : new Date(i.Y, i.M, i.D, i.H, i.m, i.s, i.S)) : /* @__PURE__ */ new Date(NaN);
 };
 M.isValid = function(t, e) {
-  var s = this || y, n = typeof t == "string" ? s.preparse(t, e) : t, r = [31, 28 + s.isLeapYear(n.Y) | 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][n.M - 1];
+  var s = this || _, n = typeof t == "string" ? s.preparse(t, e) : t, r = [31, 28 + s.isLeapYear(n.Y) | 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][n.M - 1];
   return !(n._index < 1 || n._length < 1 || n._index - n._length || n._match < 1 || n.Y < 1 || n.Y > 9999 || n.M < 1 || n.M > 12 || n.D < 1 || n.D > r || n.H < 0 || n.H > 23 || n.m < 0 || n.m > 59 || n.s < 0 || n.s > 59 || n.S < 0 || n.S > 999 || n.Z < -840 || n.Z > 720);
 };
 M.transform = function(t, e, s, n) {
-  const r = this || y;
+  const r = this || _;
   return r.format(r.parse(t, e), s, n);
 };
 M.addYears = function(t, e, s) {
-  return (this || y).addMonths(t, e * 12, s);
+  return (this || _).addMonths(t, e * 12, s);
 };
 M.addMonths = function(t, e, s) {
   var n = new Date(t.getTime());
   if (s) {
     if (n.setUTCMonth(n.getUTCMonth() + e), n.getUTCDate() < t.getUTCDate())
-      return (this || y).addDays(n, -n.getUTCDate(), s);
+      return (this || _).addDays(n, -n.getUTCDate(), s);
   } else if (n.setMonth(n.getMonth() + e), n.getDate() < t.getDate())
-    return (this || y).addDays(n, -n.getDate(), s);
+    return (this || _).addDays(n, -n.getDate(), s);
   return n;
 };
 M.addDays = function(t, e, s) {
-  return (this || y).addHours(t, e * 24, s);
+  return (this || _).addHours(t, e * 24, s);
 };
 M.addHours = function(t, e, s) {
-  return (this || y).addMinutes(t, e * 60, s);
+  return (this || _).addMinutes(t, e * 60, s);
 };
 M.addMinutes = function(t, e, s) {
-  return (this || y).addSeconds(t, e * 60, s);
+  return (this || _).addSeconds(t, e * 60, s);
 };
 M.addSeconds = function(t, e, s) {
-  return (this || y).addMilliseconds(t, e * 1e3, s);
+  return (this || _).addMilliseconds(t, e * 1e3, s);
 };
 M.addMilliseconds = function(t, e, s) {
   var n = new Date(t.getTime());
@@ -1438,29 +1438,29 @@ M.plugin = function(t, e) {
   V[t] || (V[t] = e);
 };
 ee = q(M);
-y = q(M);
-y.locale = function(t) {
-  var e = typeof t == "function" ? t : y.locale[t];
+_ = q(M);
+_.locale = function(t) {
+  var e = typeof t == "function" ? t : _.locale[t];
   if (!e)
     return Z;
   Z = e(M);
   var s = ie[Z] || {}, n = q(ce, s.res, !0), r = q(Te, s.formatter, !0, n), i = q(Le, s.parser, !0, n);
-  y._formatter = ee._formatter = r, y._parser = ee._parser = i;
+  _._formatter = ee._formatter = r, _._parser = ee._parser = i;
   for (var l in V)
-    y.extend(V[l]);
+    _.extend(V[l]);
   return Z;
 };
-y.extend = function(t) {
-  var e = q(y._parser.res, t.res), s = t.extender || {};
-  y._formatter = q(y._formatter, t.formatter, !1, e), y._parser = q(y._parser, t.parser, !1, e);
+_.extend = function(t) {
+  var e = q(_._parser.res, t.res), s = t.extender || {};
+  _._formatter = q(_._formatter, t.formatter, !1, e), _._parser = q(_._parser, t.parser, !1, e);
   for (var n in s)
-    y[n] || (y[n] = s[n]);
+    _[n] || (_[n] = s[n]);
 };
-y.plugin = function(t) {
-  var e = typeof t == "function" ? t : y.plugin[t];
-  e && y.extend(V[e(M, ee)] || {});
+_.plugin = function(t) {
+  var e = typeof t == "function" ? t : _.plugin[t];
+  e && _.extend(V[e(M, ee)] || {});
 };
-var pt = y;
+var pt = _;
 const ft = ["id"], Ut = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreList",
@@ -1642,7 +1642,7 @@ const ft = ["id"], Ut = /* @__PURE__ */ O({
       }, null, 2)
     ], 10, mt));
   }
-}), _t = ["id"], yt = /* @__PURE__ */ O({
+}), yt = ["id"], _t = /* @__PURE__ */ O({
   inheritAttrs: !1,
   __name: "CoreTitle",
   props: {
@@ -1712,7 +1712,7 @@ const ft = ["id"], Ut = /* @__PURE__ */ O({
         }),
         _: 1
       }, 8, ["class"]))
-    ], 10, _t));
+    ], 10, yt));
   }
 }), vt = ["id"], bt = ["innerHTML"], jt = /* @__PURE__ */ O({
   inheritAttrs: !1,
@@ -1768,6 +1768,8 @@ const ft = ["id"], Ut = /* @__PURE__ */ O({
       );
       return c.push({
         "cq-dd-teaser": s
+      }), c.push({
+        [`${e.baseCssClass}--with-image`]: typeof e.imagePath < "u"
       }), c;
     }), i = (c) => {
       var b;
@@ -1812,7 +1814,7 @@ const ft = ["id"], Ut = /* @__PURE__ */ O({
               key: 0,
               class: p(`${e.baseCssClass}__pretitle`)
             }, S(e.pretitle), 3)) : C("", !0),
-            e.title ? (o(), $(yt, me(Y({ key: 1 }, a.value)), null, 16)) : C("", !0),
+            e.title ? (o(), $(_t, me(Y({ key: 1 }, a.value)), null, 16)) : C("", !0),
             e.description ? (o(), u("div", {
               key: 2,
               class: p(`${e.baseCssClass}__description`),
@@ -1888,7 +1890,7 @@ const ft = ["id"], Ut = /* @__PURE__ */ O({
     };
     return oe(() => {
       d();
-    }), ye(() => {
+    }), _e(() => {
       d();
     }), (c, f) => e.richText ? (o(), u("div", {
       key: 0,
@@ -1924,7 +1926,7 @@ export {
   Yt as CoreSeparator,
   jt as CoreTeaser,
   Wt as CoreText,
-  yt as CoreTitle,
+  _t as CoreTitle,
   Tt as DownloadEditConfig,
   Lt as EmbedEditConfig,
   Dt as ImageEditConfig,

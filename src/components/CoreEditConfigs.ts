@@ -122,6 +122,7 @@ export const EmbedEditConfig: EditConfig<EmbedComponentProperties> = {
 };
 
 interface ImageComponentProperties extends MappedComponentProperties {
+  alt?: string;
   src: string;
 }
 

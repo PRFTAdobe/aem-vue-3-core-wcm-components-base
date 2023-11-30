@@ -79,6 +79,10 @@
     componentClass.push({
       'cq-dd-teaser': isInEditor,
     });
+    componentClass.push({
+      [`${props.baseCssClass}--with-image`]:
+        typeof props.imagePath !== 'undefined',
+    });
     return componentClass;
   });
 

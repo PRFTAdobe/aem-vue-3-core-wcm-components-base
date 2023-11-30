@@ -1,26 +1,67 @@
 import { mount } from '@vue/test-utils';
 import CoreEmbed from '@/components/CoreEmbed.vue';
 import { EmbedEditConfig } from '@/components/CoreEditConfigs';
+import { MappedComponentProperties } from 'aem-vue-3-editable-components';
 
 describe('CoreEmbed ->', () => {
+  interface OEmbedResponse {
+    processor?: string;
+    options?: {
+      provider?: string;
+      response?: {
+        height?: string;
+        html?: string;
+        title?: string;
+        type?: string;
+        url?: string;
+        width?: string;
+      };
+    };
+  }
+
+  interface YouTubeProps {
+    layout: string;
+    youtubeAspectRatio: string;
+    youtubeAutoPlay: boolean;
+    youtubeHeight: string;
+    youtubeLoop: boolean;
+    youtubeMute: boolean;
+    youtubePlaysInline: boolean;
+    youtubeRel: boolean;
+    youtubeVideoId: string;
+    youtubeWidth: string;
+  }
+
+  interface EmbedComponentProperties extends MappedComponentProperties {
+    result?: OEmbedResponse;
+    html?: string;
+    youTubeProps?: YouTubeProps;
+    type: string;
+    url?: string;
+  }
+
   it('Has a proper isEmpty function', () => {
-    const propsOne = {
+    const propsOne: EmbedComponentProperties = {
+      cqPath: '',
       type: 'URL',
     };
     expect(EmbedEditConfig.isEmpty(propsOne)).toEqual(true);
 
-    const propsTwo = {
+    const propsTwo: EmbedComponentProperties = {
+      cqPath: '',
       type: 'HTML',
     };
     expect(EmbedEditConfig.isEmpty(propsTwo)).toEqual(true);
 
-    const propsThree = {
+    const propsThree: EmbedComponentProperties = {
+      cqPath: '',
       type: 'EMBEDDABLE',
     };
 
     expect(EmbedEditConfig.isEmpty(propsThree)).toEqual(true);
 
-    const propsFour = {
+    const propsFour: EmbedComponentProperties = {
+      cqPath: '',
       type: 'URL',
       url: 'https://youtu.be/f7hbWvHKns0',
       result: {
@@ -30,14 +71,16 @@ describe('CoreEmbed ->', () => {
 
     expect(EmbedEditConfig.isEmpty(propsFour)).toEqual(false);
 
-    const propsFive = {
+    const propsFive: EmbedComponentProperties = {
+      cqPath: '',
       type: 'HTML',
       html: '<p>Sample HTML</p>',
     };
 
     expect(EmbedEditConfig.isEmpty(propsFive)).toEqual(false);
 
-    const propsSix = {
+    const propsSix: EmbedComponentProperties = {
+      cqPath: '',
       type: 'EMBEDDABLE',
       youTubeProps: {
         youtubeAspectRatio: '56',

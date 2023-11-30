@@ -7,6 +7,7 @@ import {
   injectRouterMock,
   VueRouterMock,
 } from 'vue-router-mock';
+import { MappedComponentProperties } from 'aem-vue-3-editable-components';
 
 // @ts-ignore
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
@@ -16,6 +17,11 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
 }));
 
 describe('CoreImage ->', () => {
+  interface ImageComponentProperties extends MappedComponentProperties {
+    alt?: string;
+    src: string;
+  }
+
   const router = createRouterMock();
 
   beforeEach(() => {
@@ -26,14 +32,16 @@ describe('CoreImage ->', () => {
   config.plugins.VueWrapper.install(VueRouterMock);
 
   it('Has a proper isEmpty function', () => {
-    const propsOne = {
+    const propsOne: ImageComponentProperties = {
+      cqPath: '',
       src: '/content/dam/image.jpg',
       alt: 'Some Image',
     };
 
     expect(ImageEditConfig.isEmpty(propsOne)).toEqual(false);
 
-    const propsTwo = {
+    const propsTwo: ImageComponentProperties = {
+      cqPath: '',
       src: ' ',
       alt: 'Some Image',
     };

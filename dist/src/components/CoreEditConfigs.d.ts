@@ -57,6 +57,7 @@ interface EmbedComponentProperties extends MappedComponentProperties {
 }
 export declare const EmbedEditConfig: EditConfig<EmbedComponentProperties>;
 interface ImageComponentProperties extends MappedComponentProperties {
+    alt?: string;
     src: string;
 }
 export declare const ImageEditConfig: EditConfig<ImageComponentProperties>;

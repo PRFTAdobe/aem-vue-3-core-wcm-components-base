@@ -203,6 +203,7 @@
 
   .cmp-teaser__content > p {
     font-size: 12px;
+    line-height: 1;
   }
 
   .cmp-teaser__title-text {

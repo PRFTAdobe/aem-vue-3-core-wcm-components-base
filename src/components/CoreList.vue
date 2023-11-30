@@ -58,16 +58,20 @@
 
   const isInEditor = inject('isInEditor', AuthoringUtils.isInEditor());
 
-  const className = computed(() =>
-    componentClassNames(
+  const className = computed(() => {
+    const componentClass = componentClassNames(
       props.baseCssClass,
       props.appliedCssClassNames,
       props.cssClassNames,
       props.containerProps,
       isInEditor,
       props.aemNoDecoration,
-    ),
-  );
+    );
+    if (props.displayItemAsTeaser === true) {
+      componentClass.push(`${props.baseCssClass}--as-teasers`);
+    }
+    return componentClass;
+  });
 
   const formattedDate = (item: ListItem, dateFormatString: string) => {
     if (item.lastModifiedFormatted) {
@@ -131,7 +135,7 @@
       </article>
     </li>
   </ul>
-  <template v-else-if="props.items && props.items.length">
+  <div v-else-if="props.items && props.items.length" :class="className">
     <CoreTeaser
       v-for="(item, index) in props.items"
       :key="index"
@@ -139,10 +143,16 @@
       :link="item.link as TeaserLink"
       :title="item.title"
     />
-  </template>
+  </div>
 </template>
 
 <style>
+  .cmp-list--as-teasers {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 32px;
+  }
+
   .cmp-list__item {
     margin-block-start: 8px;
   }

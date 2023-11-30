@@ -1,4 +1,4 @@
-import { defineComponent as O, useAttrs as se, computed as v, openBlock as o, createElementBlock as d, mergeProps as Y, unref as G, renderSlot as he, inject as L, normalizeClass as p, createElementVNode as T, Fragment as P, renderList as J, createBlock as k, resolveDynamicComponent as D, h as w, withCtx as U, createCommentVNode as C, toDisplayString as S, createTextVNode as X, onMounted as oe, onUpdated as _e, normalizeStyle as ve, ref as Q, onUnmounted as De, watch as be, normalizeProps as me, guardReactiveProps as Oe, createVNode as Pe } from "vue";
+import { defineComponent as O, useAttrs as se, computed as v, openBlock as o, createElementBlock as u, mergeProps as Y, unref as G, renderSlot as he, inject as L, normalizeClass as p, createElementVNode as T, Fragment as P, renderList as J, createBlock as k, resolveDynamicComponent as D, h as w, withCtx as U, createCommentVNode as C, toDisplayString as S, createTextVNode as X, onMounted as oe, onUpdated as _e, normalizeStyle as ve, ref as Q, onUnmounted as De, watch as be, normalizeProps as me, guardReactiveProps as Oe, createVNode as Pe } from "vue";
 import { AuthoringUtils as x } from "@adobe/aem-spa-page-model-manager";
 import { componentProperties as N, componentClassNames as A, ComponentMapping as ge } from "aem-vue-3-editable-components";
 import { useRoute as Ce, useRouter as Ee } from "vue-router";
@@ -91,23 +91,23 @@ const xt = {
     }
   },
   setup(t) {
-    const e = t, s = se(), n = Ce(), r = Ee(), i = v(() => {
+    const e = t, s = se(), n = Ce(), i = Ee(), r = v(() => {
       const a = [e.class, e.baseCssClass];
       return n.path && typeof n.path < "u" && n.path === e.href && a.push("cmp-link--active"), a;
     }), l = (a) => {
-      const u = r.getRoutes().map((c) => c.path);
-      !x.isEditMode() && !x.isPreviewMode() && e.target !== "_blank" && u.includes(e.href) && (a.preventDefault(), r.push({
+      const d = i.getRoutes().map((c) => c.path);
+      !x.isEditMode() && !x.isPreviewMode() && e.target !== "_blank" && d.includes(e.href) && (a.preventDefault(), i.push({
         path: e.href
       }));
     };
-    return (a, u) => e.navigable ? (o(), d("a", Y({
+    return (a, d) => e.navigable ? (o(), u("a", Y({
       key: 0,
-      class: i.value,
+      class: r.value,
       href: e.href,
       target: e.target
     }, { ...G(s) }, { onClick: l }), [
       he(a.$slots, "default")
-    ], 16, Ne)) : (o(), d("span", Ae, [
+    ], 16, Ne)) : (o(), u("span", Ae, [
       he(a.$slots, "default")
     ]));
   }
@@ -135,14 +135,14 @@ const xt = {
         s,
         e.aemNoDecoration
       )
-    ), r = (i) => {
+    ), i = (r) => {
       const l = (c, f = !1) => {
         const g = {
           itemProp: "name"
         };
         return f && (g["aria-current"] = "page"), w("span", g, c);
       };
-      let u = ((c) => w(
+      let d = ((c) => w(
         H,
         {
           href: c.link.url,
@@ -151,24 +151,24 @@ const xt = {
           navigable: c.navigable
         },
         () => l(c.title)
-      ))(i);
-      return i.active && (u = l(i.title, !0)), w(
+      ))(r);
+      return r.active && (d = l(r.title, !0)), w(
         "li",
         {
           class: [
             `${e.baseCssClass}__item`,
             {
-              [`${e.baseCssClass}__item--active`]: i.active
+              [`${e.baseCssClass}__item--active`]: r.active
             }
           ],
           itemProp: "itemListElement",
           itemScope: !0,
           itemType: "http://schema.org/ListItem"
         },
-        u
+        d
       );
     };
-    return (i, l) => (o(), d("nav", {
+    return (r, l) => (o(), u("nav", {
       id: e.id,
       "aria-label": e.ariaLabel,
       class: p(n.value)
@@ -178,7 +178,7 @@ const xt = {
         itemScope: "true",
         itemType: "http://schema.org/BreadcrumbList"
       }, [
-        (o(!0), d(P, null, J(e.items, (a) => (o(), k(D(r(a)), {
+        (o(!0), u(P, null, J(e.items, (a) => (o(), k(D(i(a)), {
           key: a.toString()
         }))), 128))
       ], 2)
@@ -218,7 +218,7 @@ const xt = {
     ...N("cmp-button")
   },
   setup(t) {
-    const e = t, s = se(), n = L("isInEditor", x.isInEditor()), r = v(
+    const e = t, s = se(), n = L("isInEditor", x.isInEditor()), i = v(
       () => A(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -227,18 +227,18 @@ const xt = {
         n,
         e.aemNoDecoration
       )
-    ), i = (l) => {
+    ), r = (l) => {
       e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(l);
     };
-    return (l, a) => e.text ? (o(), d(P, { key: 0 }, [
+    return (l, a) => e.text ? (o(), u(P, { key: 0 }, [
       e.link ? (o(), k(H, Y({
         key: 0,
         "aria-label": e.ariaLabel,
-        class: r.value.join(" "),
+        class: i.value.join(" "),
         href: e.link
-      }, G(s), { onClick: i }), {
+      }, G(s), { onClick: r }), {
         default: U(() => [
-          e.icon ? (o(), d("span", {
+          e.icon ? (o(), u("span", {
             key: 0,
             class: p(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
           }, null, 2)) : C("", !0),
@@ -247,12 +247,12 @@ const xt = {
           }, S(e.text), 3)
         ]),
         _: 1
-      }, 16, ["aria-label", "class", "href"])) : (o(), d("button", Y({
+      }, 16, ["aria-label", "class", "href"])) : (o(), u("button", Y({
         key: 1,
-        class: r.value,
+        class: i.value,
         type: e.type
-      }, G(s), { onClick: i }), [
-        e.icon ? (o(), d("span", {
+      }, G(s), { onClick: r }), [
+        e.icon ? (o(), u("span", {
           key: 0,
           class: p(`${e.baseCssClass}__icon ${e.baseCssClass}__icon--${e.icon}`)
         }, null, 2)) : C("", !0),
@@ -313,8 +313,8 @@ const xt = {
     ...N("cmp-download")
   },
   setup(t) {
-    const e = t, s = L("isInEditor", x.isInEditor()), n = L("componentMapping", new ge()), r = v(() => {
-      const u = A(
+    const e = t, s = L("isInEditor", x.isInEditor()), n = L("componentMapping", new ge()), i = v(() => {
+      const d = A(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
@@ -322,27 +322,27 @@ const xt = {
         s,
         e.aemNoDecoration
       );
-      return s && u.push("cq-dd-file"), u;
-    }), i = v(
+      return s && d.push("cq-dd-file"), d;
+    }), r = v(
       () => !(e.url && e.url.length > 0 || e.handleOnClick && typeof e.handleOnClick == "function")
     ), l = v(() => {
       var c;
-      let u = Me;
-      return (c = e.cqType) != null && c.endsWith("/download") && (u = n.get(
+      let d = Me;
+      return (c = e.cqType) != null && c.endsWith("/download") && (d = n.get(
         e.cqType.replace("/download", "/button")
-      )), w(u, {
+      )), w(d, {
         class: `${e.baseCssClass}__action`,
         link: e.url || "#",
         handleOnClick: e.handleOnClick,
         text: e.actionText
       });
-    }), a = (u) => {
-      e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(u);
+    }), a = (d) => {
+      e.handleOnClick && typeof e.handleOnClick == "function" && e.handleOnClick(d);
     };
-    return (u, c) => i.value ? C("", !0) : (o(), d("div", {
+    return (d, c) => r.value ? C("", !0) : (o(), u("div", {
       key: 0,
       id: e.id,
-      class: p(r.value)
+      class: p(i.value)
     }, [
       e.title ? (o(), k(D(e.titleType), {
         key: 0,
@@ -359,22 +359,22 @@ const xt = {
               X(S(e.title), 1)
             ]),
             _: 1
-          }, 8, ["class", "href"])) : (o(), d(P, { key: 1 }, [
+          }, 8, ["class", "href"])) : (o(), u(P, { key: 1 }, [
             X(S(e.title), 1)
           ], 64))
         ]),
         _: 1
       }, 8, ["class"])) : C("", !0),
-      e.description ? (o(), d("div", {
+      e.description ? (o(), u("div", {
         key: 1,
         class: p(`${e.baseCssClass}__description`),
         innerHTML: e.description
       }, null, 10, He)) : C("", !0),
-      e.filename || e.size || e.format ? (o(), d("dl", {
+      e.filename || e.size || e.format ? (o(), u("dl", {
         key: 2,
         class: p(`${e.baseCssClass}__properties`)
       }, [
-        e.filename ? (o(), d("div", {
+        e.filename ? (o(), u("div", {
           key: 0,
           class: p([
             `${e.baseCssClass}__property`,
@@ -388,7 +388,7 @@ const xt = {
             class: p(`${e.baseCssClass}__property-content`)
           }, S(e.filename), 3)
         ], 2)) : C("", !0),
-        e.size ? (o(), d("div", {
+        e.size ? (o(), u("div", {
           key: 1,
           class: p([
             `${e.baseCssClass}__property`,
@@ -402,7 +402,7 @@ const xt = {
             class: p(`${e.baseCssClass}__property-content`)
           }, S(e.size), 3)
         ], 2)) : C("", !0),
-        e.format ? (o(), d("div", {
+        e.format ? (o(), u("div", {
           key: 2,
           class: p([
             `${e.baseCssClass}__property`,
@@ -462,7 +462,7 @@ const xt = {
       } catch (E) {
         $(E);
       }
-    }), r = (m) => le.sanitize(m), i = v(() => {
+    }), i = (m) => le.sanitize(m), r = v(() => {
       const m = A(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -501,7 +501,7 @@ const xt = {
           ariaLabel: "YouTube Video"
         });
       }
-    ), u = v(() => {
+    ), d = v(() => {
       if (e.result && e.result.options && e.result.options.response) {
         const { response: m } = e.result.options;
         return w("img", {
@@ -550,15 +550,15 @@ const xt = {
       F();
     }), (m, y) => {
       var h, b, $, E, R;
-      return o(), d("div", {
+      return o(), u("div", {
         id: e.id,
-        class: p(i.value)
+        class: p(r.value)
       }, [
-        e.type === "HTML" ? (o(), d("div", {
+        e.type === "HTML" ? (o(), u("div", {
           key: 0,
-          innerHTML: `${r(e.html)}`
-        }, null, 8, qe)) : e.type === "EMBEDDABLE" ? (o(), d(P, { key: 1 }, [
-          ((h = e.youTubeProps) == null ? void 0 : h.layout) === "responsive" ? (o(), d("div", {
+          innerHTML: `${i(e.html)}`
+        }, null, 8, qe)) : e.type === "EMBEDDABLE" ? (o(), u(P, { key: 1 }, [
+          ((h = e.youTubeProps) == null ? void 0 : h.layout) === "responsive" ? (o(), u("div", {
             key: 0,
             class: p(`${m.baseCssClass}__embeddable-wrapper`),
             style: ve({
@@ -567,17 +567,17 @@ const xt = {
           }, [
             (o(), k(D(a.value)))
           ], 6)) : (o(), k(D(a.value), { key: 1 }))
-        ], 64)) : e.type === "URL" ? (o(), d(P, { key: 2 }, [
-          ((E = e.result) == null ? void 0 : E.processor) === "pinterest" ? (o(), d("a", {
+        ], 64)) : e.type === "URL" ? (o(), u(P, { key: 2 }, [
+          ((E = e.result) == null ? void 0 : E.processor) === "pinterest" ? (o(), u("a", {
             key: 0,
             href: e.url,
             "data-pin-build": "doBuild",
             "data-pin-do": "embedPin"
-          }, S(e.url), 9, Ue)) : ((R = e.result) == null ? void 0 : R.processor) === "oembed" ? (o(), d(P, { key: 1 }, [
-            c.value === "photo" ? (o(), k(D(u.value), { key: 0 })) : c.value === "link" ? (o(), d("a", {
+          }, S(e.url), 9, Ue)) : ((R = e.result) == null ? void 0 : R.processor) === "oembed" ? (o(), u(P, { key: 1 }, [
+            c.value === "photo" ? (o(), k(D(d.value), { key: 0 })) : c.value === "link" ? (o(), u("a", {
               key: 1,
               href: f.value
-            }, S(g.value), 9, Fe)) : c.value === "video" || c.value === "rich" ? (o(), d("div", {
+            }, S(g.value), 9, Fe)) : c.value === "video" || c.value === "rich" ? (o(), u("div", {
               key: 2,
               innerHTML: I.value
             }, null, 8, Ye)) : C("", !0)
@@ -592,8 +592,8 @@ var ke = function() {
     return Map;
   function t(e, s) {
     var n = -1;
-    return e.some(function(r, i) {
-      return r[0] === s ? (n = i, !0) : !1;
+    return e.some(function(i, r) {
+      return i[0] === s ? (n = r, !0) : !1;
     }), n;
   }
   return (
@@ -612,22 +612,22 @@ var ke = function() {
         enumerable: !0,
         configurable: !0
       }), e.prototype.get = function(s) {
-        var n = t(this.__entries__, s), r = this.__entries__[n];
-        return r && r[1];
+        var n = t(this.__entries__, s), i = this.__entries__[n];
+        return i && i[1];
       }, e.prototype.set = function(s, n) {
-        var r = t(this.__entries__, s);
-        ~r ? this.__entries__[r][1] = n : this.__entries__.push([s, n]);
+        var i = t(this.__entries__, s);
+        ~i ? this.__entries__[i][1] = n : this.__entries__.push([s, n]);
       }, e.prototype.delete = function(s) {
-        var n = this.__entries__, r = t(n, s);
-        ~r && n.splice(r, 1);
+        var n = this.__entries__, i = t(n, s);
+        ~i && n.splice(i, 1);
       }, e.prototype.has = function(s) {
         return !!~t(this.__entries__, s);
       }, e.prototype.clear = function() {
         this.__entries__.splice(0);
       }, e.prototype.forEach = function(s, n) {
         n === void 0 && (n = null);
-        for (var r = 0, i = this.__entries__; r < i.length; r++) {
-          var l = i[r];
+        for (var i = 0, r = this.__entries__; i < r.length; i++) {
+          var l = r[i];
           s.call(n, l[1], l[0]);
         }
       }, e;
@@ -643,22 +643,22 @@ var ke = function() {
   };
 }(), We = 2;
 function Ve(t, e) {
-  var s = !1, n = !1, r = 0;
-  function i() {
+  var s = !1, n = !1, i = 0;
+  function r() {
     s && (s = !1, t()), n && a();
   }
   function l() {
-    je(i);
+    je(r);
   }
   function a() {
-    var u = Date.now();
+    var d = Date.now();
     if (s) {
-      if (u - r < We)
+      if (d - i < We)
         return;
       n = !0;
     } else
       s = !0, n = !1, setTimeout(l, e);
-    r = u;
+    i = d;
   }
   return a;
 }
@@ -693,19 +693,19 @@ var Ze = 20, Ge = ["top", "right", "bottom", "left", "width", "height", "size", 
     }, t.prototype.disconnect_ = function() {
       !ie || !this.connected_ || (document.removeEventListener("transitionend", this.onTransitionEnd_), window.removeEventListener("resize", this.refresh), this.mutationsObserver_ && this.mutationsObserver_.disconnect(), this.mutationEventsAdded_ && document.removeEventListener("DOMSubtreeModified", this.refresh), this.mutationsObserver_ = null, this.mutationEventsAdded_ = !1, this.connected_ = !1);
     }, t.prototype.onTransitionEnd_ = function(e) {
-      var s = e.propertyName, n = s === void 0 ? "" : s, r = Ge.some(function(i) {
-        return !!~n.indexOf(i);
+      var s = e.propertyName, n = s === void 0 ? "" : s, i = Ge.some(function(r) {
+        return !!~n.indexOf(r);
       });
-      r && this.refresh();
+      i && this.refresh();
     }, t.getInstance = function() {
       return this.instance_ || (this.instance_ = new t()), this.instance_;
     }, t.instance_ = null, t;
   }()
 ), $e = function(t, e) {
   for (var s = 0, n = Object.keys(e); s < n.length; s++) {
-    var r = n[s];
-    Object.defineProperty(t, r, {
-      value: e[r],
+    var i = n[s];
+    Object.defineProperty(t, i, {
+      value: e[i],
       enumerable: !1,
       writable: !1,
       configurable: !0
@@ -722,15 +722,15 @@ function ee(t) {
 function ye(t) {
   for (var e = [], s = 1; s < arguments.length; s++)
     e[s - 1] = arguments[s];
-  return e.reduce(function(n, r) {
-    var i = t["border-" + r + "-width"];
-    return n + ee(i);
+  return e.reduce(function(n, i) {
+    var r = t["border-" + i + "-width"];
+    return n + ee(r);
   }, 0);
 }
 function Qe(t) {
-  for (var e = ["top", "right", "bottom", "left"], s = {}, n = 0, r = e; n < r.length; n++) {
-    var i = r[n], l = t["padding-" + i];
-    s[i] = ee(l);
+  for (var e = ["top", "right", "bottom", "left"], s = {}, n = 0, i = e; n < i.length; n++) {
+    var r = i[n], l = t["padding-" + r];
+    s[r] = ee(l);
   }
   return s;
 }
@@ -742,12 +742,12 @@ function et(t) {
   var e = t.clientWidth, s = t.clientHeight;
   if (!e && !s)
     return Se;
-  var n = j(t).getComputedStyle(t), r = Qe(n), i = r.left + r.right, l = r.top + r.bottom, a = ee(n.width), u = ee(n.height);
-  if (n.boxSizing === "border-box" && (Math.round(a + i) !== e && (a -= ye(n, "left", "right") + i), Math.round(u + l) !== s && (u -= ye(n, "top", "bottom") + l)), !st(t)) {
-    var c = Math.round(a + i) - e, f = Math.round(u + l) - s;
-    Math.abs(c) !== 1 && (a -= c), Math.abs(f) !== 1 && (u -= f);
+  var n = j(t).getComputedStyle(t), i = Qe(n), r = i.left + i.right, l = i.top + i.bottom, a = ee(n.width), d = ee(n.height);
+  if (n.boxSizing === "border-box" && (Math.round(a + r) !== e && (a -= ye(n, "left", "right") + r), Math.round(d + l) !== s && (d -= ye(n, "top", "bottom") + l)), !st(t)) {
+    var c = Math.round(a + r) - e, f = Math.round(d + l) - s;
+    Math.abs(c) !== 1 && (a -= c), Math.abs(f) !== 1 && (d -= f);
   }
-  return ne(r.left, r.top, a, u);
+  return ne(i.left, i.top, a, d);
 }
 var tt = /* @__PURE__ */ function() {
   return typeof SVGGraphicsElement < "u" ? function(t) {
@@ -763,15 +763,15 @@ function nt(t) {
   return ie ? tt(t) ? Ke(t) : et(t) : Se;
 }
 function rt(t) {
-  var e = t.x, s = t.y, n = t.width, r = t.height, i = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, l = Object.create(i.prototype);
+  var e = t.x, s = t.y, n = t.width, i = t.height, r = typeof DOMRectReadOnly < "u" ? DOMRectReadOnly : Object, l = Object.create(r.prototype);
   return $e(l, {
     x: e,
     y: s,
     width: n,
-    height: r,
+    height: i,
     top: s,
     right: e + n,
-    bottom: r + s,
+    bottom: i + s,
     left: e
   }), l;
 }
@@ -912,9 +912,9 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
     ...N("cmp-image")
   },
   setup(t) {
-    const e = t, s = se(), n = L("isInEditor", x.isInEditor()), r = Q(null), i = Q(e.src);
+    const e = t, s = se(), n = L("isInEditor", x.isInEditor()), i = Q(null), r = Q(e.src);
     let l = {};
-    e.smartCropRendition && s.srcset && (i.value = s.srcset);
+    e.smartCropRendition && s.srcset && (r.value = s.srcset);
     const a = v(() => {
       let y;
       if (e.width) {
@@ -925,7 +925,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
         };
       }
       return y;
-    }), u = v(() => {
+    }), d = v(() => {
       const y = A(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -951,7 +951,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
       }), b = [
         w("img", {
           alt: e.alt,
-          src: i.value,
+          src: r.value,
           class: [
             `${e.baseCssClass}__image`,
             { "cmp-asset": typeof e.width < "u" }
@@ -963,7 +963,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
     let f;
     const g = (y) => {
       let h;
-      const { clientWidth: b } = r.value.parentNode;
+      const { clientWidth: b } = i.value.parentNode;
       return y.reverse(), y.forEach(($) => {
         parseInt($, 10) > b && (h = $);
       }), h;
@@ -997,32 +997,32 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
           "?",
           `${l[y]}?`
         );
-        i.value = h.replace(
+        r.value = h.replace(
           "{dpr}",
           (window.devicePixelRatio || 1).toString()
         );
       } else
-        i.value = e.src.replace(
+        r.value = e.src.replace(
           "{dpr}",
           (window.devicePixelRatio || 1).toString()
         );
     }, m = () => {
-      e.smartCropRendition ? e.smartCropRendition === "SmartCrop:Auto" && s.srcset ? (i.value = s.srcset, F()) : i.value = e.src.replace(
+      e.smartCropRendition ? e.smartCropRendition === "SmartCrop:Auto" && s.srcset ? (r.value = s.srcset, F()) : r.value = e.src.replace(
         "{dpr}",
         (window.devicePixelRatio || 1).toString()
-      ) : i.value = e.src;
+      ) : r.value = e.src;
     };
     return oe(() => {
       const y = (h) => {
         window.requestAnimationFrame(() => {
-          e.smartCropRendition === "SmartCrop:Auto" && s.srcset && r.value && Array.isArray(h) && h.length && h.forEach(() => {
+          e.smartCropRendition === "SmartCrop:Auto" && s.srcset && i.value && Array.isArray(h) && h.length && h.forEach(() => {
             F();
           });
         });
       };
-      f = new lt(y), f.observe(r.value), m();
+      f = new lt(y), f.observe(i.value), m();
     }), De(() => {
-      r.value && f.unobserve(r.value);
+      i.value && f.unobserve(i.value);
     }), be(
       () => e.src,
       async (y, h) => {
@@ -1030,24 +1030,24 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
       }
     ), (y, h) => {
       var b;
-      return o(), d("div", {
+      return o(), u("div", {
         id: e.id,
         ref_key: "image",
-        ref: r,
-        class: p(u.value),
+        ref: i,
+        class: p(d.value),
         style: ve(a.value)
       }, [
-        i.value ? (o(), d(P, { key: 0 }, [
+        r.value ? (o(), u(P, { key: 0 }, [
           (b = e.imageLink) != null && b.url ? (o(), k(H, Y({
             key: 0,
             class: `${e.baseCssClass}__link`,
             href: e.imageLink.url
           }, e.imageLink.attributes), {
             default: U(() => [
-              (o(), k(D(c.value), { key: i.value }))
+              (o(), k(D(c.value), { key: r.value }))
             ]),
             _: 1
-          }, 16, ["class", "href"])) : (o(), k(D(c.value), { key: i.value }))
+          }, 16, ["class", "href"])) : (o(), k(D(c.value), { key: r.value }))
         ], 64)) : C("", !0)
       ], 14, ct);
     };
@@ -1076,11 +1076,11 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
         s,
         e.aemNoDecoration
       )
-    ), r = (i) => {
-      if ((i || []).length === 0 || typeof i > "u")
+    ), i = (r) => {
+      if ((r || []).length === 0 || typeof r > "u")
         return;
-      const l = i.map((a) => {
-        let u = w(
+      const l = r.map((a) => {
+        let d = w(
           "span",
           {
             class: `${e.baseCssClass}__item-title`,
@@ -1088,7 +1088,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
           },
           [a.title]
         );
-        return a.level > 0 && (u = w(
+        return a.level > 0 && (d = w(
           H,
           {
             "aria-current": `${a.active ? "page" : !1}`,
@@ -1114,8 +1114,8 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
             ]
           },
           [
-            u,
-            r(a.children)
+            d,
+            i(a.children)
           ]
         );
       });
@@ -1125,7 +1125,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
         l
       );
     };
-    return (i, l) => (o(), d("nav", {
+    return (r, l) => (o(), u("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Language Navigation",
       class: p(n.value),
@@ -1133,7 +1133,7 @@ const ct = ["id"], ut = /* @__PURE__ */ O({
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
     }, [
-      (o(), k(D(r(e.items))))
+      (o(), k(D(i(e.items))))
     ], 10, dt));
   }
 });
@@ -1313,8 +1313,8 @@ var ae = {}, V = {}, Z = "en", ce = {
     return { value: s | 0, length: s.length };
   },
   find: function(t, e) {
-    for (var s = -1, n = 0, r = 0, i = t.length, l; r < i; r++)
-      l = t[r], !e.indexOf(l) && l.length > n && (s = r, n = l.length);
+    for (var s = -1, n = 0, i = 0, r = t.length, l; i < r; i++)
+      l = t[i], !e.indexOf(l) && l.length > n && (s = i, n = l.length);
     return { value: s, length: n };
   },
   pre: function(t) {
@@ -1322,12 +1322,12 @@ var ae = {}, V = {}, Z = "en", ce = {
   },
   res: ce
 }, q = function(t, e, s, n) {
-  var r = {}, i;
-  for (i in t)
-    r[i] = t[i];
-  for (i in e || {})
-    !!s ^ !!r[i] || (r[i] = e[i]);
-  return n && (r.res = n), r;
+  var i = {}, r;
+  for (r in t)
+    i[r] = t[r];
+  for (r in e || {})
+    !!s ^ !!i[r] || (i[r] = e[r]);
+  return n && (i.res = n), i;
 }, M = {
   _formatter: Te,
   _parser: Le
@@ -1338,44 +1338,44 @@ M.compile = function(t) {
   return n;
 };
 M.format = function(t, e, s) {
-  var n = this || _, r = typeof e == "string" ? n.compile(e) : e, i = t.getTimezoneOffset(), l = n.addMinutes(t, s ? i : 0), a = n._formatter, u = "";
+  var n = this || _, i = typeof e == "string" ? n.compile(e) : e, r = t.getTimezoneOffset(), l = n.addMinutes(t, s ? r : 0), a = n._formatter, d = "";
   l.getTimezoneOffset = function() {
-    return s ? 0 : i;
+    return s ? 0 : r;
   };
-  for (var c = 1, f = r.length, g; c < f; c++)
-    g = r[c], u += a[g] ? a.post(a[g](l, r[0])) : g.replace(/\[(.*)]/, "$1");
-  return u;
+  for (var c = 1, f = i.length, g; c < f; c++)
+    g = i[c], d += a[g] ? a.post(a[g](l, i[0])) : g.replace(/\[(.*)]/, "$1");
+  return d;
 };
 M.preparse = function(t, e) {
-  var s = this || _, n = typeof e == "string" ? s.compile(e) : e, r = { Y: 1970, M: 1, D: 1, H: 0, A: 0, h: 0, m: 0, s: 0, S: 0, Z: 0, _index: 0, _length: 0, _match: 0 }, i = /\[(.*)]/, l = s._parser, a = 0;
+  var s = this || _, n = typeof e == "string" ? s.compile(e) : e, i = { Y: 1970, M: 1, D: 1, H: 0, A: 0, h: 0, m: 0, s: 0, S: 0, Z: 0, _index: 0, _length: 0, _match: 0 }, r = /\[(.*)]/, l = s._parser, a = 0;
   t = l.pre(t);
-  for (var u = 1, c = n.length, f, g; u < c; u++)
-    if (f = n[u], l[f]) {
+  for (var d = 1, c = n.length, f, g; d < c; d++)
+    if (f = n[d], l[f]) {
       if (g = l[f](t.slice(a), n[0]), !g.length)
         break;
-      a += g.length, r[g.token || f.charAt(0)] = g.value, r._match++;
+      a += g.length, i[g.token || f.charAt(0)] = g.value, i._match++;
     } else if (f === t.charAt(a) || f === " ")
       a++;
-    else if (i.test(f) && !t.slice(a).indexOf(i.exec(f)[1]))
+    else if (r.test(f) && !t.slice(a).indexOf(r.exec(f)[1]))
       a += f.length - 2;
     else if (f === "...") {
       a = t.length;
       break;
     } else
       break;
-  return r.H = r.H || l.h12(r.h, r.A), r._index = a, r._length = t.length, r;
+  return i.H = i.H || l.h12(i.h, i.A), i._index = a, i._length = t.length, i;
 };
 M.parse = function(t, e, s) {
-  var n = this || _, r = typeof e == "string" ? n.compile(e) : e, i = n.preparse(t, r);
-  return n.isValid(i) ? (i.M -= i.Y < 100 ? 22801 : 1, s || ~n._parser.find(r, "ZZ").value ? new Date(Date.UTC(i.Y, i.M, i.D, i.H, i.m + i.Z, i.s, i.S)) : new Date(i.Y, i.M, i.D, i.H, i.m, i.s, i.S)) : /* @__PURE__ */ new Date(NaN);
+  var n = this || _, i = typeof e == "string" ? n.compile(e) : e, r = n.preparse(t, i);
+  return n.isValid(r) ? (r.M -= r.Y < 100 ? 22801 : 1, s || ~n._parser.find(i, "ZZ").value ? new Date(Date.UTC(r.Y, r.M, r.D, r.H, r.m + r.Z, r.s, r.S)) : new Date(r.Y, r.M, r.D, r.H, r.m, r.s, r.S)) : /* @__PURE__ */ new Date(NaN);
 };
 M.isValid = function(t, e) {
-  var s = this || _, n = typeof t == "string" ? s.preparse(t, e) : t, r = [31, 28 + s.isLeapYear(n.Y) | 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][n.M - 1];
-  return !(n._index < 1 || n._length < 1 || n._index - n._length || n._match < 1 || n.Y < 1 || n.Y > 9999 || n.M < 1 || n.M > 12 || n.D < 1 || n.D > r || n.H < 0 || n.H > 23 || n.m < 0 || n.m > 59 || n.s < 0 || n.s > 59 || n.S < 0 || n.S > 999 || n.Z < -840 || n.Z > 720);
+  var s = this || _, n = typeof t == "string" ? s.preparse(t, e) : t, i = [31, 28 + s.isLeapYear(n.Y) | 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][n.M - 1];
+  return !(n._index < 1 || n._length < 1 || n._index - n._length || n._match < 1 || n.Y < 1 || n.Y > 9999 || n.M < 1 || n.M > 12 || n.D < 1 || n.D > i || n.H < 0 || n.H > 23 || n.m < 0 || n.m > 59 || n.s < 0 || n.s > 59 || n.S < 0 || n.S > 999 || n.Z < -840 || n.Z > 720);
 };
 M.transform = function(t, e, s, n) {
-  const r = this || _;
-  return r.format(r.parse(t, e), s, n);
+  const i = this || _;
+  return i.format(i.parse(t, e), s, n);
 };
 M.addYears = function(t, e, s) {
   return (this || _).addMonths(t, e * 12, s);
@@ -1444,8 +1444,8 @@ _.locale = function(t) {
   if (!e)
     return Z;
   Z = e(M);
-  var s = ae[Z] || {}, n = q(ce, s.res, !0), r = q(Te, s.formatter, !0, n), i = q(Le, s.parser, !0, n);
-  _._formatter = te._formatter = r, _._parser = te._parser = i;
+  var s = ae[Z] || {}, n = q(ce, s.res, !0), i = q(Te, s.formatter, !0, n), r = q(Le, s.parser, !0, n);
+  _._formatter = te._formatter = i, _._parser = te._parser = r;
   for (var l in V)
     _.extend(V[l]);
   return Z;
@@ -1487,27 +1487,27 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
     ...N("cmp-title")
   },
   setup(t) {
-    const e = t, s = se(), n = Ce(), r = L("isInEditor", x.isInEditor()), i = v(() => {
+    const e = t, s = se(), n = Ce(), i = L("isInEditor", x.isInEditor()), r = v(() => {
       const c = A(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
         e.containerProps,
-        r,
+        i,
         e.aemNoDecoration
       );
       return c.push({
-        "cq-dd-title": r
+        "cq-dd-title": i
       }), c;
-    }), l = Q((s == null ? void 0 : s.linkDisabled) !== !0), a = v(() => e.isNested ? "-" : "__"), u = v(() => n.path && typeof n.path < "u" ? n.path : null);
+    }), l = Q((s == null ? void 0 : s.linkDisabled) !== !0), a = v(() => e.isNested ? "-" : "__"), d = v(() => n.path && typeof n.path < "u" ? n.path : null);
     return be(
       () => s == null ? void 0 : s.linkDisabled,
       async (c, f) => {
         c !== f && (l.value = c !== !0);
       }
-    ), (c, f) => (o(), d("div", {
+    ), (c, f) => (o(), u("div", {
       id: e.id,
-      class: p(i.value)
+      class: p(r.value)
     }, [
       (o(), k(D(e.type), {
         class: p(`${c.baseCssClass}${a.value}text`)
@@ -1518,13 +1518,13 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
             l.value ? (o(), k(H, Y({
               key: 0,
               class: `${c.baseCssClass}${a.value}link`,
-              href: ((g = e.link) == null ? void 0 : g.url) || u.value
+              href: ((g = e.link) == null ? void 0 : g.url) || d.value
             }, (I = e.link) == null ? void 0 : I.attributes), {
               default: U(() => [
                 X(S(t.text), 1)
               ]),
               _: 1
-            }, 16, ["class", "href"])) : (o(), d(P, { key: 1 }, [
+            }, 16, ["class", "href"])) : (o(), u(P, { key: 1 }, [
               X(S(t.text), 1)
             ], 64))
           ];
@@ -1576,7 +1576,7 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
     ...N("cmp-teaser")
   },
   setup(t) {
-    const e = t, s = L("isInEditor", x.isInEditor()), n = L("componentMapping", new ge()), r = v(() => {
+    const e = t, s = L("isInEditor", x.isInEditor()), n = L("componentMapping", new ge()), i = v(() => {
       const c = A(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1590,7 +1590,7 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
       }), c.push({
         [`${e.baseCssClass}--with-image`]: typeof e.imagePath < "u"
       }), c;
-    }), i = (c) => {
+    }), r = (c) => {
       let f = Me;
       return e.cqType.endsWith("/teaser") && (f = n.get(
         e.cqType.replace("/teaser", "/button")
@@ -1617,37 +1617,37 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
       linkDisabled: !e.link,
       text: e.title,
       type: e.titleType
-    })), u = (c) => le.sanitize(c);
-    return (c, f) => (o(), d("div", {
+    })), d = (c) => le.sanitize(c);
+    return (c, f) => (o(), u("div", {
       id: e.id,
-      class: p(r.value)
+      class: p(i.value)
     }, [
       (o(), k(D(e.link ? H : "section"), me(Oe(e.link ? l.value : !1)), {
         default: U(() => [
-          e.pretitle || e.title || e.description ? (o(), d("div", {
+          e.pretitle || e.title || e.description ? (o(), u("div", {
             key: 0,
             class: p(`${e.baseCssClass}__content`)
           }, [
-            e.pretitle ? (o(), d("p", {
+            e.pretitle ? (o(), u("p", {
               key: 0,
               class: p(`${e.baseCssClass}__pretitle`)
             }, S(e.pretitle), 3)) : C("", !0),
             e.title ? (o(), k(ht, me(Y({ key: 1 }, a.value)), null, 16)) : C("", !0),
-            e.description ? (o(), d("div", {
+            e.description ? (o(), u("div", {
               key: 2,
               class: p(`${e.baseCssClass}__description`),
-              innerHTML: `${u(e.description)}`
+              innerHTML: `${d(e.description)}`
             }, null, 10, yt)) : C("", !0),
-            e.actions && e.actions.length > 0 ? (o(), d("div", {
+            e.actions && e.actions.length > 0 ? (o(), u("div", {
               key: 3,
               class: p(`${e.baseCssClass}__action-container`)
             }, [
-              (o(!0), d(P, null, J(e.actions, (g, I) => (o(), k(D(i(g)), {
+              (o(!0), u(P, null, J(e.actions, (g, I) => (o(), k(D(r(g)), {
                 key: `link-${I}`
               }))), 128))
             ], 2)) : C("", !0)
           ], 2)) : C("", !0),
-          e.imagePath ? (o(), d("div", {
+          e.imagePath ? (o(), u("div", {
             key: 1,
             class: p(`${e.baseCssClass}__image`)
           }, [
@@ -1690,33 +1690,34 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
     ...N("cmp-list")
   },
   setup(t) {
-    const e = t, s = L("isInEditor", x.isInEditor()), n = v(
-      () => A(
+    const e = t, s = L("isInEditor", x.isInEditor()), n = v(() => {
+      const r = A(
         e.baseCssClass,
         e.appliedCssClassNames,
         e.cssClassNames,
         e.containerProps,
         s,
         e.aemNoDecoration
-      )
-    ), r = (i, l) => {
-      if (i.lastModifiedFormatted)
-        return i.lastModifiedFormatted;
-      if (i.lastModified && l) {
-        const a = new Date(i.lastModified);
+      );
+      return e.displayItemAsTeaser === !0 && r.push(`${e.baseCssClass}--as-teasers`), r;
+    }), i = (r, l) => {
+      if (r.lastModifiedFormatted)
+        return r.lastModifiedFormatted;
+      if (r.lastModified && l) {
+        const a = new Date(r.lastModified);
         return pt.format(a, l.toUpperCase());
       }
       return "";
     };
-    return (i, l) => e.items && e.items.length && e.displayItemAsTeaser !== !0 ? (o(), d("ul", {
+    return (r, l) => e.items && e.items.length && e.displayItemAsTeaser !== !0 ? (o(), u("ul", {
       key: 0,
       id: e.id,
       class: p(n.value)
     }, [
-      (o(!0), d(P, null, J(e.items, (a, u) => {
+      (o(!0), u(P, null, J(e.items, (a, d) => {
         var c;
-        return o(), d("li", {
-          key: u,
+        return o(), u("li", {
+          key: d,
           class: p(`${e.baseCssClass}__item`)
         }, [
           T("article", null, [
@@ -1729,34 +1730,39 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
                 T("span", {
                   class: p(`${e.baseCssClass}__item-title`)
                 }, S(a.title), 3),
-                e.showModificationDate ? (o(), d("span", {
+                e.showModificationDate ? (o(), u("span", {
                   key: 0,
                   class: p(`${e.baseCssClass}__item-date`)
-                }, S(r(a, e.dateFormatString)), 3)) : C("", !0)
+                }, S(i(a, e.dateFormatString)), 3)) : C("", !0)
               ]),
               _: 2
-            }, 1032, ["class", "href"])) : (o(), d(P, { key: 1 }, [
+            }, 1032, ["class", "href"])) : (o(), u(P, { key: 1 }, [
               T("span", {
                 class: p(`${e.baseCssClass}__item-title`)
               }, S(a.title), 3),
-              e.showModificationDate ? (o(), d("span", {
+              e.showModificationDate ? (o(), u("span", {
                 key: 0,
                 class: p(`${e.baseCssClass}__item-date`)
-              }, S(r(a, e.dateFormatString)), 3)) : C("", !0)
+              }, S(i(a, e.dateFormatString)), 3)) : C("", !0)
             ], 64)),
-            e.showDescription ? (o(), d("span", {
+            e.showDescription ? (o(), u("span", {
               key: 2,
               class: p(`${e.baseCssClass}__item-description`)
             }, S(a.description), 3)) : C("", !0)
           ])
         ], 2);
       }), 128))
-    ], 10, vt)) : e.items && e.items.length ? (o(!0), d(P, { key: 1 }, J(e.items, (a, u) => (o(), k(_t, {
-      key: u,
-      description: a.description,
-      link: a.link,
-      title: a.title
-    }, null, 8, ["description", "link", "title"]))), 128)) : C("", !0);
+    ], 10, vt)) : e.items && e.items.length ? (o(), u("div", {
+      key: 1,
+      class: p(n.value)
+    }, [
+      (o(!0), u(P, null, J(e.items, (a, d) => (o(), k(_t, {
+        key: d,
+        description: a.description,
+        link: a.link,
+        title: a.title
+      }, null, 8, ["description", "link", "title"]))), 128))
+    ], 2)) : C("", !0);
   }
 }), bt = ["id", "aria-label"], Yt = /* @__PURE__ */ O({
   inheritAttrs: !1,
@@ -1782,10 +1788,10 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
         s,
         e.aemNoDecoration
       )
-    ), r = (i) => {
-      if ((i || []).length === 0 || typeof i > "u")
+    ), i = (r) => {
+      if ((r || []).length === 0 || typeof r > "u")
         return;
-      const l = i.map(
+      const l = r.map(
         (a) => w(
           "li",
           {
@@ -1809,13 +1815,13 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
               },
               () => a.title
             ),
-            r(a.children)
+            i(a.children)
           ]
         )
       );
       return w("ul", { class: `${e.baseCssClass}__group` }, l);
     };
-    return (i, l) => (o(), d("nav", {
+    return (r, l) => (o(), u("nav", {
       id: e.id,
       "aria-label": e.accessibilityLabel.length ? e.accessibilityLabel : "Navigation",
       class: p(n.value),
@@ -1823,7 +1829,7 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
       itemType: "http://schema.org/SiteNavigationElement",
       role: "navigation"
     }, [
-      (o(), k(D(r(e.items))))
+      (o(), k(D(i(e.items))))
     ], 10, bt));
   }
 }), gt = ["id"], jt = /* @__PURE__ */ O({
@@ -1843,7 +1849,7 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
         e.aemNoDecoration
       )
     );
-    return (r, i) => (o(), d("div", {
+    return (i, r) => (o(), u("div", {
       id: e.id,
       class: p(n.value)
     }, [
@@ -1871,7 +1877,7 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
     ...N("cmp-text")
   },
   setup(t) {
-    const e = t, s = Ee(), n = L("isInEditor", x.isInEditor()), r = v(
+    const e = t, s = Ee(), n = L("isInEditor", x.isInEditor()), i = v(
       () => A(
         e.baseCssClass,
         e.appliedCssClassNames,
@@ -1880,13 +1886,13 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
         n,
         e.aemNoDecoration
       )
-    ), i = Q(null), l = (c) => le.sanitize(c), a = v(() => {
+    ), r = Q(null), l = (c) => le.sanitize(c), a = v(() => {
       const c = e.cqPath ? e.cqPath.substring(e.cqPath.lastIndexOf("/") + 1) : "";
       return e.id ? e.id : c;
-    }), u = () => {
-      if (i.value) {
+    }), d = () => {
+      if (r.value) {
         const c = s.getRoutes().map((f) => f.path);
-        !x.isEditMode() && !x.isPreviewMode() && i.value.querySelectorAll("a").forEach((f) => {
+        !x.isEditMode() && !x.isPreviewMode() && r.value.querySelectorAll("a").forEach((f) => {
           f.classList.add("cmp-link");
           const g = f.getAttribute("target") || "_self", I = f.getAttribute("href") || "#";
           f.onclick = (F) => {
@@ -1896,21 +1902,21 @@ const ft = ["id"], ht = /* @__PURE__ */ O({
       }
     };
     return oe(() => {
-      u();
+      d();
     }), _e(() => {
-      u();
-    }), (c, f) => e.richText ? (o(), d("div", {
+      d();
+    }), (c, f) => e.richText ? (o(), u("div", {
       key: 0,
       id: a.value,
       ref_key: "richTextElement",
-      ref: i,
-      class: p(r.value),
+      ref: r,
+      class: p(i.value),
       "data-rte-editelement": "",
       innerHTML: `${l(e.text)}`
-    }, null, 10, Ct)) : (o(), d("div", {
+    }, null, 10, Ct)) : (o(), u("div", {
       key: 1,
       id: a.value,
-      class: p(r.value)
+      class: p(i.value)
     }, [
       T("p", {
         class: p(`${e.baseCssClass}__paragraph`)

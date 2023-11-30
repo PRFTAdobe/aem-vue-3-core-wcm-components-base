@@ -201,7 +201,7 @@
     z-index: 1;
   }
 
-  .cmp-teaser__content > p {
+  .cmp-teaser__description > p {
     font-size: 12px;
     line-height: 1;
   }

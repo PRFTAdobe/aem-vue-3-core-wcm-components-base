@@ -321,4 +321,8 @@
     inset: 0;
     position: absolute;
   }
+
+  .twitter-tweet iframe {
+    max-inline-size: 100%;
+  }
 </style>

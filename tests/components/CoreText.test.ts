@@ -19,16 +19,18 @@ describe('CoreText ->', () => {
 
   it('Has a proper isEmpty function', () => {
     const props = {
-      text: 'test',
+      cqPath: '',
       richText: true,
+      text: 'test',
     };
 
     expect(TextEditConfig?.isEmpty(props)).toBe(false);
 
     const propsEmpty = {
+      cqPath: '',
       richText: true,
-      text: '',
       routed: false,
+      text: '',
     };
 
     expect(TextEditConfig?.isEmpty(propsEmpty)).toBe(true);
@@ -37,6 +39,7 @@ describe('CoreText ->', () => {
   it('Renders without crashing', () => {
     const wrapper = mount(CoreText, {
       propsData: {
+        cqPath: '',
         text: 'someText',
       },
     });
@@ -47,6 +50,7 @@ describe('CoreText ->', () => {
   it('Renders plain text', () => {
     const wrapper = mount(CoreText, {
       propsData: {
+        cqPath: '',
         text: 'plain text',
       },
     });
@@ -61,6 +65,7 @@ describe('CoreText ->', () => {
       '<div id="testId" class="cmp-text" data-rte-editelement=""><div class="myclass">rich text</div></div>';
     const wrapper = mount(CoreText, {
       propsData: {
+        cqPath: '',
         id: 'testId',
         richText: true,
         text: richText,

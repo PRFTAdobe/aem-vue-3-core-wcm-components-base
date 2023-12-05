@@ -13,8 +13,11 @@ Current supported / exported components:
 
 ### Page Authoring
 
+- Button
+- Download
 - Embed
 - Image
+- List
 - Separator
 - Teaser
 - Text
@@ -28,7 +31,7 @@ Current supported / exported components:
 
 ### Containers
 
-For the containers (Accordion and Container) we do not provide any implementation in this project.
+For the containers (Accordion, Tabs, Carousel, and Container) we do not provide any implementation in this project.
 It does not make sense to provide it for web-components as you can leverage the normal Core Components implementation
 such as a Tab Container, and drag your web components in there.
 Instead, we provide them for the SPA editor only, introducing a dependency, and therefore we moved it into a separate
